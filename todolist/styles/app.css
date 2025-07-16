@@ -239,16 +239,7 @@ body {
     font-size: 1.6rem;
 }
 
-.content {
 
-    max-width: 80%;
-    margin-right: auto;
-    padding-left: 1rem;
-    padding-right: 1rem;
-    background: var(--bg-color);
-
-
-}
 
 .main {}
 
@@ -457,6 +448,63 @@ body {
     color: var(--text-white);
     cursor: pointer;
 }
+
+.content {
+
+    max-width: 80%;
+    min-height: 100vh;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    background: var(--bg-color);
+
+
+}
+
+.content__head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 0;
+}
+
+.search {
+    background: var(--bg-section);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: .5rem 1rem;
+    border-radius: 4rem;
+    height: 4.5rem;
+    flex-basis: 31%;
+}
+
+.search svg {
+    width: 2rem;
+    height: 2rem;
+}
+
+.search__input {
+    width: 100%;
+    height: 100%;
+}
+
+.date {}
+
+.date__day {}
+
+.date__month {}
+
+.date__year {}
+
+.task-btn {
+    background: var(--btn-color);
+    color: var(--text-white);
+    padding: 2rem 3rem;
+    border-radius: 1rem;
+    cursor: pointer;
+}
+
 
 
 
