@@ -247,6 +247,8 @@ body {
     font-family: IRANYekanX, sans-serif;
     font-weight: normal;
     font-size: 1.6rem;
+    overflow-x: hidden;
+    background: var(--bg-color);
 
 }
 
@@ -301,7 +303,30 @@ body {
     justify-content: space-between;
     flex-direction: column;
     overflow-y: auto;
+    z-index: 50;
+    transition: all .5s ease-in-out;
 }
+
+.sidebar--show {
+    right: 0 !important;
+    display: flex !important;
+    box-shadow: -1px 1px 2px rgb(0 0 0 / 23%)
+}
+
+.sidebar__close-btn {
+    cursor: pointer;
+    position: absolute;
+    top: .5rem;
+    left: 0.5rem;
+    display: none;
+
+}
+
+.sidebar__close-btn svg {
+    width: 2.5rem;
+    height: 2.5rem;
+}
+
 
 .sidebar__logo {
     height: 5.8rem;
@@ -495,12 +520,12 @@ body {
 
 .content {
 
-    max-width: 80%;
+    width: 80%;
     min-height: 100vh;
     margin-right: auto;
     padding-left: 1rem;
     padding-right: 1rem;
-    background: var(--bg-color);
+
 
 
 }
@@ -512,9 +537,19 @@ body {
     padding: 2rem 0;
 }
 
-.search {
+.mobile-menu-btn {
+    cursor: pointer;
+    display: none;
+}
+
+.mobile-menu-btn svg {
+    width: 3rem;
+    height: 3rem;
+}
+
+.search,
+.search-mobile {
     background: var(--bg-section);
-    display: flex;
     justify-content: space-between;
     align-items: center;
     padding: .5rem 1rem;
@@ -523,7 +558,17 @@ body {
     flex-basis: 31%;
 }
 
-.search svg {
+.search {
+    display: flex;
+}
+
+.search-mobile {
+    display: none;
+}
+
+.search svg,
+.search-mobile svg {
+
     width: 2rem;
     height: 2rem;
 }
@@ -595,9 +640,9 @@ body {
 
 .task-wrapper {
 
-    margin-top: 3rem;
+    margin: 3rem 0;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
     gap: 1rem;
 }
 
@@ -632,6 +677,8 @@ body {
 }
 
 .task-box__description {
+    font-weight: 300;
+    font-size: 1.4rem;
     margin: 1rem 0;
     display: -webkit-box;
     -webkit-line-clamp: 2;
@@ -736,10 +783,63 @@ body {
 
 
 /* responsive */
-@media screen and (max-width:1280px) {}
+@media screen and (max-width:1280px) {
 
-@media screen and (max-width:1024px) {}
+    .sidebar {
+        width: 25%;
+    }
 
-@media screen and (max-width:768px) {}
+    .content {
+        width: 75%;
+    }
+}
 
-@media screen and (max-width:600px) {}
+@media screen and (max-width:1024px) {
+    .sidebar {
+        display: none;
+        width: 30rem;
+        right: -30rem;
+    }
+
+    .content {
+        width: 100%;
+        margin-right: 0;
+    }
+
+    .mobile-menu-btn {
+        display: block;
+    }
+
+    .sidebar__close-btn {
+        display: block;
+    }
+
+
+
+
+}
+
+@media screen and (max-width:768px) {
+    .search {
+        display: none;
+    }
+
+    .task-btn {
+        padding: 1.5rem 2rem;
+    }
+
+    .search-mobile {
+        display: flex;
+    }
+}
+
+@media screen and (max-width:600px) {
+    .view {
+        display: none;
+    }
+
+    .task-menu {
+
+        justify-content: flex-end;
+    }
+}
