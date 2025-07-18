@@ -43,13 +43,27 @@ const showDateNow = () => {
 
 // dark mode
 const darkModeHandler = () => {
-    console.log('ok');
-    console.log(darkModeBtn.checked);
 
     if (darkModeBtn.checked) {
         body.classList.add('dark')
+        localStorage.setItem('theme', 'dark')
     } else {
         body.classList.remove('dark')
+        localStorage.setItem('theme', 'light')
+    }
+}
+// check theme
+const isDark = () => {
+
+
+    let theme = localStorage.getItem('theme')
+
+    if (theme === 'dark') {
+        console.log(theme);
+        darkModeBtn.checked = true
+        darkModeHandler()
+    } else {
+        darkModeBtn.checked = false
     }
 }
 
@@ -59,8 +73,10 @@ const darkModeHandler = () => {
 
 // events
 window.addEventListener('load', () => {
-    removeLoader()
+    isDark()
     showDateNow()
+    removeLoader()
+
 
 })
 
