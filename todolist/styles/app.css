@@ -154,6 +154,16 @@ textarea {
 
 button {
     cursor: pointer;
+    color: inherit
+}
+
+input {
+    color: inherit;
+}
+
+select,
+option {
+    color: inherit;
 }
 
 a {
@@ -235,6 +245,12 @@ a {
     --purple-700: #7008E7;
 }
 
+body.dark {
+    --bg-color: #1D293D;
+    --text-primary: #fff;
+    --bg-section: #364153;
+}
+
 html {
     box-sizing: border-box;
     font-size: 10px;
@@ -253,6 +269,7 @@ body {
     font-size: 1.6rem;
     overflow-x: hidden;
     background: var(--bg-color);
+    color: var(--text-primary);
 
 }
 
@@ -371,6 +388,10 @@ body {
     border-radius: .5rem;
 }
 
+.new-task__detail-wrapper option {
+    background: var(--bg-color);
+}
+
 .new-task__footer {
     display: flex;
     align-items: center;
@@ -412,7 +433,7 @@ body {
     flex-direction: column;
     overflow-y: auto;
     z-index: 50;
-    transition: all .5s ease-in-out;
+    
 }
 
 .sidebar--show {
@@ -539,6 +560,12 @@ body {
     cursor: pointer;
 }
 
+.dark .todo-category-list__item {
+
+    color: var(--text-primary) !important;
+
+}
+
 
 .todo-category-list__item--btn {
     border: 1px dotted var(--text-primary);
@@ -631,8 +658,8 @@ body {
     width: 80%;
     min-height: 100vh;
     margin-right: auto;
-    padding-left: 1rem;
-    padding-right: 1rem;
+    padding-left: 2rem;
+    padding-right: 3rem;
 
 
 

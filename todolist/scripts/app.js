@@ -9,6 +9,7 @@ const newTaskBtn = document.querySelector('.task-btn')
 const newTaskCloseBtn = document.querySelector('.new-task__close-btn')
 const now = new Date()
 const dateElm = document.querySelector('.date')
+const darkModeBtn = document.querySelector('#darkmode-check')
 
 
 
@@ -40,6 +41,18 @@ const showDateNow = () => {
 
 }
 
+// dark mode
+const darkModeHandler = () => {
+    console.log('ok');
+    console.log(darkModeBtn.checked);
+
+    if (darkModeBtn.checked) {
+        body.classList.add('dark')
+    } else {
+        body.classList.remove('dark')
+    }
+}
+
 
 
 
@@ -66,4 +79,8 @@ newTaskBtn.addEventListener('click', () => {
 })
 newTaskCloseBtn.addEventListener('click', () => {
     toggleNewTaskWrapper()
+})
+
+darkModeBtn.addEventListener('click', () => {
+    darkModeHandler()
 })
