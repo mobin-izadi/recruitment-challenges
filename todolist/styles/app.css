@@ -433,7 +433,7 @@ body {
     flex-direction: column;
     overflow-y: auto;
     z-index: 50;
-    
+
 }
 
 .sidebar--show {
@@ -747,16 +747,20 @@ body {
     justify-content: space-between;
 }
 
-.view {}
+.view {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
 
-.view svg {
+.view__grid,
+.view__list {
     width: 2.5rem;
     height: 2.5rem;
+    cursor: pointer;
+
 }
 
-.view__item {
-    cursor: pointer;
-}
 
 .filter {
     cursor: pointer;
@@ -779,6 +783,10 @@ body {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
     gap: 1rem;
+}
+
+.task-wrapper--list {
+    grid-template-columns: 1fr;
 }
 
 .task-box {
@@ -981,4 +989,12 @@ body {
     .new-task {
         width: 34rem;
     }
+
+    .task-wrapper {
+
+        grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr)) !important;
+
+    }
+
+
 }

@@ -9,7 +9,10 @@ const newTaskBtn = document.querySelector('.task-btn')
 const newTaskCloseBtn = document.querySelector('.new-task__close-btn')
 const now = new Date()
 const dateElm = document.querySelector('.date')
+const taskWrapperElem = document.querySelector('.task-wrapper ')
 const darkModeBtn = document.querySelector('#darkmode-check')
+const taskShowGridBtn = document.querySelector('.view__grid')
+const taskShowListBtn = document.querySelector('.view__list')
 
 
 
@@ -54,10 +57,7 @@ const darkModeHandler = () => {
 }
 // check theme
 const isDark = () => {
-
-
     let theme = localStorage.getItem('theme')
-
     if (theme === 'dark') {
         console.log(theme);
         darkModeBtn.checked = true
@@ -99,4 +99,15 @@ newTaskCloseBtn.addEventListener('click', () => {
 
 darkModeBtn.addEventListener('click', () => {
     darkModeHandler()
+})
+
+taskShowGridBtn.addEventListener('click', () => {
+    console.log('grid');
+
+    taskWrapperElem.classList.remove('task-wrapper--list')
+})
+taskShowListBtn.addEventListener('click', () => {
+    console.log('list');
+
+    taskWrapperElem.classList.add('task-wrapper--list')
 })
