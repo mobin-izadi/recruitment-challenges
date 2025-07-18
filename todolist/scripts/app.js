@@ -31,7 +31,11 @@ const toggleNewTaskWrapper = () => {
 
 // Show today's date at the top of the page.
 const showDateNow = () => {
-
+    const nowShamsi = new Intl.DateTimeFormat('fa-IR', {
+        day: 'numeric',
+        month: 'long',
+        year: 'numeric'
+    }).format(now)
     dateElm.innerHTML = nowShamsi
 
 }
