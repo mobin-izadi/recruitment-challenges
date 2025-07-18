@@ -147,6 +147,64 @@
         <img src="images/logo.png" alt="logo">
         <div class="loader"></div>
     </div>
+    <!-- new task -->
+    <div class="new-task-wrapper">
+        <div class="new-task">
+            <div class="new-task__head">
+                <div class="new-task__title"> تسک جدید</div>
+                <button class="new-task__close-btn">
+                    <svg>
+                        <use href="#close"></use>
+                    </svg>
+
+                </button>
+            </div>
+
+            <div class="new-task__main">
+                <div class="new-task__input-wrapper">
+                    <label class="new-task__label" for="task-title">
+                        عنوان
+                    </label>
+                    <input type="text" class="new-task__input" id="task-title">
+                </div>
+                <div class="new-task__input-wrapper">
+                    <label class="new-task__label" for="task-description">
+                        توضیحات
+                    </label>
+                    <input type="text" class="new-task__input" id="task-description">
+                </div>
+                <div class="new-task__detail">
+                    <div class="new-task__detail-wrapper">
+                        <label for="cate-task">دسته بندی</label>
+                        <select id="cate-task">
+                            <option value="اصلی">اصلی</option>
+                        </select>
+                    </div>
+
+                    <div class="new-task__detail-wrapper">
+                        <label for="task-difficulty"> میزان سختی</label>
+                        <select id="task-difficulty">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
+                    </div>
+
+
+                </div>
+
+            </div>
+
+            <div class="new-task__footer">
+                <button> پاک</button>
+                <button> ثبت</button>
+            </div>
+
+        </div>
+    </div>
+
     <main class="main">
         <!-- sidebar -->
         <aside class="sidebar">
