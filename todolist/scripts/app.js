@@ -13,6 +13,12 @@ const taskWrapperElem = document.querySelector('.task-wrapper ')
 const darkModeBtn = document.querySelector('#darkmode-check')
 const taskShowGridBtn = document.querySelector('.view__grid')
 const taskShowListBtn = document.querySelector('.view__list')
+const inputTaskTitle = document.querySelector('#task-title')
+const inputTaskDescription = document.querySelector('#task-description')
+const inputTaskCategory = document.querySelector('#cate-task')
+const inputTaskDifficulty = document.querySelector('#task-difficulty')
+const submitNewTaskBtn = document.querySelector('.new-task__submit')
+const resetNewTaskBtn = document.querySelector('.new-task__rest-btn')
 
 
 
@@ -59,7 +65,6 @@ const darkModeHandler = () => {
 const isDark = () => {
     let theme = localStorage.getItem('theme')
     if (theme === 'dark') {
-        console.log(theme);
         darkModeBtn.checked = true
         darkModeHandler()
     } else {
@@ -67,6 +72,58 @@ const isDark = () => {
     }
 }
 
+// add to LocalStorage
+const saveToLocalStorage = (key, value) => {
+    localStorage.setItem(`${key}`, `${value}`)
+}
+
+// add new task
+const submitNewTaskHandler = () => {
+
+    let tasks = JSON.parse(localStorage.getItem('tasks')) || []
+    let taskTitle = inputTaskTitle.value.trim()
+    let taskDescription = inputTaskDescription.value.trim()
+    let taskCate = inputTaskCategory.value
+    let taskDifficulty = inputTaskDifficulty.value
+    let date = new Date()
+    let dateShamsi = new Intl.DateTimeFormat('fa-IR', {
+        day: 'numeric',
+        month: 'long',
+        year: 'numeric'
+    }).format(date)
+
+
+    let newTask = null
+    if (taskTitle.length <= 0) {
+        alert('عنوان نمی تواند خالی باشد');
+    } else if (taskDescription.length > 70) {
+        alert('توضیحات نمی تواند خیلی بلند باشد')
+    } else {
+        newTask = {
+            id: tasks.length,
+            title: taskTitle,
+            des: taskDescription,
+            cate: taskCate,
+            diff: taskDifficulty,
+            date: dateShamsi,
+            time: 0,
+            create: now,
+            isComplete: false,
+        }
+
+        tasks.push(newTask)
+        saveToLocalStorage('tasks', JSON.stringify(tasks))
+        resetNewTask()
+    }
+
+}
+// Resets new task inputs.
+const resetNewTask = () => {
+    inputTaskTitle.value = ''
+    inputTaskDescription.value = ''
+    inputTaskCategory.selectedIndex = 0
+    inputTaskDifficulty.selectedIndex = 0
+}
 
 
 
@@ -110,4 +167,14 @@ taskShowListBtn.addEventListener('click', () => {
     console.log('list');
 
     taskWrapperElem.classList.add('task-wrapper--list')
+})
+
+resetNewTaskBtn.addEventListener('click', () => {
+    resetNewTask()
+})
+
+submitNewTaskBtn.addEventListener('click', event => {
+
+    event.preventDefault()
+    submitNewTaskHandler()
 })
