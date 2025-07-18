@@ -19,6 +19,8 @@ const inputTaskCategory = document.querySelector('#cate-task')
 const inputTaskDifficulty = document.querySelector('#task-difficulty')
 const submitNewTaskBtn = document.querySelector('.new-task__submit')
 const resetNewTaskBtn = document.querySelector('.new-task__rest-btn')
+let allTasks = null
+const deleteDataBtn = document.querySelector('.delete-data__btn')
 
 
 
@@ -76,6 +78,10 @@ const isDark = () => {
 const saveToLocalStorage = (key, value) => {
     localStorage.setItem(`${key}`, `${value}`)
 }
+// get LocalStorage
+const getItemToLocalStorage = (key) => {
+    return JSON.parse(localStorage.getItem(`${key}`))
+}
 
 // add new task
 const submitNewTaskHandler = () => {
@@ -114,6 +120,8 @@ const submitNewTaskHandler = () => {
         tasks.push(newTask)
         saveToLocalStorage('tasks', JSON.stringify(tasks))
         resetNewTask()
+        allTasks = getItemToLocalStorage('tasks')
+        createTaskBoxes(allTasks)
     }
 
 }
@@ -125,11 +133,86 @@ const resetNewTask = () => {
     inputTaskDifficulty.selectedIndex = 0
 }
 
+// Creates task boxes.
+const createTaskBoxes = (array) => {
+    taskWrapperElem.innerHTML = ''
+    let star = ''
+    array.forEach(arr => {
+        star = ''
+        for (let index = 0; index < arr.diff; index++) {
+            star += `
+            <svg>
+         <use href="#star"></use>
+         </svg>`
+                ;
+
+        }
+        taskWrapperElem.insertAdjacentHTML('beforeend', `
+            
+            <div class="task-box">
+                        <div class="task-box__category">
+                          ${arr.cate}  
+                        </div>
+                        <p class="task-box__title">   ${arr.title} </p>
+                        <p class="task-box__description">   ${arr.des} </p>
+                        <div class="task-box__info">
+                            <div class="task-box__date">
+
+                                <span>   ${arr.date}  </span>
+                            </div>
+                            <div class="task-box__rate">
+                                ${star}
+                                
+                            </div>
+
+                        </div>
+                        <div class="task-box__timer">
+                            <div class="task-box__time-btns">
+                                <button>شروع</button>
+                                <button>پایان</button>
+                            </div>
+
+                            <p class="task-box__time">00:00:00
+                            </p>
+                        </div>
+                        <div class="task-box__detail">
+                            <button class="task-box__done-btn">${arr.isComplete ? 'انجام شد' : 'تکمیل'}</button>
+                            <div class="task-box__edit">
+                                <button>
+                                    <svg>
+                                        <use href="#delete"></use>
+                                    </svg>
+                                </button>
+                                <button>
+                                    <svg>
+                                        <use href="#edit"></use>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
+            
+            `)
+    })
+}
+// delete all data local
+const localStorageClear = () => {
+    localStorage.clear()
+    location.reload()
+}
+
 
 
 
 // events
 window.addEventListener('load', () => {
+    allTasks = getItemToLocalStorage('tasks')
+    if (allTasks) {
+        createTaskBoxes(allTasks)
+    }
+
+
     isDark()
     showDateNow()
     removeLoader()
@@ -178,3 +261,5 @@ submitNewTaskBtn.addEventListener('click', event => {
     event.preventDefault()
     submitNewTaskHandler()
 })
+
+deleteDataBtn.addEventListener('click', localStorageClear)
