@@ -785,6 +785,8 @@ body {
     gap: 1rem;
 }
 
+.task-wrapper__massage {}
+
 .task-wrapper--list {
     grid-template-columns: 1fr;
 }

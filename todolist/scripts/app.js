@@ -10,6 +10,7 @@ const newTaskCloseBtn = document.querySelector('.new-task__close-btn')
 const now = new Date()
 const dateElm = document.querySelector('.date')
 const taskWrapperElem = document.querySelector('.task-wrapper ')
+const taskWrapperMassageElem = document.querySelector('.task-wrapper__massage ')
 const darkModeBtn = document.querySelector('#darkmode-check')
 const taskShowGridBtn = document.querySelector('.view__grid')
 const taskShowListBtn = document.querySelector('.view__list')
@@ -209,7 +210,10 @@ const localStorageClear = () => {
 window.addEventListener('load', () => {
     allTasks = getItemToLocalStorage('tasks')
     if (allTasks) {
+        taskWrapperMassageElem.classList.add('hidden')
         createTaskBoxes(allTasks)
+    } else {
+        taskWrapperMassageElem.classList.remove('hidden')
     }
 
 
