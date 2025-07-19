@@ -22,6 +22,7 @@ const submitNewTaskBtn = document.querySelector('.new-task__submit')
 const resetNewTaskBtn = document.querySelector('.new-task__rest-btn')
 let allTasks = null
 const deleteDataBtn = document.querySelector('.delete-data__btn')
+const notificWrapper = document.querySelector('.notific-wrapper')
 
 
 
@@ -84,6 +85,36 @@ const getItemToLocalStorage = (key) => {
     return JSON.parse(localStorage.getItem(`${key}`))
 }
 
+// new notific
+const addNotific = (massage) => {
+    notificWrapper.insertAdjacentHTML('beforeend', `
+         <div class="notific">
+            <svg class='notific__close-btn'>
+                <use href="#close"></use>
+            </svg>
+
+            <span class="notific__massage">${massage}</span>
+        </div>
+        
+        `)
+
+    setTimeout(() => {
+        autoRemoveNotific(massage)
+    }, 3000);
+
+}
+
+const autoRemoveNotific = (massage) => {
+    let allNotifices = document.querySelectorAll('.notific__massage')
+    allNotifices.forEach(elem => {
+        if (elem.innerHTML == massage) {
+            elem.parentElement.remove()
+        }
+    })
+}
+
+
+
 // add new task
 const submitNewTaskHandler = () => {
 
@@ -102,9 +133,11 @@ const submitNewTaskHandler = () => {
 
     let newTask = null
     if (taskTitle.length <= 0) {
-        alert('عنوان نمی تواند خالی باشد');
+
+        addNotific('عنوان نمی تواند خالی باشد');
     } else if (taskDescription.length > 70) {
-        alert('توضیحات نمی تواند خیلی بلند باشد')
+        addNotific('توضیحات نمی تواند خیلی بلند باشد')
+
     } else {
         newTask = {
             id: tasks.length,
@@ -267,3 +300,13 @@ submitNewTaskBtn.addEventListener('click', event => {
 })
 
 deleteDataBtn.addEventListener('click', localStorageClear)
+
+notificWrapper.addEventListener('click', event => {
+
+    let targenElem = event.target
+    if (targenElem.className.animVal === 'notific__close-btn') {
+        targenElem.parentElement.remove()
+
+    }
+
+})
