@@ -652,11 +652,15 @@ body {
 }
 
 
-.todo-category-list__item--btn {
+#new-category-btn {
     border: 1px dotted var(--text-primary);
     padding: .7rem .3rem;
     width: 4rem;
     border-radius: .5rem;
+    color: var(--text-primary) !important;
+    font-size: 1.4rem;
+    margin-right: 4rem;
+    margin-top: 1rem;
 }
 
 .darkmode {

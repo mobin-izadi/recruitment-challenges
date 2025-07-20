@@ -1,3 +1,5 @@
+
+
 const body = document.body
 const loaderWrapper = document.querySelector('.loader-wrapper')
 const mobileMenuBtn = document.querySelector('.mobile-menu-btn')
@@ -23,6 +25,13 @@ const resetNewTaskBtn = document.querySelector('.new-task__rest-btn')
 let allTasks = null
 const deleteDataBtn = document.querySelector('.delete-data__btn')
 const notificWrapper = document.querySelector('.notific-wrapper')
+const newCategoryBtn = document.querySelector('#new-category-btn')
+const categoryWrapperElm = document.querySelector('.category-wrapper')
+const categoryWrapperClsoeBtn = document.querySelector('.new-category__close-btn')
+const newCategoryInput = document.querySelector('.new-category__input')
+const addNewCategoryBtn = document.querySelector('.new-category__btn')
+const todoCategoryList = document.querySelector('.todo-category-list')
+
 
 
 
@@ -236,11 +245,36 @@ const localStorageClear = () => {
     location.reload()
 }
 
+// create categoies elem
+const createCategoies = () => {
+    todoCategoryList.innerHTML = '<li class="todo-category-list__item">اصلی</li > '
+    inputTaskCategory.innerHTML = `<option value="اصلی">اصلی</option>`
+    let allCategories = getItemToLocalStorage('categories') || []
+    if (allCategories.length > 0) {
+        allCategories.forEach(cate => {
+            todoCategoryList.insertAdjacentHTML('beforeend', `
+                <li class="todo-category-list__item">
+                        ${cate}
+                    </li>
+                `)
+
+            inputTaskCategory.insertAdjacentHTML('beforeend', `
+                <option value="${cate}">
+                        ${cate}
+                    </option>
+                `)
+        })
+
+
+
+    }
+}
 
 
 
 // events
 window.addEventListener('load', () => {
+    createCategoies()
     allTasks = getItemToLocalStorage('tasks')
     if (allTasks) {
         taskWrapperMassageElem.classList.add('hidden')
@@ -308,5 +342,25 @@ notificWrapper.addEventListener('click', event => {
         targenElem.parentElement.remove()
 
     }
+
+})
+
+newCategoryBtn.addEventListener('click', () => {
+    categoryWrapperElm.classList.add('category-wrapper--show')
+})
+categoryWrapperClsoeBtn.addEventListener('click', () => {
+    categoryWrapperElm.classList.remove('category-wrapper--show')
+})
+addNewCategoryBtn.addEventListener('click', () => {
+
+
+    let allCategories = getItemToLocalStorage('categories') || []
+
+    allCategories.push(newCategoryInput.value)
+    let arrToString = JSON.stringify(allCategories)
+    saveToLocalStorage('categories', `${arrToString}`)
+
+    createCategoies()
+    newCategoryInput.value = ''
 
 })
