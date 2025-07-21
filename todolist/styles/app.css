@@ -325,7 +325,16 @@ body {
     align-items: center;
 }
 
+.new-task-wrapper--edit {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
+.new-task-wrapper--edit .new-task__rest-btn,
+.new-task-wrapper--edit .new-task__submit {
+    display: none;
+}
 
 .new-task {
     background: var(--bg-section);
@@ -342,8 +351,21 @@ body {
 
 }
 
-.new-task__title {
+.new-task__title,
+.new-task__title--edit {
     font-weight: 600;
+}
+
+.new-task-wrapper--edit .new-task__title {
+    display: none;
+}
+
+.new-task__title--edit {
+    display: none;
+}
+
+.new-task-wrapper--edit .new-task__title--edit {
+    display: block;
 }
 
 .new-task__close-btn {}
@@ -402,6 +424,14 @@ body {
     gap: 1rem;
 }
 
+.new-task-wrapper--edit .new-task__edit {
+    display: inline-block;
+}
+
+.new-task__edit {
+    display: none;
+}
+
 .new-task__footer button {
     border-radius: .5rem;
     border: 1px solid var(--bg-color);
@@ -458,6 +488,8 @@ body {
     display: none;
     justify-content: center;
     align-items: center;
+    z-index: 1000;
+
 }
 
 .category-wrapper--show {
@@ -469,6 +501,7 @@ body {
     padding: 2rem 1rem;
     border-radius: 1rem;
     position: relative;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, .3);
 }
 
 .new-category__close-btn {
@@ -875,7 +908,9 @@ body {
     gap: 1rem;
 }
 
-.task-wrapper__massage {}
+.task-wrapper-massage {
+    margin-top: 2rem;
+}
 
 .task-wrapper--list {
     grid-template-columns: 1fr;
@@ -1008,6 +1043,7 @@ body {
 .task-box__edit svg {
     width: 3rem;
     height: 3rem;
+    pointer-events: none;
 
 }
 

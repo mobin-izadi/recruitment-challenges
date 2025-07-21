@@ -12,7 +12,7 @@ const newTaskCloseBtn = document.querySelector('.new-task__close-btn')
 const now = new Date()
 const dateElm = document.querySelector('.date')
 const taskWrapperElem = document.querySelector('.task-wrapper ')
-const taskWrapperMassageElem = document.querySelector('.task-wrapper__massage ')
+const taskWrapperMassageElem = document.querySelector('.task-wrapper-massage ')
 const darkModeBtn = document.querySelector('#darkmode-check')
 const taskShowGridBtn = document.querySelector('.view__grid')
 const taskShowListBtn = document.querySelector('.view__list')
@@ -31,6 +31,8 @@ const categoryWrapperClsoeBtn = document.querySelector('.new-category__close-btn
 const newCategoryInput = document.querySelector('.new-category__input')
 const addNewCategoryBtn = document.querySelector('.new-category__btn')
 const todoCategoryList = document.querySelector('.todo-category-list')
+const taskEditBtn = document.querySelector('.new-task__edit')
+let idTaskEdit = null
 
 
 
@@ -48,8 +50,17 @@ const toggleMobileMenu = () => {
 }
 
 // Opens a new task section.
-const toggleNewTaskWrapper = () => {
-    newTaskWrapper.classList.toggle('new-task-wrapper--show')
+const closeNewTaskWrapper = () => {
+    newTaskWrapper.classList.remove('new-task-wrapper--show')
+    newTaskWrapper.classList.remove('new-task-wrapper--edit')
+    inputTaskTitle.value = ''
+    inputTaskDescription.value = ''
+    inputTaskCategory.value = 'اصلی'
+    inputTaskDifficulty.value = '1'
+}
+const openNewTaskWrapper = () => {
+    newTaskWrapper.classList.add('new-task-wrapper--show')
+
 }
 
 // Show today's date at the top of the page.
@@ -179,6 +190,12 @@ const resetNewTask = () => {
 
 // Creates task boxes.
 const createTaskBoxes = (array) => {
+    if (array.length > 0) {
+        taskWrapperMassageElem.classList.add('hidden')
+    } else {
+        taskWrapperMassageElem.classList.remove('hidden')
+    }
+
     taskWrapperElem.innerHTML = ''
     let star = ''
     array.forEach(arr => {
@@ -222,12 +239,12 @@ const createTaskBoxes = (array) => {
                         <div class="task-box__detail">
                             <button class="task-box__done-btn" onclick="taskCompletionHandle(${arr.id})">${arr.isComplete ? 'تمام شد' : 'کامل کن'}</button>
                             <div class="task-box__edit">
-                                <button>
+                                <button class="task-box__delete-btn" onclick="taskDeleteHandle(${arr.id})">
                                     <svg>
                                         <use href="#delete"></use>
                                     </svg>
                                 </button>
-                                <button>
+                                <button class="task-box__edit-btn" onclick="taskEditHandle(${arr.id})">
                                     <svg>
                                         <use href="#edit"></use>
                                     </svg>
@@ -239,6 +256,28 @@ const createTaskBoxes = (array) => {
             
             `)
     })
+}
+
+// task edit
+const taskEditHandle = (id) => {
+    newTaskWrapper.classList.add('new-task-wrapper--edit')
+    let allTask = getItemToLocalStorage('tasks')
+    let targetTask = allTask.find(task => task.id == id)
+    inputTaskTitle.value = targetTask.title
+    inputTaskDescription.value = targetTask.des
+    inputTaskCategory.value = targetTask.cate
+    inputTaskDifficulty.value = targetTask.diff
+    idTaskEdit = id
+
+}
+
+// task delete handler
+const taskDeleteHandle = (id) => {
+    let allTask = getItemToLocalStorage('tasks')
+    let tasksFilter = allTask.filter(task => task.id != id)
+    saveToLocalStorage('tasks', tasksFilter)
+    createTaskBoxes(tasksFilter)
+
 }
 
 
@@ -288,10 +327,24 @@ const taskCompletionHandle = (id) => {
 
 
 // events
+taskEditBtn.addEventListener('click', () => {
+    console.log(idTaskEdit);
+    let allTask = getItemToLocalStorage('tasks')
+    let indexTask = allTask.findIndex(task => task.id == idTaskEdit)
+    allTask[indexTask].title = inputTaskTitle.value
+    allTask[indexTask].des = inputTaskDescription.value
+    allTask[indexTask].cate = inputTaskCategory.value
+    allTask[indexTask].diff = inputTaskDifficulty.value
+    saveToLocalStorage('tasks', allTask)
+    createTaskBoxes(allTask)
+    closeNewTaskWrapper()
+
+})
+
 window.addEventListener('load', () => {
     createCategoies()
     allTasks = getItemToLocalStorage('tasks')
-    if (allTasks) {
+    if (allTasks.length > 0) {
         taskWrapperMassageElem.classList.add('hidden')
         createTaskBoxes(allTasks)
     } else {
@@ -314,13 +367,13 @@ mobileMenuCloseBtn.addEventListener('click', () => {
 })
 
 newTaskSidebarBtn.addEventListener('click', () => {
-    toggleNewTaskWrapper()
+    openNewTaskWrapper()
 })
 newTaskBtn.addEventListener('click', () => {
-    toggleNewTaskWrapper()
+    openNewTaskWrapper()
 })
 newTaskCloseBtn.addEventListener('click', () => {
-    toggleNewTaskWrapper()
+    closeNewTaskWrapper()
 })
 
 darkModeBtn.addEventListener('click', () => {
