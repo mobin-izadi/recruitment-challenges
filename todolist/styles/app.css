@@ -243,6 +243,7 @@ a {
     --bg-green: #00a63dd3;
     --bg-slate: #2D355A;
     --purple-700: #7008E7;
+    --yellow: #FFDF20;
 }
 
 body.dark {
@@ -987,6 +988,15 @@ body {
     border-radius: 1rem;
     padding: 1rem 2rem;
     font-size: 1.4rem;
+}
+
+.task-box--done .task-box__done-btn {
+    background: var(--yellow) !important;
+}
+
+.task-box--done .task-box__title,
+.task-box--done .task-box__description {
+    text-decoration: line-through;
 }
 
 .task-box__edit {}

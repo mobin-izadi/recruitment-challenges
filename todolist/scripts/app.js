@@ -87,6 +87,7 @@ const isDark = () => {
 
 // add to LocalStorage
 const saveToLocalStorage = (key, value) => {
+    value = JSON.stringify(value)
     localStorage.setItem(`${key}`, `${value}`)
 }
 // get LocalStorage
@@ -161,7 +162,7 @@ const submitNewTaskHandler = () => {
         }
 
         tasks.push(newTask)
-        saveToLocalStorage('tasks', JSON.stringify(tasks))
+        saveToLocalStorage('tasks', tasks)
         resetNewTask()
         allTasks = getItemToLocalStorage('tasks')
         createTaskBoxes(allTasks)
@@ -192,7 +193,7 @@ const createTaskBoxes = (array) => {
         }
         taskWrapperElem.insertAdjacentHTML('beforeend', `
             
-            <div class="task-box">
+            <div class="task-box ${arr.isComplete ? `task-box--done` : ''}">
                         <div class="task-box__category">
                           ${arr.cate}  
                         </div>
@@ -219,7 +220,7 @@ const createTaskBoxes = (array) => {
                             </p>
                         </div>
                         <div class="task-box__detail">
-                            <button class="task-box__done-btn">${arr.isComplete ? 'انجام شد' : 'تکمیل'}</button>
+                            <button class="task-box__done-btn" onclick="taskCompletionHandle(${arr.id})">${arr.isComplete ? 'تمام شد' : 'کامل کن'}</button>
                             <div class="task-box__edit">
                                 <button>
                                     <svg>
@@ -239,6 +240,8 @@ const createTaskBoxes = (array) => {
             `)
     })
 }
+
+
 // delete all data local
 const localStorageClear = () => {
     localStorage.clear()
@@ -268,6 +271,18 @@ const createCategoies = () => {
 
 
     }
+}
+
+// Task completion handle
+const taskCompletionHandle = (id) => {
+    let allTask = getItemToLocalStorage('tasks')
+    let indexTaskTarget = allTask.findIndex(task => task.id == id)
+    allTask[indexTaskTarget].isComplete = !allTask[indexTaskTarget].isComplete
+    saveToLocalStorage('tasks', allTask)
+    createTaskBoxes(allTask)
+
+
+
 }
 
 
@@ -357,8 +372,7 @@ addNewCategoryBtn.addEventListener('click', () => {
     let allCategories = getItemToLocalStorage('categories') || []
 
     allCategories.push(newCategoryInput.value)
-    let arrToString = JSON.stringify(allCategories)
-    saveToLocalStorage('categories', `${arrToString}`)
+    saveToLocalStorage('categories', allCategories)
 
     createCategoies()
     newCategoryInput.value = ''
