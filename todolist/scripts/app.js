@@ -33,6 +33,10 @@ const addNewCategoryBtn = document.querySelector('.new-category__btn')
 const todoCategoryList = document.querySelector('.todo-category-list')
 const taskEditBtn = document.querySelector('.new-task__edit')
 let idTaskEdit = null
+let time = []
+let timerId = {};
+const todoCategoryBtn = document.querySelector('.todo-category')
+
 
 
 
@@ -134,6 +138,45 @@ const autoRemoveNotific = (massage) => {
     })
 }
 
+// timer
+const timer = (id) => {
+    let allTasks = getItemToLocalStorage('tasks')
+    let indexTask = allTasks.findIndex(task => task.id == id)
+    if (allTasks[indexTask]) {
+        time[id] = allTasks[indexTask].time
+    } else {
+        time[id] = 0
+    }
+
+
+    timerId[id] = setInterval(() => {
+        time[id]++
+        updateTimeTask(id, time[id])
+
+    }, 1000);
+
+}
+
+const stopTimer = (id) => {
+    if (timerId[id]) {
+        clearInterval(timerId[id]);
+    }
+
+}
+
+// update task
+const updateTimeTask = (id, time) => {
+    console.log(time);
+
+    let allTasks = getItemToLocalStorage('tasks')
+    let indexTask = allTasks.findIndex(task => task.id == id)
+    allTasks[indexTask].time = time
+    saveToLocalStorage('tasks', allTasks)
+    createTaskBoxes(allTasks)
+
+}
+
+
 
 
 // add new task
@@ -188,6 +231,15 @@ const resetNewTask = () => {
     inputTaskDifficulty.selectedIndex = 0
 }
 
+// convert sec to hh:min:sec
+function formatTime(totalSeconds) {
+    const hours = String(Math.floor(totalSeconds / 3600)).padStart(2, '0');
+    const minutes = String(Math.floor((totalSeconds % 3600) / 60)).padStart(2, '0');
+    const seconds = String(totalSeconds % 60).padStart(2, '0');
+
+    return `${hours}:${minutes}:${seconds}`;
+}
+
 // Creates task boxes.
 const createTaskBoxes = (array) => {
     if (array.length > 0) {
@@ -198,9 +250,10 @@ const createTaskBoxes = (array) => {
 
     taskWrapperElem.innerHTML = ''
     let star = ''
-    array.forEach(arr => {
+    let time = null
+    array.forEach(task => {
         star = ''
-        for (let index = 0; index < arr.diff; index++) {
+        for (let index = 0; index < task.diff; index++) {
             star += `
             <svg>
          <use href="#star"></use>
@@ -208,18 +261,20 @@ const createTaskBoxes = (array) => {
                 ;
 
         }
+
+        time = formatTime(task.time)
         taskWrapperElem.insertAdjacentHTML('beforeend', `
             
-            <div class="task-box ${arr.isComplete ? `task-box--done` : ''}">
+            <div class="task-box ${task.isComplete ? `task-box--done` : ''}">
                         <div class="task-box__category">
-                          ${arr.cate}  
+                          ${task.cate}  
                         </div>
-                        <p class="task-box__title">   ${arr.title} </p>
-                        <p class="task-box__description">   ${arr.des} </p>
+                        <p class="task-box__title">   ${task.title} </p>
+                        <p class="task-box__description">   ${task.des} </p>
                         <div class="task-box__info">
                             <div class="task-box__date">
 
-                                <span>   ${arr.date}  </span>
+                                <span>   ${task.date}  </span>
                             </div>
                             <div class="task-box__rate">
                                 ${star}
@@ -229,22 +284,22 @@ const createTaskBoxes = (array) => {
                         </div>
                         <div class="task-box__timer">
                             <div class="task-box__time-btns">
-                                <button>شروع</button>
-                                <button>پایان</button>
+                                <button onclick="timer(${task.id})" id="task-start-btn-${task.id}">${task.time > 0 ? 'ادامه' : 'شروع'}</button>
+                                <button onclick="stopTimer(${task.id})"> پایان</button>
                             </div>
 
-                            <p class="task-box__time">00:00:00
+                            <p class="task-box__time" id="task-${task.id}">${time}
                             </p>
                         </div>
                         <div class="task-box__detail">
-                            <button class="task-box__done-btn" onclick="taskCompletionHandle(${arr.id})">${arr.isComplete ? 'تمام شد' : 'کامل کن'}</button>
+                            <button class="task-box__done-btn" onclick="taskCompletionHandle(${task.id})">${task.isComplete ? 'تمام شد' : 'کامل کن'}</button>
                             <div class="task-box__edit">
-                                <button class="task-box__delete-btn" onclick="taskDeleteHandle(${arr.id})">
+                                <button class="task-box__delete-btn" onclick="taskDeleteHandle(${task.id})">
                                     <svg>
                                         <use href="#delete"></use>
                                     </svg>
                                 </button>
-                                <button class="task-box__edit-btn" onclick="taskEditHandle(${arr.id})">
+                                <button class="task-box__edit-btn" onclick="taskEditHandle(${task.id})">
                                     <svg>
                                         <use href="#edit"></use>
                                     </svg>
@@ -343,7 +398,7 @@ taskEditBtn.addEventListener('click', () => {
 
 window.addEventListener('load', () => {
     createCategoies()
-    allTasks = getItemToLocalStorage('tasks')
+    allTasks = getItemToLocalStorage('tasks') || []
     if (allTasks.length > 0) {
         taskWrapperMassageElem.classList.add('hidden')
         createTaskBoxes(allTasks)
@@ -429,5 +484,11 @@ addNewCategoryBtn.addEventListener('click', () => {
 
     createCategoies()
     newCategoryInput.value = ''
+
+})
+
+todoCategoryBtn.addEventListener('click', () => {
+    todoCategoryList.classList.toggle('todo-category-list--show')
+    todoCategoryBtn.classList.toggle('todo-category--active')
 
 })

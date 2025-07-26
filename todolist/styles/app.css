@@ -658,10 +658,15 @@ body {
     cursor: pointer;
 }
 
+.todo-category--active svg {
+    transform: rotate(0deg) !important;
+}
+
 .todo-category svg {
     width: 1.5rem;
     height: 1.5rem;
     transform: rotate(180deg);
+    transition: all .3s ease-in-out ;
 }
 
 .todo-category-list {
@@ -670,8 +675,17 @@ body {
     gap: 1rem;
     padding-right: 4rem;
     margin: 1rem 0;
+    height: 0;
+    overflow: hidden;
+    transition: all .3 ease-in-out;
 
 }
+
+.todo-category-list--show {
+    height: auto;
+}
+
+
 
 .todo-category-list__item {
     font-size: 1.4rem;
@@ -695,6 +709,12 @@ body {
     font-size: 1.4rem;
     margin-right: 4rem;
     margin-top: 1rem;
+    display: none;
+    transition: all .3 ease-in-out;
+}
+
+.todo-category-list--show+#new-category-btn {
+    display: inline-block;
 }
 
 .darkmode {
