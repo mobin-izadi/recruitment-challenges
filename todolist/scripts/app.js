@@ -1,5 +1,3 @@
-
-
 const body = document.body
 const loaderWrapper = document.querySelector('.loader-wrapper')
 const mobileMenuBtn = document.querySelector('.mobile-menu-btn')
@@ -36,6 +34,11 @@ let idTaskEdit = null
 let time = []
 let timerId = {};
 const todoCategoryBtn = document.querySelector('.todo-category')
+const categoryItemBtn = document.querySelectorAll('.category__item span')
+const todoPageTitle = document.querySelector('.task-title__name')
+const todoPageCount = document.querySelector('.task-title__count')
+let currentCategory = 'all';
+const todoCategoryListBtn = document.querySelectorAll('.todo-category-list__item')
 
 
 
@@ -140,22 +143,21 @@ const autoRemoveNotific = (massage) => {
 
 // timer
 const timer = (id) => {
-    let allTasks = getItemToLocalStorage('tasks')
-    let indexTask = allTasks.findIndex(task => task.id == id)
+    let allTasks = getItemToLocalStorage('tasks');
+    let indexTask = allTasks.findIndex(task => task.id == id);
+
     if (allTasks[indexTask]) {
-        time[id] = allTasks[indexTask].time
+        time[id] = allTasks[indexTask].time;
     } else {
-        time[id] = 0
+        time[id] = 0;
     }
 
-
     timerId[id] = setInterval(() => {
-        time[id]++
-        updateTimeTask(id, time[id])
-
+        time[id]++;
+        updateTimeTask(id, time[id]);  // این متد باید زمان رو تو localStorage هم آپدیت کنه
+        renderTasksByCurrentCategory(); // فقط تسک‌های فیلتر شده رو بساز
     }, 1000);
-
-}
+};
 
 const stopTimer = (id) => {
     if (timerId[id]) {
@@ -166,42 +168,41 @@ const stopTimer = (id) => {
 
 // update task
 const updateTimeTask = (id, time) => {
-    console.log(time);
 
-    let allTasks = getItemToLocalStorage('tasks')
-    let indexTask = allTasks.findIndex(task => task.id == id)
-    allTasks[indexTask].time = time
-    saveToLocalStorage('tasks', allTasks)
-    createTaskBoxes(allTasks)
 
-}
+    let allTasks = getItemToLocalStorage('tasks');
+    let indexTask = allTasks.findIndex(task => task.id == id);
+
+    if (indexTask !== -1) {
+        allTasks[indexTask].time = time;
+        saveToLocalStorage('tasks', allTasks);
+        renderTasksByCurrentCategory();
+    }
+};
 
 
 
 
 // add new task
 const submitNewTaskHandler = () => {
-
-    let tasks = JSON.parse(localStorage.getItem('tasks')) || []
-    let taskTitle = inputTaskTitle.value.trim()
-    let taskDescription = inputTaskDescription.value.trim()
-    let taskCate = inputTaskCategory.value
-    let taskDifficulty = inputTaskDifficulty.value
-    let date = new Date()
+    let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+    let taskTitle = inputTaskTitle.value.trim();
+    let taskDescription = inputTaskDescription.value.trim();
+    let taskCate = inputTaskCategory.value;
+    let taskDifficulty = inputTaskDifficulty.value;
+    let date = new Date();
     let dateShamsi = new Intl.DateTimeFormat('fa-IR', {
         day: 'numeric',
         month: 'long',
         year: 'numeric'
-    }).format(date)
+    }).format(date);
 
+    let newTask = null;
 
-    let newTask = null
     if (taskTitle.length <= 0) {
-
-        addNotific('عنوان نمی تواند خالی باشد');
+        addNotific('عنوان نمی‌تواند خالی باشد');
     } else if (taskDescription.length > 70) {
-        addNotific('توضیحات نمی تواند خیلی بلند باشد')
-
+        addNotific('توضیحات نمی‌تواند خیلی بلند باشد');
     } else {
         newTask = {
             id: crypto.randomUUID(),
@@ -213,16 +214,15 @@ const submitNewTaskHandler = () => {
             time: 0,
             create: now,
             isComplete: false,
-        }
+        };
 
-        tasks.push(newTask)
-        saveToLocalStorage('tasks', tasks)
-        resetNewTask()
-        allTasks = getItemToLocalStorage('tasks')
-        createTaskBoxes(allTasks)
+        tasks.push(newTask);
+        saveToLocalStorage('tasks', tasks);
+        resetNewTask();
+        allTasks = getItemToLocalStorage('tasks');
+        renderTasksByCurrentCategory();
     }
-
-}
+};
 // Resets new task inputs.
 const resetNewTask = () => {
     inputTaskTitle.value = ''
@@ -242,6 +242,7 @@ function formatTime(totalSeconds) {
 
 // Creates task boxes.
 const createTaskBoxes = (array) => {
+
     if (array.length > 0) {
         taskWrapperMassageElem.classList.add('hidden')
     } else {
@@ -344,13 +345,13 @@ const localStorageClear = () => {
 
 // create categoies elem
 const createCategoies = () => {
-    todoCategoryList.innerHTML = '<li class="todo-category-list__item">اصلی</li > '
+    todoCategoryList.innerHTML = '<li class="todo-category-list__item" onclick="filterTodoCate(this)" data-cate="اصلی">اصلی</li > '
     inputTaskCategory.innerHTML = `<option value="اصلی">اصلی</option>`
     let allCategories = getItemToLocalStorage('categories') || []
     if (allCategories.length > 0) {
         allCategories.forEach(cate => {
             todoCategoryList.insertAdjacentHTML('beforeend', `
-                <li class="todo-category-list__item">
+                <li class="todo-category-list__item" onclick="filterTodoCate(this)" data-cate="${cate}">
                         ${cate}
                     </li>
                 `)
@@ -367,6 +368,18 @@ const createCategoies = () => {
     }
 }
 
+// filter category todo
+const filterTodoCate = (elem) => {
+    currentCategory = elem.dataset.cate;
+    let allTodos = getItemToLocalStorage('tasks');
+    let filteredTodos = [];
+    removeActiveStyleCategory();
+    todoPageTitle.innerHTML = elem.textContent;
+    filteredTodos = allTodos.filter(task => task.cate == currentCategory)
+    createTaskBoxes(filteredTodos);
+    todoPageCount.innerHTML = filteredTodos.length;
+}
+
 // Task completion handle
 const taskCompletionHandle = (id) => {
     let allTask = getItemToLocalStorage('tasks')
@@ -379,8 +392,60 @@ const taskCompletionHandle = (id) => {
 
 }
 
+// Delete the active style from the Todo category menu
+const removeActiveStyleCategory = () => {
+    categoryItemBtn.forEach(btn => {
+        btn.parentElement.classList.remove('category__item--active')
+    })
 
+}
 
+// filter category todo
+const filterCategoryTodo = (elem) => {
+    currentCategory = elem.dataset.category;
+    let allTodos = getItemToLocalStorage('tasks');
+    let filteredTodos = [];
+
+    removeActiveStyleCategory();
+    elem.parentElement.classList.add('category__item--active');
+    todoPageTitle.innerHTML = elem.textContent;
+
+    if (currentCategory === 'all') {
+        filteredTodos = allTodos;
+    } else if (currentCategory === 'doing') {
+        filteredTodos = allTodos.filter(todo => todo.time > 0);
+    } else if (currentCategory === 'end') {
+        filteredTodos = allTodos.filter(todo => todo.isComplete);
+    }
+
+    createTaskBoxes(filteredTodos);
+    todoPageCount.innerHTML = filteredTodos.length;
+}
+
+const renderTasksByCurrentCategory = () => {
+    const allTasks = getItemToLocalStorage('tasks');
+    let filtered = [];
+
+    if (currentCategory === 'all') {
+        filtered = allTasks;
+    } else if (currentCategory === 'doing') {
+        filtered = allTasks.filter(todo => todo.time > 0);
+    } else if (currentCategory === 'end') {
+        filtered = allTasks.filter(todo => todo.isComplete);
+    } else {
+        filtered = allTasks.filter(todo => todo.cate == currentCategory);
+    }
+
+    createTaskBoxes(filtered);
+    todoPageCount.innerHTML = filtered.length;
+};
+
+categoryItemBtn.forEach(btn => {
+    btn.addEventListener('click', event => {
+        filterCategoryTodo(event.target)
+    })
+
+})
 // events
 taskEditBtn.addEventListener('click', () => {
     console.log(idTaskEdit);
