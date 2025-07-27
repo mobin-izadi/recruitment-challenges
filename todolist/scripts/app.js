@@ -204,7 +204,7 @@ const submitNewTaskHandler = () => {
 
     } else {
         newTask = {
-            id: tasks.length,
+            id: crypto.randomUUID(),
             title: taskTitle,
             des: taskDescription,
             cate: taskCate,
@@ -284,22 +284,22 @@ const createTaskBoxes = (array) => {
                         </div>
                         <div class="task-box__timer">
                             <div class="task-box__time-btns">
-                                <button onclick="timer(${task.id})" id="task-start-btn-${task.id}">${task.time > 0 ? 'ادامه' : 'شروع'}</button>
-                                <button onclick="stopTimer(${task.id})"> پایان</button>
+                                <button onclick="timer('${task.id}')" >${task.time > 0 ? 'ادامه' : 'شروع'}</button>
+                                <button onclick="stopTimer('${task.id}')"> پایان</button>
                             </div>
 
                             <p class="task-box__time" id="task-${task.id}">${time}
                             </p>
                         </div>
                         <div class="task-box__detail">
-                            <button class="task-box__done-btn" onclick="taskCompletionHandle(${task.id})">${task.isComplete ? 'تمام شد' : 'کامل کن'}</button>
+                            <button class="task-box__done-btn" onclick="taskCompletionHandle('${task.id}')">${task.isComplete ? 'تمام شد' : 'کامل کن'}</button>
                             <div class="task-box__edit">
-                                <button class="task-box__delete-btn" onclick="taskDeleteHandle(${task.id})">
+                                <button class="task-box__delete-btn" onclick="taskDeleteHandle('${task.id}')">
                                     <svg>
                                         <use href="#delete"></use>
                                     </svg>
                                 </button>
-                                <button class="task-box__edit-btn" onclick="taskEditHandle(${task.id})">
+                                <button class="task-box__edit-btn" onclick="taskEditHandle('${task.id}')">
                                     <svg>
                                         <use href="#edit"></use>
                                     </svg>
