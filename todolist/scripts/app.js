@@ -215,7 +215,7 @@ const submitNewTaskHandler = () => {
             diff: taskDifficulty,
             date: dateShamsi,
             time: 0,
-            create: now,
+            create: new Date().toISOString(),
             isComplete: false,
         };
 
@@ -248,14 +248,20 @@ const createTaskBoxes = (array) => {
     targetSortArr = array
     console.log(sortFilter);
 
-    if (sortFilter === 'hard') {
+    console.log(array);
+
+    if (sortFilter == 'hard') {
         array = [...array].sort((a, b) => b.diff - a.diff);
-    } else if (sortFilter === 'easy') {
+    } else if (sortFilter == 'easy') {
         array = [...array].sort((a, b) => a.diff - b.diff);
-    } else if (sortFilter === 'new') {
-        array = [...array].sort((a, b) => new Date(b.create) - new Date(a.create));
-    } else if (sortFilter === 'old') {
-        array = [...array].sort((a, b) => new Date(a.create) - new Date(b.create)); // ✅ اصلاح شد
+    } else if (sortFilter == 'new') {
+        array = [...array].sort((a, b) => {
+            return new Date(a.create).getTime() - new Date(b.create).getTime()
+        })
+    } else if (sortFilter == 'old') {
+        array = [...array].sort((a, b) => {
+            return new Date(b.create).getTime() - new Date(a.create).getTime()
+        })
     }
 
 
