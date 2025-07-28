@@ -246,9 +246,6 @@ function formatTime(totalSeconds) {
 // Creates task boxes.
 const createTaskBoxes = (array) => {
     targetSortArr = array
-    console.log(sortFilter);
-
-    console.log(array);
 
     if (sortFilter == 'hard') {
         array = [...array].sort((a, b) => b.diff - a.diff);
@@ -456,7 +453,7 @@ const renderTasksByCurrentCategory = () => {
     } else {
         filtered = allTasks.filter(todo => todo.cate == currentCategory);
     }
-    console.log(filtered);
+ 
 
     createTaskBoxes(filtered);
     todoPageCount.innerHTML = filtered.length;
@@ -520,7 +517,7 @@ filterItemBtn.forEach(btn => {
 
 // events
 taskEditBtn.addEventListener('click', () => {
-    console.log(idTaskEdit);
+
     let allTask = getItemToLocalStorage('tasks')
     let indexTask = allTask.findIndex(task => task.id == idTaskEdit)
     allTask[indexTask].title = inputTaskTitle.value
@@ -574,12 +571,12 @@ darkModeBtn.addEventListener('click', () => {
 })
 
 taskShowGridBtn.addEventListener('click', () => {
-    console.log('grid');
+
 
     taskWrapperElem.classList.remove('task-wrapper--list')
 })
 taskShowListBtn.addEventListener('click', () => {
-    console.log('list');
+
 
     taskWrapperElem.classList.add('task-wrapper--list')
 })
