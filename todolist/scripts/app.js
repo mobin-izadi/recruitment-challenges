@@ -427,7 +427,7 @@ const filterCategoryTodo = (elem) => {
     if (currentCategory === 'all') {
         filteredTodos = allTodos;
     } else if (currentCategory === 'doing') {
-        filteredTodos = allTodos.filter(todo => todo.time > 0);
+        filteredTodos = allTodos.filter(todo => todo.time > 0 && !todo.isComplete);
     } else if (currentCategory === 'end') {
         filteredTodos = allTodos.filter(todo => todo.isComplete);
     }
@@ -571,12 +571,16 @@ addNewCategoryBtn.addEventListener('click', () => {
 
 
     let allCategories = getItemToLocalStorage('categories') || []
+    if (newCategoryInput.value.trim()) {
+        allCategories.push(newCategoryInput.value)
+        saveToLocalStorage('categories', allCategories)
 
-    allCategories.push(newCategoryInput.value)
-    saveToLocalStorage('categories', allCategories)
+        createCategoies()
+        newCategoryInput.value = ''
+    } else {
+        addNotific('نام دسته بندی حتما باید شامل حرف یا عدد باشد')
+    }
 
-    createCategoies()
-    newCategoryInput.value = ''
 
 })
 
