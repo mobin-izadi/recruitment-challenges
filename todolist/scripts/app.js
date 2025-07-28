@@ -146,8 +146,12 @@ const autoRemoveNotific = (massage) => {
 
 // timer
 const timer = (id) => {
+
+
+
     let allTasks = getItemToLocalStorage('tasks');
     let indexTask = allTasks.findIndex(task => task.id == id);
+
 
     if (allTasks[indexTask]) {
         time[id] = allTasks[indexTask].time;
@@ -159,10 +163,14 @@ const timer = (id) => {
         time[id]++;
         updateTimeTask(id, time[id])
         renderTasksByCurrentCategory()
+        document.querySelector(`#task-start-btn-${id}`).style.pointerEvents = 'none';
+
     }, 1000);
 };
 
 const stopTimer = (id) => {
+    document.querySelector(`#task-start-btn-${id}`).style.pointerEvents = 'auto';
+
     if (timerId[id]) {
         clearInterval(timerId[id]);
     }
@@ -304,7 +312,7 @@ const createTaskBoxes = (array) => {
                         </div>
                         <div class="task-box__timer">
                             <div class="task-box__time-btns">
-                                <button onclick="timer('${task.id}')" >${task.time > 0 ? 'ادامه' : 'شروع'}</button>
+                                <button id="task-start-btn-${task.id}"  >${task.time > 0 ? 'ادامه' : 'شروع'}</button>
                                 <button onclick="stopTimer('${task.id}')"> پایان</button>
                             </div>
 
@@ -330,6 +338,11 @@ const createTaskBoxes = (array) => {
                     </div>
             
             `)
+
+        array.forEach(task => {
+            const btnStart = document.querySelector(`#task-start-btn-${task.id}`);
+            btnStart?.addEventListener('click', () => timer(task.id));
+        });
     })
 }
 
@@ -453,7 +466,7 @@ const renderTasksByCurrentCategory = () => {
     } else {
         filtered = allTasks.filter(todo => todo.cate == currentCategory);
     }
- 
+
 
     createTaskBoxes(filtered);
     todoPageCount.innerHTML = filtered.length;
