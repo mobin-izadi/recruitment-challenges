@@ -42,6 +42,8 @@ const todoCategoryListBtn = document.querySelectorAll('.todo-category-list__item
 const filterItemBtn = document.querySelectorAll('.filter__item')
 let sortFilter = null
 let targetSortArr = []
+const backupBtn = document.querySelector('#back-up')
+const exportBtn = document.querySelector('#export')
 
 
 
@@ -461,6 +463,42 @@ const sortTodo = (elem) => {
     createTaskBoxes(targetSortArr)
 }
 
+// back up 
+const backupHandler = () => {
+    let tasks = getItemToLocalStorage('tasks')
+    const textData = tasks.map(task => JSON.stringify(task)).join('\n');
+
+    const blob = new Blob([textData], { type: 'text/plain' });
+    const link = document.createElement('a');
+    link.href = URL.createObjectURL(blob);
+    link.download = 'backup.txt';
+    link.click();
+}
+// export 
+const exportHandler = async () => {
+    // json
+    let tasks = getItemToLocalStorage('tasks')
+    const jsonData = JSON.stringify(tasks, null, 2);
+    const blob = new Blob([jsonData], { type: 'application/json' });
+    const link = document.createElement('a');
+    link.href = URL.createObjectURL(blob);
+    link.download = 'todos.json';
+    link.click();
+    // csv
+    if (tasks.length > 0) {
+        const headers = Object.keys(tasks[0]).join(',');
+        const rows = tasks.map(obj => Object.values(obj).join(',')).join('\n');
+        const csv = `${headers}\n${rows}`;
+        const blob = new Blob([csv], { type: 'text/csv' });
+        const link = document.createElement('a');
+        link.href = URL.createObjectURL(blob);
+        link.download = 'todos.csv';
+        link.click();
+    }
+
+}
+
+
 categoryItemBtn.forEach(btn => {
     btn.addEventListener('click', event => {
         filterCategoryTodo(event.target)
@@ -473,6 +511,7 @@ filterItemBtn.forEach(btn => {
         sortTodo(event.target)
     })
 })
+
 // events
 taskEditBtn.addEventListener('click', () => {
     console.log(idTaskEdit);
@@ -589,4 +628,7 @@ todoCategoryBtn.addEventListener('click', () => {
     todoCategoryBtn.classList.toggle('todo-category--active')
 
 })
+
+backupBtn.addEventListener('click', backupHandler)
+exportBtn.addEventListener('click', exportHandler)
 
