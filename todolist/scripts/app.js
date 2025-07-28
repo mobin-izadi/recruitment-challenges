@@ -39,8 +39,9 @@ const todoPageTitle = document.querySelector('.task-title__name')
 const todoPageCount = document.querySelector('.task-title__count')
 let currentCategory = 'all';
 const todoCategoryListBtn = document.querySelectorAll('.todo-category-list__item')
-
-
+const filterItemBtn = document.querySelectorAll('.filter__item')
+let sortFilter = null
+let targetSortArr = []
 
 
 
@@ -154,8 +155,8 @@ const timer = (id) => {
 
     timerId[id] = setInterval(() => {
         time[id]++;
-        updateTimeTask(id, time[id]);  // این متد باید زمان رو تو localStorage هم آپدیت کنه
-        renderTasksByCurrentCategory(); // فقط تسک‌های فیلتر شده رو بساز
+        updateTimeTask(id, time[id])
+        renderTasksByCurrentCategory()
     }, 1000);
 };
 
@@ -242,6 +243,19 @@ function formatTime(totalSeconds) {
 
 // Creates task boxes.
 const createTaskBoxes = (array) => {
+    targetSortArr = array
+    console.log(sortFilter);
+
+    if (sortFilter === 'hard') {
+        array = [...array].sort((a, b) => b.diff - a.diff);
+    } else if (sortFilter === 'easy') {
+        array = [...array].sort((a, b) => a.diff - b.diff);
+    } else if (sortFilter === 'new') {
+        array = [...array].sort((a, b) => new Date(b.create) - new Date(a.create));
+    } else if (sortFilter === 'old') {
+        array = [...array].sort((a, b) => new Date(a.create) - new Date(b.create)); // ✅ اصلاح شد
+    }
+
 
     if (array.length > 0) {
         taskWrapperMassageElem.classList.add('hidden')
@@ -425,7 +439,6 @@ const filterCategoryTodo = (elem) => {
 const renderTasksByCurrentCategory = () => {
     const allTasks = getItemToLocalStorage('tasks');
     let filtered = [];
-
     if (currentCategory === 'all') {
         filtered = allTasks;
     } else if (currentCategory === 'doing') {
@@ -435,16 +448,30 @@ const renderTasksByCurrentCategory = () => {
     } else {
         filtered = allTasks.filter(todo => todo.cate == currentCategory);
     }
+    console.log(filtered);
 
     createTaskBoxes(filtered);
     todoPageCount.innerHTML = filtered.length;
 };
+
+// filter todo
+const sortTodo = (elem) => {
+
+    sortFilter = elem.dataset.sort
+    createTaskBoxes(targetSortArr)
+}
 
 categoryItemBtn.forEach(btn => {
     btn.addEventListener('click', event => {
         filterCategoryTodo(event.target)
     })
 
+})
+
+filterItemBtn.forEach(btn => {
+    btn.addEventListener('click', event => {
+        sortTodo(event.target)
+    })
 })
 // events
 taskEditBtn.addEventListener('click', () => {
@@ -464,6 +491,7 @@ taskEditBtn.addEventListener('click', () => {
 window.addEventListener('load', () => {
     createCategoies()
     allTasks = getItemToLocalStorage('tasks') || []
+    todoPageCount.innerHTML = allTasks.length
     if (allTasks.length > 0) {
         taskWrapperMassageElem.classList.add('hidden')
         createTaskBoxes(allTasks)
@@ -557,3 +585,4 @@ todoCategoryBtn.addEventListener('click', () => {
     todoCategoryBtn.classList.toggle('todo-category--active')
 
 })
+
