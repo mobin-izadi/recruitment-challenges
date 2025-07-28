@@ -364,6 +364,7 @@ const taskDeleteHandle = (id) => {
     let allTask = getItemToLocalStorage('tasks')
     let tasksFilter = allTask.filter(task => task.id != id)
     saveToLocalStorage('tasks', tasksFilter)
+    todoPageCount.innerHTML = tasksFilter.length
     createTaskBoxes(tasksFilter)
 
 }
@@ -467,9 +468,9 @@ const renderTasksByCurrentCategory = () => {
         filtered = allTasks.filter(todo => todo.cate == currentCategory);
     }
 
+    todoPageCount.innerHTML = filtered.length;
 
     createTaskBoxes(filtered);
-    todoPageCount.innerHTML = filtered.length;
 };
 
 // filter todo
