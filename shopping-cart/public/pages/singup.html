@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="../styles/app.css">
 </head>
 
-<body class="font-yekan bg-gray-100 min-h-screen flex justify-center items-center text-gray-950 ">
+<body class="font-yekan bg-gray-100 min-h-screen flex justify-center items-center text-gray-950 relative ">
     <!-- svg icons -->
     <svg class="hidden">
         <symbol id="user" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -49,6 +49,7 @@
             </g>
         </symbol>
     </svg>
+    <!-- main -->
     <main class="flex flex-col justify-center items-center gap-4">
         <!-- logo -->
         <div class="flex items-center gap-1">
@@ -66,7 +67,7 @@
             </p>
             <!-- input-valid class for valid values input-invalid for invalid values -->
             <!-- user name -->
-            <div class="bg-gray-100 flex justify-between items-center rounded-xl h-14 px-2 border  ">
+            <div class="bg-gray-100 flex justify-between items-center rounded-xl h-14 px-2 border border-gray-100  ">
                 <input type="text" required placeholder="نام کاربری" class="w-full h-full placeholder-text-gray-400 ">
                 <svg class="w-6 h-6 text-gray-400">
                     <use href="#user">
@@ -75,7 +76,8 @@
                 </svg>
             </div>
             <!-- user email -->
-            <div class="bg-gray-100 flex justify-between items-center rounded-xl h-14 px-2 my-4 border ">
+            <div
+                class="bg-gray-100 flex justify-between items-center rounded-xl h-14 px-2 my-4 border border-gray-100 ">
                 <input type="email" required placeholder="ایمیل" class="w-full h-full placeholder-text-gray-400 ">
                 <svg class="w-6 h-6 text-gray-400">
                     <use href="#email">
@@ -83,7 +85,7 @@
                 </svg>
             </div>
             <!-- user password -->
-            <div class="bg-gray-100 flex justify-between items-center rounded-xl h-14 px-2 border ">
+            <div class="bg-gray-100 flex justify-between items-center rounded-xl h-14 px-2 border border-gray-100 ">
                 <input type="password" required placeholder="پسورد" class="w-full h-full placeholder-text-gray-400 ">
                 <svg class="w-6 h-6 text-gray-400">
                     <use href="#lock">
@@ -134,6 +136,9 @@
         </div>
 
     </main>
+    <!-- Background effect -->
+    <div class="w-96 h-96 bg-red-700 rounded-full fixed top-2 left-2  opacity-10 blur-3xl "></div>
+    <div class="w-96 h-96 bg-blue-700 rounded-full fixed bottom-2 right-2  opacity-10 blur-3xl "></div>
 
 </body>
 
