@@ -1,0 +1,53 @@
+@import "tailwindcss";
+
+@font-face {
+    font-family: IRANYekanX;
+    font-style: normal;
+    font-weight: 900;
+    src: url('../fonts/yekan/woff/IRANYekanX-Black.woff') format('woff'),
+        url('../fonts/yekan/woff2/IRANYekanX-Black.woff2') format('woff2');
+    font-display: swap;
+}
+
+@font-face {
+    font-family: IRANYekanX;
+    font-style: normal;
+    font-weight: 950;
+    src: url('../fonts/yekan/woff/IRANYekanX-ExtraBlack.woff') format('woff'),
+        url('../fonts/yekan/woff2/IRANYekanX-ExtraBlack.woff2') format('woff2');
+    font-display: swap;
+}
+
+@font-face {
+    font-family: IRANYekanX;
+    font-style: normal;
+    font-weight: bold;
+    src: url('../fonts/yekan/woff/IRANYekanX-Bold.woff') format('woff'),
+        url('../fonts/yekan/woff2/IRANYekanX-Bold.woff2') format('woff2');
+    font-display: swap;
+}
+
+@font-face {
+    font-family: IRANYekanX;
+    font-style: normal;
+    font-weight: normal;
+    src: url('../fonts/yekan/woff/IRANYekanX-Regular.woff') format('woff'),
+        url('../fonts/yekan/woff2/IRANYekanX-Regular.woff2') format('woff2');
+    font-display: swap;
+}
+
+input {
+    @apply border-none outline-0 text-inherit;
+}
+
+.input-valid {
+    @apply border-green-500;
+}
+
+.input-invalid {
+    @apply border-red-500;
+}
+
+@theme {
+    --font-yekan: "IRANYekanX", sans-serif;
+}
