@@ -40,6 +40,8 @@ input {
     @apply border-none outline-0 text-inherit;
 }
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 .input-valid {
     @apply border-green-500;
 }

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fa" dir="rtl">
+<html lang="fa" dir="rtl" class="dark">
 
 <head>
     <meta charset="UTF-8">
@@ -9,7 +9,8 @@
     <link rel="stylesheet" href="../styles/app.css">
 </head>
 
-<body class="font-yekan bg-gray-100 min-h-screen flex justify-center items-center text-gray-950 relative ">
+<body
+    class="font-yekan bg-gray-100 dark:bg-gray-800 dark:text-white min-h-screen flex justify-center items-center text-gray-950 relative ">
     <!-- svg icons -->
     <svg class="hidden">
         <symbol id="user" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -48,7 +49,33 @@
                     stroke-linecap="round" stroke-linejoin="round"></path>
             </g>
         </symbol>
+        <symbol id="close" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+            <g id="SVGRepo_iconCarrier">
+                <path d="M9.16998 14.83L14.83 9.17004" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                    stroke-linejoin="round"></path>
+                <path d="M14.83 14.83L9.16998 9.17004" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                    stroke-linejoin="round"></path>
+                <path d="M9 22H15C20 22 22 20 22 15V9C22 4 20 2 15 2H9C4 2 2 4 2 9V15C2 20 4 22 9 22Z"
+                    stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+            </g>
+        </symbol>
     </svg>
+    <!-- Message wrapper -->
+    <div class="massage-wrapper fixed z-50 top-3 left-3">
+        <!-- massage box -->
+        <!-- <div class="bg-white dark:bg-gray-700 dark:text-white  rounded-xl shadow p-2 w-96 min-h-32">
+            <svg class="w-6 h-6 cursor-pointer transition-all hover:text-green-500 dark:hover:text-blue-500">
+                <use href="#close"></use>
+            </svg>
+            <p class="my-2 text-sm leading-6 font-light">
+                لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و
+                متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است
+            </p>
+        </div> -->
+
+    </div>
     <!-- main -->
     <main class="flex flex-col justify-center items-center gap-4">
         <!-- logo -->
@@ -60,15 +87,17 @@
         </div>
 
         <!-- Registration form -->
-        <form action="" class="w-96  bg-white rounded-xl shadow py-10 px-6">
+        <form action="" class="w-96  bg-white dark:bg-gray-700 rounded-xl shadow py-10 px-6">
             <p class="text-center font-black text-xl">عضویت</p>
             <p class="mt-5 mb-4 text-center">قبلا ثبت نام کردید
                 <a href="./login.html" class="text-blue-500 underline">وارد شوید</a>
             </p>
             <!-- input-valid class for valid values input-invalid for invalid values -->
             <!-- user name -->
-            <div class="bg-gray-100 flex justify-between items-center rounded-xl h-14 px-2 border border-gray-100  ">
-                <input type="text" required placeholder="نام کاربری" class="w-full h-full placeholder-text-gray-400 ">
+            <div
+                class="bg-gray-100 dark:bg-gray-600 flex justify-between items-center rounded-xl h-14 px-2 border border-gray-100 dark:border-gray-600   ">
+                <input type="text" required placeholder="نام کاربری"
+                    class="w-full h-full placeholder-text-gray-400 dark:placeholderbg-gray-500">
                 <svg class="w-6 h-6 text-gray-400">
                     <use href="#user">
 
@@ -77,16 +106,19 @@
             </div>
             <!-- user email -->
             <div
-                class="bg-gray-100 flex justify-between items-center rounded-xl h-14 px-2 my-4 border border-gray-100 ">
-                <input type="email" required placeholder="ایمیل" class="w-full h-full placeholder-text-gray-400 ">
+                class="bg-gray-100 dark:bg-gray-600 flex justify-between items-center rounded-xl h-14 px-2 my-4 border border-gray-100 dark:border-gray-600  ">
+                <input type="email" required placeholder="ایمیل"
+                    class="w-full h-full placeholder-text-gray-400 dark:placeholderbg-gray-500">
                 <svg class="w-6 h-6 text-gray-400">
                     <use href="#email">
                     </use>
                 </svg>
             </div>
             <!-- user password -->
-            <div class="bg-gray-100 flex justify-between items-center rounded-xl h-14 px-2 border border-gray-100 ">
-                <input type="password" required placeholder="پسورد" class="w-full h-full placeholder-text-gray-400 ">
+            <div
+                class="bg-gray-100 dark:bg-gray-600 flex justify-between items-center rounded-xl h-14 px-2 border border-gray-100 dark:border-gray-600  ">
+                <input type="password" required placeholder="پسورد"
+                    class="w-full h-full placeholder-text-gray-400 dark:placeholderbg-gray-500">
                 <svg class="w-6 h-6 text-gray-400">
                     <use href="#lock">
                     </use>
