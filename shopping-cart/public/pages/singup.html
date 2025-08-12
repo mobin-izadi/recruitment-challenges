@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>باگ استور</title>
-    <link rel="shortcut icon" href="../images/icon.jpg" type="image/jpg">
+    <link rel="shortcut icon" href="../images/logo.png" type="image/png">
     <link rel="stylesheet" href="../styles/app.css">
 </head>
 
@@ -81,7 +81,7 @@
         <!-- logo -->
         <div class="flex items-center gap-1">
             <div class="w-20">
-                <img src="../images/logo.png" alt="logo bug store" class="w-fit h-full object-cover">
+                <img src="../images/logo.png" alt="logo bug store" class="w-fit h-full object-cover ">
             </div>
             <h1 class="font-black text-3xl mt-2"><span class="text-blue-500">بـــــــاگ</span> استور</h1>
         </div>
@@ -90,14 +90,14 @@
         <form action="" class="w-96  bg-white dark:bg-gray-700 rounded-xl shadow py-10 px-6">
             <p class="text-center font-black text-xl">عضویت</p>
             <p class="mt-5 mb-4 text-center">قبلا ثبت نام کردید
-                <a href="./login.html" class="text-blue-500 underline">وارد شوید</a>
+                <a href="./login.html" class="text-blue-500 underline font-bold">وارد شوید</a>
             </p>
             <!-- input-valid class for valid values input-invalid for invalid values -->
             <!-- user name -->
-            <div
-                class="bg-gray-100 dark:bg-gray-600 flex justify-between items-center rounded-xl h-14 px-2 border border-gray-100 dark:border-gray-600   ">
+            <div class="bg-gray-100 dark:bg-gray-600 flex justify-between items-center rounded-xl h-14 px-2 border border-gray-100 dark:border-gray-600"
+                id="user-name-wrapper">
                 <input type="text" required placeholder="نام کاربری"
-                    class="w-full h-full placeholder-text-gray-400 dark:placeholderbg-gray-500">
+                    class="w-full h-full placeholder-text-gray-400 dark:placeholderbg-gray-500" id="user-name">
                 <svg class="w-6 h-6 text-gray-400">
                     <use href="#user">
 
@@ -105,20 +105,20 @@
                 </svg>
             </div>
             <!-- user email -->
-            <div
-                class="bg-gray-100 dark:bg-gray-600 flex justify-between items-center rounded-xl h-14 px-2 my-4 border border-gray-100 dark:border-gray-600  ">
+            <div class="bg-gray-100 dark:bg-gray-600 flex justify-between items-center rounded-xl h-14 px-2 my-4 border border-gray-100 dark:border-gray-600  "
+                id="email-wrapper">
                 <input type="email" required placeholder="ایمیل"
-                    class="w-full h-full placeholder-text-gray-400 dark:placeholderbg-gray-500">
+                    class="w-full h-full placeholder-text-gray-400 dark:placeholderbg-gray-500" id="email-input">
                 <svg class="w-6 h-6 text-gray-400">
                     <use href="#email">
                     </use>
                 </svg>
             </div>
             <!-- user password -->
-            <div
-                class="bg-gray-100 dark:bg-gray-600 flex justify-between items-center rounded-xl h-14 px-2 border border-gray-100 dark:border-gray-600  ">
+            <div class="bg-gray-100 dark:bg-gray-600 flex justify-between items-center rounded-xl h-14 px-2 border border-gray-100 dark:border-gray-600  "
+                id="password-wrapper">
                 <input type="password" required placeholder="پسورد"
-                    class="w-full h-full placeholder-text-gray-400 dark:placeholderbg-gray-500">
+                    class="w-full h-full placeholder-text-gray-400 dark:placeholderbg-gray-500" id="password">
                 <svg class="w-6 h-6 text-gray-400">
                     <use href="#lock">
                     </use>
@@ -126,25 +126,25 @@
             </div>
             <!-- Password check -->
             <ul class="mt-4 flex items-center flex-wrap gap-1">
-                <li class="flex items-center gap-1 text-xs font-bold text-gray-400 basis-[49%] ">
+                <li class="flex items-center gap-1 text-xs font-bold text-gray-400 basis-[49%] " id="uppercase">
                     <svg class="w-4 h-4">
                         <use href="#tick"></use>
                     </svg>
                     حروف بزرگ انگلیسی
                 </li>
-                <li class="flex items-center gap-1 text-xs font-bold text-gray-400 basis-[49%] ">
+                <li class="flex items-center gap-1 text-xs font-bold text-gray-400 basis-[49%] " id="lowercase">
                     <svg class="w-4 h-4">
                         <use href="#tick"></use>
                     </svg>
                     حروف کوچک انگلیسی
                 </li>
-                <li class="flex items-center gap-1 text-xs font-bold text-gray-400 basis-[49%] ">
+                <li class="flex items-center gap-1 text-xs font-bold text-gray-400 basis-[49%] " id="character">
                     <svg class="w-4 h-4">
                         <use href="#tick"></use>
                     </svg>
                     کاراکتر
                 </li>
-                <li class="flex items-center gap-1 text-xs font-bold text-gray-400 basis-[49%] ">
+                <li class="flex items-center gap-1 text-xs font-bold text-gray-400 basis-[49%] " id="number">
                     <svg class="w-4 h-4">
                         <use href="#tick"></use>
                     </svg>
@@ -154,7 +154,8 @@
 
             <!-- Register button -->
             <button type="submit"
-                class="h-14 px-2 bg-blue-500 text-white rounded-xl block w-full font-bold cursor-pointer mt-4">ثبت
+                class="h-14 px-2 bg-blue-500 text-white rounded-xl block w-full font-bold cursor-pointer mt-4 outline-0"
+                id="singup-btn">ثبت
                 نام</button>
 
 
@@ -171,6 +172,9 @@
     <!-- Background effect -->
     <div class="w-96 h-96 bg-red-700 rounded-full fixed top-2 left-2  opacity-10 blur-3xl "></div>
     <div class="w-96 h-96 bg-blue-700 rounded-full fixed bottom-2 right-2  opacity-10 blur-3xl "></div>
+
+    <!-- scripts -->
+    <script src="../scripts/singup.js"></script>
 
 </body>
 
