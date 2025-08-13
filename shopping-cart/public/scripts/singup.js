@@ -1,16 +1,15 @@
 //--------------------------------------------Variables
-const $ = document
-const userNameInput = $.querySelector('#user-name')
-const emailInput = $.querySelector('#email-input')
-const passwordInput = $.querySelector('#password')
-const userNameWrapper = $.querySelector('#user-name-wrapper')
-const emailWrapper = $.querySelector('#email-wrapper')
-const passwordWrapper = $.querySelector('#password-wrapper')
-const uppercaseElemCheckPass = $.querySelector('#uppercase')
-const lowercaseElemCheckPass = $.querySelector('#lowercase')
-const characterElemCheckPass = $.querySelector('#character')
-const numberElemCheckPass = $.querySelector('#number')
-const singupBtn = $.querySelector('#btn')
+const userNameInput = document.querySelector('#user-name')
+const emailInput = document.querySelector('#email-input')
+const passwordInput = document.querySelector('#password')
+const userNameWrapper = document.querySelector('#user-name-wrapper')
+const emailWrapper = document.querySelector('#email-wrapper')
+const passwordWrapper = document.querySelector('#password-wrapper')
+const uppercaseElemCheckPass = document.querySelector('#uppercase')
+const lowercaseElemCheckPass = document.querySelector('#lowercase')
+const characterElemCheckPass = document.querySelector('#character')
+const numberElemCheckPass = document.querySelector('#number')
+const singupBtn = document.querySelector('#btn')
 const rgxUserName = /^[A-Za-zآ-ی][A-Za-zآ-ی0-9 ]{0,49}$/;
 const rgxEmail = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
 const rgxPassUppercase = /(?:.*[A-Z])/;
@@ -119,4 +118,5 @@ emailInput.addEventListener('input', emailHandler)
 emailInput.addEventListener('blur', () => {
     inputHandler('email')
 })
+
 
