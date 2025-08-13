@@ -88,7 +88,9 @@ const removeMassage = (id, btn) => {
 }
 //Check local storage, if it is dark, enable dark.
 const darkModeHandler = () => {
-    theme = localStorage.getItem('theme') && 'light'
+    theme = localStorage.getItem('theme') || 'light'
+    console.log(theme);
+
     if (theme === 'dark') {
         document.documentElement.classList.add('dark')
     } else {
