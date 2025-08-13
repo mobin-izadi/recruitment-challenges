@@ -1,3 +1,4 @@
+import { logged } from "./utils.js"
 //--------------------------------------------Variables
 const userNameInput = document.querySelector('#user-name')
 const emailInput = document.querySelector('#email-input')
@@ -9,7 +10,7 @@ const uppercaseElemCheckPass = document.querySelector('#uppercase')
 const lowercaseElemCheckPass = document.querySelector('#lowercase')
 const characterElemCheckPass = document.querySelector('#character')
 const numberElemCheckPass = document.querySelector('#number')
-const singupBtn = document.querySelector('#btn')
+const singupBtn = document.querySelector('#singup-btn')
 const rgxUserName = /^[A-Za-zآ-ی][A-Za-zآ-ی0-9 ]{0,49}$/;
 const rgxEmail = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
 const rgxPassUppercase = /(?:.*[A-Z])/;
@@ -68,7 +69,7 @@ const userNameHandler = () => {
 }
 // Check if the email is correct.
 const emailHandler = () => {
-    console.log('ok');
+
 
     if (rgxEmail.test(emailInput.value)) {
         isEmailCorrect = true
@@ -102,10 +103,47 @@ const inputHandler = (inputName) => {
         }
     }
 }
+// Register a new user and redirect them to the home page.
+const registration = (event) => {
+    event.preventDefault()
+
+    if (isPassCorrect && isUserCorrect && isEmailCorrect) {
+        let userId = crypto.randomUUID();
+        let userName = userNameInput.value.trim();
+        let userEmail = emailInput.value.trim();
+        let UserPass = passwordInput.value.trim();
+        let newUser = {
+            id: userId,
+            userName,
+            userEmail,
+            UserPass
+        }
+
+        let users = JSON.parse(localStorage.getItem('users')) || []
+        users.push(newUser)
+        localStorage.setItem('users', JSON.stringify(users))
+        localStorage.setItem('isLogin', true)
+        massage(true, 'ثبت نام شما با موفقیت انجام شد')
+        setTimeout(() => {
+            window.location.href = '../index.html'
+        }, 3000);
+
+    } else if (!isPassCorrect) {
+        massage(false, 'لطفا پسورد را مطابق الگو انتخاب کنید')
+    } else if (!isUserCorrect) {
+        massage(false, 'نام کاربری نمیتواند شامل کارکتر ها باشد و حداکثر تعداد حروف 49  می باشد')
+    } else if (!isEmailCorrect) {
+        massage(false, 'لطفا ایمیل را به صورت درست وارد کنید')
+    }
+
+}
 
 
 
 //--------------------------------------------Events
+window.addEventListener('load', () => {
+    logged('../index.html')
+})
 passwordInput.addEventListener('input', passwordCheckHandler)
 passwordInput.addEventListener('blur', () => {
     inputHandler('pass')
@@ -118,5 +156,6 @@ emailInput.addEventListener('input', emailHandler)
 emailInput.addEventListener('blur', () => {
     inputHandler('email')
 })
+singupBtn.addEventListener('click', event => registration(event))
 
 

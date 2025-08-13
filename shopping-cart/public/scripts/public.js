@@ -33,7 +33,7 @@ const massage = (type, msg) => {
                     </g>
                 </svg>
             </div>
-            <p class="my-2 text-sm leading-6 font-light">
+            <p class="my-2 text-sm leading-6 font-light text-center">
              ${msg}
             </p>
         </div>
@@ -57,7 +57,7 @@ const massage = (type, msg) => {
                     </g>
                 </svg>
             </div>
-            <p class="my-2 text-sm leading-6 font-light">
+            <p class="my-2 text-sm leading-6 font-light text-center">
                   ${msg}
             </p>
         </div>
@@ -89,7 +89,7 @@ const removeMassage = (id, btn) => {
 //Check local storage, if it is dark, enable dark.
 const darkModeHandler = () => {
     theme = localStorage.getItem('theme') || 'light'
-    console.log(theme);
+
 
     if (theme === 'dark') {
         document.documentElement.classList.add('dark')
