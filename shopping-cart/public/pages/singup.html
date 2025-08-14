@@ -10,7 +10,7 @@
 </head>
 
 <body
-    class="font-yekan bg-gray-100 dark:bg-gray-800 dark:text-white min-h-screen flex justify-center items-center text-gray-950 relative ">
+    class="font-yekan bg-gray-100 dark:bg-gray-800 dark:text-white min-h-screen flex justify-center items-center text-gray-950 relative px-4 sm:p-0 ">
     <!-- svg icons -->
     <svg class="hidden">
         <symbol id="user" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -84,7 +84,7 @@
 
     </div>
     <!-- main -->
-    <main class="flex flex-col justify-center items-center gap-4">
+    <main class="flex flex-col justify-center items-center gap-4 relative z-40">
         <!-- logo -->
         <div class="flex items-center gap-1">
             <div class="w-20">
@@ -94,7 +94,7 @@
         </div>
 
         <!-- Registration form -->
-        <form action="" class="w-96  bg-white dark:bg-gray-700 rounded-xl shadow py-10 px-6">
+        <form action="" class="w-full sm:w-96  bg-white dark:bg-gray-700 rounded-xl shadow py-10 px-6">
             <p class="text-center font-black text-xl">عضویت</p>
             <p class="mt-5 mb-4 text-center">قبلا ثبت نام کردید
                 <a href="./login.html" class="text-blue-500 underline font-bold">وارد شوید</a>
@@ -169,7 +169,7 @@
         </form>
 
         <!-- Description of the rules -->
-        <div class="">
+        <div class="text-center">
             با عضویت در سایت، تمامی قوانین و شرایط استفاده از خدمات
             <a href="../index.html" class="text-blue-500 font-black"> باگ استور</a>
             را پذیرفته اید.
@@ -177,8 +177,9 @@
 
     </main>
     <!-- Background effect -->
-    <div class="w-96 h-96 bg-red-700 rounded-full fixed top-2 left-2  opacity-10 blur-3xl "></div>
-    <div class="w-96 h-96 bg-blue-700 rounded-full fixed bottom-2 right-2  opacity-10 blur-3xl "></div>
+    <div class="w-96 h-96 bg-red-700 rounded-full fixed top-2 left-2  opacity-10 blur-3xl  z-30"></div>
+    <div class="w-96 h-96 bg-blue-700 rounded-full fixed bottom-2 right-2  opacity-10 blur-3xl z-30">
+    </div>
 
     <!-- scripts -->
     <script src="../scripts/public.js"></script>

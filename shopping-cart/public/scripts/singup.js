@@ -113,7 +113,7 @@ const registration = (event) => {
         let userEmail = emailInput.value.trim();
         let UserPass = passwordInput.value.trim();
         let newUser = {
-            id: userId,
+            userId,
             userName,
             userEmail,
             UserPass
