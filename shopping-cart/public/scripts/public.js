@@ -12,7 +12,7 @@ const massage = (type, msg) => {
     ++indexMassage
     if (type) {
         notific = `
-        <div class="bg-white dark:bg-gray-700 dark:text-white  rounded-xl shadow p-2 w-96 min-h-32 border border-green-500" id="${indexMassage}">
+        <div class="bg-white dark:bg-gray-700 dark:text-white  rounded-xl shadow p-2 w-72 sm:w-96 min-h-32 border border-green-500" id="${indexMassage}">
             <svg class="w-6 h-6 cursor-pointer transition-all hover:text-green-500 dark:hover:text-blue-500" onclick="removeMassage(${indexMassage},true)">
                 <use href="#close"></use>
             </svg>
@@ -42,7 +42,7 @@ const massage = (type, msg) => {
     } else {
         notific = `
         
-        <div class="bg-white dark:bg-gray-700 dark:text-white  rounded-xl shadow p-2 w-96 min-h-32 border border-red-500" id="${indexMassage}">
+        <div class="bg-white dark:bg-gray-700 dark:text-white  rounded-xl shadow p-2 w-72 sm:w-96 min-h-32 border border-red-500" id="${indexMassage}">
             <svg class="w-6 h-6 cursor-pointer transition-all hover:text-green-500 dark:hover:text-blue-500" onclick="removeMassage(${indexMassage},true)">
                 <use href="#close"></use>
             </svg>
