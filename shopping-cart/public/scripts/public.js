@@ -13,9 +13,18 @@ const massage = (type, msg) => {
     if (type) {
         notific = `
         <div class="bg-white dark:bg-gray-700 dark:text-white  rounded-xl shadow p-2 w-72 sm:w-96 min-h-32 border border-green-500" id="${indexMassage}">
-            <svg class="w-6 h-6 cursor-pointer transition-all hover:text-green-500 dark:hover:text-blue-500" onclick="removeMassage(${indexMassage},true)">
-                <use href="#close"></use>
-            </svg>
+        <svg class="w-6 h-6 cursor-pointer transition-all hover:text-green-500 dark:hover:text-blue-500" onclick="removeMassage(${indexMassage},true)" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+            <g id="SVGRepo_iconCarrier">
+                <path d="M9.16998 14.83L14.83 9.17004" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                    stroke-linejoin="round"></path>
+                <path d="M14.83 14.83L9.16998 9.17004" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                    stroke-linejoin="round"></path>
+                <path d="M9 22H15C20 22 22 20 22 15V9C22 4 20 2 15 2H9C4 2 2 4 2 9V15C2 20 4 22 9 22Z"
+                    stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+            </g>
+        </svg>
             <div class="flex justify-center">
                 <svg class="h-10 w-10 text-green-500" fill="currentColor" version="1.1" id="Layer_1"
                     xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512"
@@ -43,9 +52,18 @@ const massage = (type, msg) => {
         notific = `
         
         <div class="bg-white dark:bg-gray-700 dark:text-white  rounded-xl shadow p-2 w-72 sm:w-96 min-h-32 border border-red-500" id="${indexMassage}">
-            <svg class="w-6 h-6 cursor-pointer transition-all hover:text-green-500 dark:hover:text-blue-500" onclick="removeMassage(${indexMassage},true)">
-                <use href="#close"></use>
-            </svg>
+            <svg class="w-6 h-6 cursor-pointer transition-all hover:text-green-500 dark:hover:text-blue-500" onclick="removeMassage(${indexMassage},true)" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+            <g id="SVGRepo_iconCarrier">
+                <path d="M9.16998 14.83L14.83 9.17004" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                    stroke-linejoin="round"></path>
+                <path d="M14.83 14.83L9.16998 9.17004" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                    stroke-linejoin="round"></path>
+                <path d="M9 22H15C20 22 22 20 22 15V9C22 4 20 2 15 2H9C4 2 2 4 2 9V15C2 20 4 22 9 22Z"
+                    stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+            </g>
+        </svg>
             <div class="flex justify-center">
                 <svg class="w-12 h-12 text-red-500" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <g id="SVGRepo_bgCarrier" stroke-width="0"></g>

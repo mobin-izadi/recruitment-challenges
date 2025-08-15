@@ -6,4 +6,8 @@ const logged = (address) => {
     }
 }
 
-export { logged }
+const getAllUsers = () => {
+    let users = JSON.parse(localStorage.getItem('users'))
+    return users
+}
+export { logged, getAllUsers }

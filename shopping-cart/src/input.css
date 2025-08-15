@@ -42,13 +42,7 @@ input {
 
 @custom-variant dark (&:where(.dark, .dark *));
 
-.input-valid {
-    @apply border-green-500;
-}
 
-.input-invalid {
-    @apply border-red-500;
-}
 
 @theme {
     --font-yekan: "IRANYekanX", sans-serif;

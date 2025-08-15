@@ -69,8 +69,6 @@ const userNameHandler = () => {
 }
 // Check if the email is correct.
 const emailHandler = () => {
-
-
     if (rgxEmail.test(emailInput.value)) {
         isEmailCorrect = true
     } else {
