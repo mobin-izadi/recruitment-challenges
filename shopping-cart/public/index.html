@@ -109,7 +109,7 @@
                 <!-- search -->
                 <div class="bg-gray-100 dark:bg-gray-600 flex justify-between items-center rounded-xl h-14 px-2 w-96">
                     <input type="text" placeholder="دنبال چی می گردی؟ "
-                        class="w-full h-full placeholder-text-gray-400 dark:placeholder-text-gray-500">
+                        class="w-full h-full placeholder-text-gray-400 dark:placeholder-text-gray-500 ">
                     <svg class="w-6 h-6 text-gray-400">
                         <use href="#search"></use>
                     </svg>
@@ -118,13 +118,14 @@
                 <div class="flex items-center gap-3">
                     <!-- dark mode btn -->
                     <div class="bg-gray-100 dark:bg-gray-800 w-14 h-14 rounded-full flex justify-center items-center">
-                        <svg class="w-6 h-6 cursor-pointer text-gray-500">
-                            <use href="#moon"></use>
+                        <svg class="w-6 h-6 cursor-pointer text-gray-500 dark:text-inherit" id="dark-mode-btn">
+                            <use href="#moon" class="block dark:hidden"></use>
+                            <use href="#sun" class="hidden dark:block"></use>
                         </svg>
                     </div>
                     <!-- cart -->
                     <div class="bg-gray-100 dark:bg-gray-800 w-14 h-14 rounded-full flex justify-center items-center">
-                        <svg class="w-6 h-6 cursor-pointer text-gray-500">
+                        <svg class="w-6 h-6 cursor-pointer text-gray-500 dark:text-inherit">
                             <use href="#cart"></use>
                         </svg>
                     </div>

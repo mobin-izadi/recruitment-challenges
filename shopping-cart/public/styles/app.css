@@ -599,6 +599,16 @@
       padding: calc(var(--spacing) * 0);
     }
   }
+  .dark\:block {
+    &:where(.dark, .dark *) {
+      display: block;
+    }
+  }
+  .dark\:hidden {
+    &:where(.dark, .dark *) {
+      display: none;
+    }
+  }
   .dark\:border-gray-600 {
     &:where(.dark, .dark *) {
       border-color: var(--color-gray-600);
@@ -617,6 +627,16 @@
   .dark\:bg-gray-800 {
     &:where(.dark, .dark *) {
       background-color: var(--color-gray-800);
+    }
+  }
+  .dark\:\!text-white {
+    &:where(.dark, .dark *) {
+      color: var(--color-white) !important;
+    }
+  }
+  .dark\:text-inherit {
+    &:where(.dark, .dark *) {
+      color: inherit;
     }
   }
   .dark\:text-white {
