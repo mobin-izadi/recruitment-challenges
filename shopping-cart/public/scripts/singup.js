@@ -1,4 +1,4 @@
-import { logged } from "./utils.js"
+import { logged, allUserName, allEmail } from "./utils.js"
 //--------------------------------------------Variables
 const userNameInput = document.querySelector('#user-name')
 const emailInput = document.querySelector('#email-input')
@@ -20,6 +20,8 @@ const rgxPassNumber = /\d/;
 let isPassCorrect = false
 let isUserCorrect = false
 let isEmailCorrect = false
+let userNameList = allUserName() || []
+let userEmailList = allEmail() || []
 
 
 //--------------------------------------------Functions
@@ -61,11 +63,14 @@ const passwordCheckHandler = () => {
 }
 // Check if the username is correct.
 const userNameHandler = () => {
+
     if (rgxUserName.test(userNameInput.value)) {
         isUserCorrect = true
     } else {
         isUserCorrect = false
     }
+
+
 }
 // Check if the email is correct.
 const emailHandler = () => {
@@ -86,6 +91,7 @@ const inputHandler = (inputName) => {
     }
 
     if (inputName === 'user-name') {
+
         if (isUserCorrect) {
             userNameWrapper.classList.add('!border-green-500');
         } else {
@@ -148,10 +154,24 @@ passwordInput.addEventListener('blur', () => {
 })
 userNameInput.addEventListener('input', userNameHandler)
 userNameInput.addEventListener('blur', () => {
+
+    let isUserNameInDatabase = userNameList.some(username => username.trim().toLowerCase() == userNameInput.value.trim().toLowerCase())
+    if (isUserNameInDatabase) {
+        massage(false, 'این نام کاربری قبلا ثبت شده است.')
+        isUserCorrect = false
+    }
     inputHandler('user-name')
+
+
+
 })
 emailInput.addEventListener('input', emailHandler)
 emailInput.addEventListener('blur', () => {
+    let isEmailInDatabase = userEmailList.some(email => email.trim().toLowerCase() == emailInput.value.trim().toLowerCase())
+    if (isEmailInDatabase) {
+        massage(false, 'این ایمیل قبلا ثبت شده است.')
+        isEmailCorrect = false
+    }
     inputHandler('email')
 })
 singupBtn.addEventListener('click', event => registration(event))
