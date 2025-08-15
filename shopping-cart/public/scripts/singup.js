@@ -1,5 +1,9 @@
 import { logged, allUserName, allEmail } from "./utils.js"
 //--------------------------------------------Variables
+const nameInput = document.querySelector('#first-name')
+const nameWrapper = document.querySelector('#first-name-wrapper')
+const lastNameInput = document.querySelector('#last-name')
+const lastNameWrapper = document.querySelector('#last-name-wrapper')
 const userNameInput = document.querySelector('#user-name')
 const emailInput = document.querySelector('#email-input')
 const passwordInput = document.querySelector('#password')
@@ -11,6 +15,7 @@ const lowercaseElemCheckPass = document.querySelector('#lowercase')
 const characterElemCheckPass = document.querySelector('#character')
 const numberElemCheckPass = document.querySelector('#number')
 const singupBtn = document.querySelector('#singup-btn')
+const rgxName = /^[A-Za-zآ-ی][A-Za-zآ-ی ]{0,49}$/;
 const rgxUserName = /^[A-Za-zآ-ی][A-Za-zآ-ی0-9 ]{0,49}$/;
 const rgxEmail = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
 const rgxPassUppercase = /(?:.*[A-Z])/;
@@ -19,6 +24,8 @@ const rgxPassCharacter = /[!@#$%^&*(),.?":{}|<>]/;
 const rgxPassNumber = /\d/;
 let isPassCorrect = false
 let isUserCorrect = false
+let isFirstNameCorrect = false
+let isLastNameCorrect = false
 let isEmailCorrect = false
 let userNameList = allUserName() || []
 let userEmailList = allEmail() || []
@@ -61,6 +68,28 @@ const passwordCheckHandler = () => {
     }
 
 }
+// Check if the first Name is correct.
+const firstNameHandler = () => {
+
+    if (rgxName.test(nameInput.value)) {
+        isFirstNameCorrect = true
+    } else {
+        isFirstNameCorrect = false
+    }
+
+
+}
+// Check if the first Name is correct.
+const lastNameHandler = () => {
+
+    if (rgxName.test(lastNameInput.value)) {
+        isLastNameCorrect = true
+    } else {
+        isLastNameCorrect = false
+    }
+
+
+}
 // Check if the username is correct.
 const userNameHandler = () => {
 
@@ -90,6 +119,22 @@ const inputHandler = (inputName) => {
         }
     }
 
+    if (inputName === 'user-first-name') {
+
+        if (isFirstNameCorrect) {
+            nameWrapper.classList.add('!border-green-500');
+        } else {
+            nameWrapper.classList.remove('!border-green-500');
+        }
+    }
+    if (inputName === 'user-last-name') {
+
+        if (isLastNameCorrect) {
+            lastNameWrapper.classList.add('!border-green-500');
+        } else {
+            lastNameWrapper.classList.remove('!border-green-500');
+        }
+    }
     if (inputName === 'user-name') {
 
         if (isUserCorrect) {
@@ -111,12 +156,16 @@ const inputHandler = (inputName) => {
 const registration = (event) => {
     event.preventDefault()
 
-    if (isPassCorrect && isUserCorrect && isEmailCorrect) {
+    if (isFirstNameCorrect && isLastNameCorrect && isPassCorrect && isUserCorrect && isEmailCorrect) {
         let userId = crypto.randomUUID();
+        let name = nameInput.value.trim();
+        let lastName = lastNameInput.value.trim();
         let userName = userNameInput.value.trim();
         let userEmail = emailInput.value.trim();
         let UserPass = passwordInput.value.trim();
         let newUser = {
+            name,
+            lastName,
             userId,
             userName,
             userEmail,
@@ -136,6 +185,10 @@ const registration = (event) => {
         massage(false, 'لطفا پسورد را مطابق الگو انتخاب کنید')
     } else if (!isUserCorrect) {
         massage(false, 'نام کاربری نمیتواند شامل کارکتر ها باشد و حداکثر تعداد حروف 49  می باشد')
+    } else if (!isFirstNameCorrect) {
+        massage(false, 'نام  نمیتواند شامل کارکتر ها باشد و حداکثر تعداد حروف 49  می باشد')
+    } else if (!isLastNameCorrect) {
+        massage(false, 'نام خانوادگی  نمیتواند شامل کارکتر ها باشد و حداکثر تعداد حروف 49  می باشد')
     } else if (!isEmailCorrect) {
         massage(false, 'لطفا ایمیل را به صورت درست وارد کنید')
     }
@@ -151,6 +204,14 @@ window.addEventListener('load', () => {
 passwordInput.addEventListener('input', passwordCheckHandler)
 passwordInput.addEventListener('blur', () => {
     inputHandler('pass')
+})
+nameInput.addEventListener('input', firstNameHandler)
+nameInput.addEventListener('blur', () => {
+    inputHandler('user-first-name')
+})
+lastNameInput.addEventListener('input', lastNameHandler)
+lastNameInput.addEventListener('blur', () => {
+    inputHandler('user-last-name')
 })
 userNameInput.addEventListener('input', userNameHandler)
 userNameInput.addEventListener('blur', () => {
