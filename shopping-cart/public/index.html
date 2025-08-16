@@ -90,6 +90,44 @@
                     fill="currentColor"></path>
             </g>
         </symbol>
+        <symbol id="delete" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+            <g id="SVGRepo_iconCarrier">
+                <path d="M10 11V17" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round">
+                </path>
+                <path d="M14 11V17" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round">
+                </path>
+                <path d="M4 7H20" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                </path>
+                <path d="M6 7H12H18V18C18 19.6569 16.6569 21 15 21H9C7.34315 21 6 19.6569 6 18V7Z" stroke="currentColor"
+                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                <path d="M9 5C9 3.89543 9.89543 3 11 3H13C14.1046 3 15 3.89543 15 5V7H9V5Z" stroke="currentColor"
+                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+            </g>
+        </symbol>
+        <symbol id="arrow-up" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" xml:space="preserve" fill="currentColor">
+            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+            <g id="SVGRepo_iconCarrier">
+                <path style="fill:currentColor;"
+                    d="M503.265,330.918L270.532,144.737c-8.501-6.8-20.579-6.8-29.075,0L8.736,330.918 c-7.719,6.173-10.695,16.55-7.422,25.876c3.271,9.326,12.077,15.569,21.96,15.569h465.453c9.883,0,18.689-6.242,21.96-15.569 C513.958,347.466,510.982,337.091,503.265,330.918z">
+                </path>
+            </g>
+        </symbol>
+        <symbol id="off" fill="currentColor" viewBox="-5.5 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg">
+            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+            <g id="SVGRepo_iconCarrier">
+                <title>off</title>
+                <path
+                    d="M14.344 7.375c3.688 1.563 6.281 5.219 6.281 9.5 0 5.656-4.625 10.313-10.313 10.313-5.656 0-10.313-4.656-10.313-10.313 0-4.281 2.594-7.938 6.313-9.5v3.469c-1.938 1.313-3.25 3.5-3.25 6.031 0 4 3.25 7.25 7.25 7.25s7.25-3.25 7.25-7.25c0-2.531-1.281-4.719-3.219-6.031v-3.469zM12.031 16.813v-12.031h-3.438v12.031h3.438z">
+                </path>
+            </g>
+        </symbol>
     </svg>
     <!-- Message wrapper -->
     <div class="massage-wrapper fixed z-50 top-3 left-3 flex flex-col gap-2">
@@ -102,12 +140,16 @@
             <div class="flex justify-between items-center gap-1">
                 <!-- logo -->
                 <div class="flex items-center gap-1">
-                    <div class="w-20"><img src="images/logo.png" alt="logo shop" class="w-full h-full object-cover">
+                    <div class="w-16 sm:w-20"><img src="images/logo.png" alt="logo shop"
+                            class="w-full h-full object-cover">
                     </div>
-                    <h1 class="font-black text-3xl mt-2"><span class="text-blue-500">بـــــــاگ</span> استور</h1>
+                    <h1 class="font-black text-3xl mt-2 hidden sm:block"><span class="text-blue-500">بـــــــاگ</span>
+                        استور</h1>
                 </div>
                 <!-- search -->
-                <div class="bg-gray-100 dark:bg-gray-600 flex justify-between items-center rounded-xl h-14 px-2 w-96">
+                <div
+                    class="bg-gray-100 dark:bg-gray-600 hidden lg:flex justify-between items-center rounded-xl h-14 px-2 w-96 relative">
+
                     <input type="text" placeholder="دنبال چی می گردی؟ "
                         class="w-full h-full placeholder-text-gray-400 dark:placeholder-text-gray-500 ">
                     <svg class="w-6 h-6 text-gray-400">
@@ -116,31 +158,136 @@
                 </div>
                 <!-- header-right -->
                 <div class="flex items-center gap-3">
+                    <!-- search btn -->
+                    <div
+                        class="bg-gray-100 dark:bg-gray-800 w-10 h-10 sm:w-14 sm:h-14 rounded-full flex justify-center items-center lg:hidden">
+                        <svg class="w-6 h-6 cursor-pointer text-gray-500 dark:text-inherit">
+                            <use href="#search"></use>
+
+                        </svg>
+                    </div>
                     <!-- dark mode btn -->
-                    <div class="bg-gray-100 dark:bg-gray-800 w-14 h-14 rounded-full flex justify-center items-center">
+                    <div
+                        class="bg-gray-100 dark:bg-gray-800 w-10 h-10 sm:w-14 sm:h-14 rounded-full flex justify-center items-center">
                         <svg class="w-6 h-6 cursor-pointer text-gray-500 dark:text-inherit" id="dark-mode-btn">
                             <use href="#moon" class="block dark:hidden"></use>
                             <use href="#sun" class="hidden dark:block"></use>
                         </svg>
                     </div>
                     <!-- cart -->
-                    <div class="bg-gray-100 dark:bg-gray-800 w-14 h-14 rounded-full flex justify-center items-center">
+                    <div
+                        class="bg-gray-100 dark:bg-gray-800 w-10 h-10 sm:w-14 sm:h-14 rounded-full flex justify-center items-center relative ">
+                        <div
+                            class="absolute -top-1 -right-1 w-5 h-5 rounded-full bg-green-500 border border-white text-xs flex justify-center items-center leading-3 text-white">
+                            1
+                        </div>
                         <svg class="w-6 h-6 cursor-pointer text-gray-500 dark:text-inherit">
                             <use href="#cart"></use>
                         </svg>
+                        <!-- cart-wrapper -->
+                        <div
+                            class="absolute w-96 min-h-32 rounded-xl left-0 top-[72px] bg-white dark:bg-gray-800 overflow-hidden dark:border dark:border-gray-700 hidden">
+                            <!-- cart-head -->
+                            <div class="flex justify-between items-center px-4 bg-blue-100 dark:bg-gray-700  h-16">
+                                <span class="font-bold  text-blue-500 dark:text-white"> سبد خرید من</span>
+                                <p class="text-gray-600 dark:text-white font-bold text-sm">
+                                    <span>0</span>
+                                    محصول
+                                </p>
+                            </div>
+                            <!-- car-main -->
+                            <ul class="space-y-2 px-4 py-2">
+                                <li class="flex items-center justify-between">
+                                    <img src="images/products/1.jpg" class="w-24 h-24 object-cover" alt="">
+                                    <div class="">
+                                        <p class="line-clamp-1"> لپ تاپ لپ تاپ لپ تاپ</p>
+                                        <p class="line-clamp-1 text-sm text-gray-500 my-1"> 500,000,000
+                                            <span>تومان</span>
+                                        </p>
+                                    </div>
+                                    <div class="bg-gray-100 dark:bg-gray-600 w-10  rounded p-1 relative">
+                                        <input type="number" class="w-[calc(100%-12px)] h-full text-center " min="0"
+                                            max="200" value="1">
+                                        <div
+                                            class="flex flex-col justify-center items-center gap-0.5 bg-white absolute top-0.5 bottom-0.5 left-0.5 w-3">
+                                            <svg class="w-2.5 h-2.5  cursor-pointer">
+                                                <use href="#arrow-up"></use>
+                                            </svg>
+                                            <svg class="w-2.5 h-2.5 cursor-pointer rotate-180">
+                                                <use href="#arrow-up"></use>
+                                            </svg>
+                                        </div>
+                                    </div>
+
+                                    <svg class="w-5 h-5 text-red-500">
+                                        <use href="#delete"></use>
+                                    </svg>
+                                </li>
+
+
+                            </ul>
+
+                            <!-- cart-footer -->
+                            <div class=" pb-4 border-t border-gray-200 dark:border-gray-600 mx-4">
+                                <div class="flex justify-between items-center my-5">
+                                    <span> مبلغ قابل پرداخت:</span>
+                                    <p>
+                                        <span class="font-bold">0</span>
+                                        <span>تومان</span>
+                                    </p>
+                                </div>
+                                <a href=""
+                                    class=" block h-14 bg-green-600 text-white rounded-xl  text-center leading-14 font-bold">
+                                    مشاهده سبد خرید
+                                </a>
+                            </div>
+
+
+                        </div>
                     </div>
                     <!-- login btn -->
                     <a href="./pages/login.html"
-                        class="  bg-blue-400 h-14 rounded-xl px-4 cursor-pointer text-white flex items-center gap-2">
-                        <svg class="w-6 h-6 ">
+                        class="  bg-blue-400 h-14 rounded-xl px-2 sm:px-4 cursor-pointer text-white flex items-center gap-2 text-sm sm:text-base ml-1 sm:ml-0 ">
+                        <svg class="w-6 h-6 hidden sm:block ">
                             <use href="#user"></use>
                         </svg>
                         ورود | عضویت
                     </a>
+                    <!-- panel -->
+                    <div
+                        class="bg-gray-100 dark:bg-gray-800 w-10 h-10 sm:w-14 sm:h-14 rounded-full flex justify-center items-center relative hidden">
+                        <svg class="w-6 h-6 cursor-pointer text-gray-500 dark:text-inherit">
+                            <use href="#user"></use>
+                        </svg>
+                        <!-- panel-wrapper -->
+                        <div
+                            class="absolute w-56 min-h-32 rounded-xl left-0 top-[72px] bg-white dark:bg-gray-800 overflow-hidden dark:border dark:border-gray-700 py-4 px-3 ">
+                            <div
+                                class="flex items-center gap-2 border-b border-b-gray-200 dark:border-b-gray-600 pb-2 ">
+                                <div class="size-14 rounded-full overflow-hidden bg-white shrink-0  ">
+                                    <img src="images/user.jpg" alt="" class="w-full h-full object-cover">
+                                </div>
+                                <p class="line-clamp-2 leading-7 ">سلام <span>مبین</span> 😎</p>
+
+                            </div>
+
+                            <button class="mt-3 flex items-center gap-2 cursor-pointer">
+                                <svg class="w-8 h-8 dark:text-white">
+                                    <use href="#off"></use>
+                                </svg>
+                                خروج
+                            </button>
+
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>
     </header>
+
+    <!-- effect blue -->
+    <div class="fixed inset-0 bg-black/5 backdrop-blur-[2px] blur-sm hidden  "></div>
 
     <!-- scripts -->
     <script src="scripts/public.js"></script>
