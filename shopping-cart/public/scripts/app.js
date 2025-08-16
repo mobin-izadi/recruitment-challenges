@@ -73,7 +73,7 @@ const cartPanelHandler = (action) => {
         cartListWrapper.classList.add('hidden')
     }
 }
-// 
+//  Opens and closes the search mobile Wrapper
 const searchMobileHandler = (action) => {
     console.log(action);
 
