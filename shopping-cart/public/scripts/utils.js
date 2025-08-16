@@ -78,4 +78,23 @@ const products = [
     { id: 50, category: "کتاب", title: "کتاب Python Crash Course", shortDescription: "شروع سریع و کاربردی برنامه‌نویسی با پایتون", image: "images/products/50.jpg", stock: 20, price: 820_000, rating: 4.9 }
 ];
 
-export { logged, getAllUsers, allUserName, allEmail }
+// remove loading
+const removeLoadgin = () => {
+    const loadingIcon = document.querySelector('#loading')
+    const blurEffect = document.querySelector('.blur-effect')
+    loadingIcon.classList.add('hidden')
+    blurEffect.classList.add('hidden')
+}
+// Check if the user is online or not.
+const isLoginUser = () => {
+    let isLogin = localStorage.getItem('isLogin') || 'false'
+    isLogin = isLogin == 'true' ? true : false;
+    return isLogin
+}
+// 
+const getUserInfo = () => {
+    let user = JSON.parse(localStorage.getItem('user')) || {}
+    return user
+}
+
+export { logged, getAllUsers, allUserName, allEmail, removeLoadgin, isLoginUser, getUserInfo }

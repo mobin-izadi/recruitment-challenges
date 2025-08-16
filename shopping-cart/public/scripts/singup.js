@@ -79,7 +79,7 @@ const firstNameHandler = () => {
 
 
 }
-// Check if the first Name is correct.
+// Check if the last Name is correct.
 const lastNameHandler = () => {
 
     if (rgxName.test(lastNameInput.value)) {
@@ -171,7 +171,7 @@ const registration = (event) => {
             userEmail,
             UserPass
         }
-
+        localStorage.setItem('user', JSON.stringify(newUser))
         let users = JSON.parse(localStorage.getItem('users')) || []
         users.push(newUser)
         localStorage.setItem('users', JSON.stringify(users))

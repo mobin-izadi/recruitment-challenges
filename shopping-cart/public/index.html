@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="styles/app.css">
 </head>
 
-<body class="font-yekan bg-gray-100 dark:bg-gray-800 dark:text-white  text-gray-950 relative">
+<body class="font-yekan bg-gray-100 dark:bg-gray-800 dark:text-white  text-gray-950 relative overflow-x-hidden">
     <!-- svg icons -->
     <svg class="hidden">
         <symbol id="close" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -152,7 +152,7 @@
 
                     <input type="text" placeholder="دنبال چی می گردی؟ "
                         class="w-full h-full placeholder-text-gray-400 dark:placeholder-text-gray-500 ">
-                    <svg class="w-6 h-6 text-gray-400">
+                    <svg class="w-6 h-6 text-gray-400 cursor-pointer">
                         <use href="#search"></use>
                     </svg>
                 </div>
@@ -160,8 +160,8 @@
                 <div class="flex items-center gap-3">
                     <!-- search btn -->
                     <div
-                        class="bg-gray-100 dark:bg-gray-800 w-10 h-10 sm:w-14 sm:h-14 rounded-full flex justify-center items-center lg:hidden">
-                        <svg class="w-6 h-6 cursor-pointer text-gray-500 dark:text-inherit">
+                        class="bg-gray-100 dark:bg-gray-800 w-10 h-10 sm:w-14 sm:h-14 rounded-full flex justify-center items-center lg:hidden search-mobile-btn-wrapper">
+                        <svg class="w-6 h-6 cursor-pointer text-gray-500 dark:text-inherit search-mobile-btn">
                             <use href="#search"></use>
 
                         </svg>
@@ -176,17 +176,17 @@
                     </div>
                     <!-- cart -->
                     <div
-                        class="bg-gray-100 dark:bg-gray-800 w-10 h-10 sm:w-14 sm:h-14 rounded-full flex justify-center items-center relative ">
+                        class="cart-wrapper bg-gray-100 dark:bg-gray-800 w-10 h-10 sm:w-14 sm:h-14 rounded-full flex justify-center items-center relative ">
                         <div
                             class="absolute -top-1 -right-1 w-5 h-5 rounded-full bg-green-500 border border-white text-xs flex justify-center items-center leading-3 text-white">
                             1
                         </div>
-                        <svg class="w-6 h-6 cursor-pointer text-gray-500 dark:text-inherit">
+                        <svg class="w-6 h-6 cursor-pointer text-gray-500 dark:text-inherit cart-btn">
                             <use href="#cart"></use>
                         </svg>
                         <!-- cart-wrapper -->
                         <div
-                            class="absolute w-96 min-h-32 rounded-xl left-0 top-[72px] bg-white dark:bg-gray-800 overflow-hidden dark:border dark:border-gray-700 hidden">
+                            class="fixed sm:absolute w-[340px] sm:w-96 min-h-screen sm:min-h-32 rounded-xl left-0 top-0 bottom-0 sm:bottom-auto sm:left-0 sm:top-[72px] bg-white dark:bg-gray-800 overflow-hidden dark:border dark:border-gray-700 hidden cart-list-wrapper">
                             <!-- cart-head -->
                             <div class="flex justify-between items-center px-4 bg-blue-100 dark:bg-gray-700  h-16">
                                 <span class="font-bold  text-blue-500 dark:text-white"> سبد خرید من</span>
@@ -198,9 +198,9 @@
                             <!-- car-main -->
                             <ul class="space-y-2 px-4 py-2">
                                 <li class="flex items-center justify-between">
-                                    <img src="images/products/1.jpg" class="w-24 h-24 object-cover" alt="">
+                                    <img src="images/products/1.jpg" class="size-20 sm:size-24 object-cover" alt="">
                                     <div class="">
-                                        <p class="line-clamp-1"> لپ تاپ لپ تاپ لپ تاپ</p>
+                                        <p class="line-clamp-1 text-sm sm:text-base"> لپ تاپ لپ تاپ لپ تاپ</p>
                                         <p class="line-clamp-1 text-sm text-gray-500 my-1"> 500,000,000
                                             <span>تومان</span>
                                         </p>
@@ -209,7 +209,7 @@
                                         <input type="number" class="w-[calc(100%-12px)] h-full text-center " min="0"
                                             max="200" value="1">
                                         <div
-                                            class="flex flex-col justify-center items-center gap-0.5 bg-white absolute top-0.5 bottom-0.5 left-0.5 w-3">
+                                            class="flex flex-col justify-center items-center gap-0.5 bg-white dark:bg-gray-700 absolute top-0.5 bottom-0.5 left-0.5 w-3">
                                             <svg class="w-2.5 h-2.5  cursor-pointer">
                                                 <use href="#arrow-up"></use>
                                             </svg>
@@ -247,7 +247,7 @@
                     </div>
                     <!-- login btn -->
                     <a href="./pages/login.html"
-                        class="  bg-blue-400 h-14 rounded-xl px-2 sm:px-4 cursor-pointer text-white flex items-center gap-2 text-sm sm:text-base ml-1 sm:ml-0 ">
+                        class="  bg-blue-400 h-14 rounded-xl px-2 sm:px-4 cursor-pointer text-white flex items-center gap-2 text-sm sm:text-base ml-1 sm:ml-0 login-btn ">
                         <svg class="w-6 h-6 hidden sm:block ">
                             <use href="#user"></use>
                         </svg>
@@ -255,23 +255,23 @@
                     </a>
                     <!-- panel -->
                     <div
-                        class="bg-gray-100 dark:bg-gray-800 w-10 h-10 sm:w-14 sm:h-14 rounded-full flex justify-center items-center relative hidden">
-                        <svg class="w-6 h-6 cursor-pointer text-gray-500 dark:text-inherit">
+                        class="bg-gray-100 dark:bg-gray-800 w-10 h-10 shadow ml-1 sm:w-14 sm:h-14 rounded-full flex justify-center items-center relative hidden panel-user-btn-wrapper">
+                        <svg class="w-6 h-6 cursor-pointer text-gray-500 dark:text-inherit panel-user-btn">
                             <use href="#user"></use>
                         </svg>
                         <!-- panel-wrapper -->
                         <div
-                            class="absolute w-56 min-h-32 rounded-xl left-0 top-[72px] bg-white dark:bg-gray-800 overflow-hidden dark:border dark:border-gray-700 py-4 px-3 ">
+                            class="absolute w-56 min-h-32 rounded-xl left-0 top-[56px] sm:top-[72px] bg-white dark:bg-gray-800 overflow-hidden dark:border dark:border-gray-700 py-4 px-3 hidden user-panel-wrapper ">
                             <div
                                 class="flex items-center gap-2 border-b border-b-gray-200 dark:border-b-gray-600 pb-2 ">
                                 <div class="size-14 rounded-full overflow-hidden bg-white shrink-0  ">
                                     <img src="images/user.jpg" alt="" class="w-full h-full object-cover">
                                 </div>
-                                <p class="line-clamp-2 leading-7 ">سلام <span>مبین</span> 😎</p>
+                                <p class="line-clamp-2 leading-7 ">سلام <span id="panel-user-name"></span> 😎</p>
 
                             </div>
 
-                            <button class="mt-3 flex items-center gap-2 cursor-pointer">
+                            <button class="mt-3 flex items-center gap-2 cursor-pointer log-out-btn">
                                 <svg class="w-8 h-8 dark:text-white">
                                     <use href="#off"></use>
                                 </svg>
@@ -287,7 +287,43 @@
     </header>
 
     <!-- effect blue -->
-    <div class="fixed inset-0 bg-black/5 backdrop-blur-[2px] blur-sm hidden  "></div>
+    <div class="fixed inset-0 bg-black/30 backdrop-blur-[2px] blur-sm z-30 blur-effect hidden "></div>
+    <!-- loading -->
+    <div class="fixed z-50 inset-0 w-full h-full flex justify-center items-center" id="loading">
+        <div role="status " class="flex flex-col gap-3  justify-center items-center">
+            <svg aria-hidden="true" class="w-8 h-8 text-gray-500 animate-spin dark:text-gray-600 fill-blue-600"
+                viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z"
+                    fill="currentColor" />
+                <path
+                    d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z"
+                    fill="currentFill" />
+            </svg>
+            <span>در حال بارگذاری...</span>
+        </div>
+
+    </div>
+    <!-- search mobile wrapper -->
+    <div class="fixed z-50 inset-0 w-full h-full flex justify-center items-center search-mobile-wrapper hidden ">
+        <div class="bg-white dark:bg-gray-700 py-4 px-2 border border-gray-200 dark:border-gray-600 rounded-xl">
+            <div class="flex justify-end">
+                <svg class="w-6 h-6 cursor-pointer search-mobile-close-btn">
+                    <use href="#close"></use>
+                </svg>
+            </div>
+
+            <div
+                class="bg-gray-100 dark:bg-gray-600 flex justify-between items-center rounded-xl h-14 px-2 w-[312px] sm:w-96 relative mt-4">
+
+                <input type="text" placeholder="دنبال چی می گردی؟ "
+                    class="w-full h-full placeholder-text-gray-400 dark:placeholder-text-gray-500  ">
+                <svg class="w-6 h-6 text-gray-400 cursor-pointer">
+                    <use href="#search"></use>
+                </svg>
+            </div>
+        </div>
+    </div>
 
     <!-- scripts -->
     <script src="scripts/public.js"></script>

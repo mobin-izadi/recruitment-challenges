@@ -28,7 +28,9 @@ const loginHandler = (event) => {
     let passUser = passwordInput.value.trim()
     let findUser = users.find(user => user.userName.toLowerCase() === userName.toLowerCase() && user.UserPass === passUser)
     if (findUser) {
+
         localStorage.setItem('isLogin', true);
+        localStorage.setItem('user', JSON.stringify(findUser))
         massage(true, `${findUser.name} عزیز خوش آمدی 😊❤️`)
         setTimeout(() => {
             window.location.href = '../index.html'
