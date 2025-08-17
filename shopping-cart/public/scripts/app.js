@@ -15,6 +15,7 @@ const searchMobileBtnWrapper = document.querySelector('.search-mobile-btn-wrappe
 const searchMobileBtn = document.querySelector('.search-mobile-btn')
 const searchMobileWrapper = document.querySelector('.search-mobile-wrapper')
 const searchMobileClsoeBtn = document.querySelector('.search-mobile-close-btn')
+const sidebarBtns = document.querySelectorAll('.sidebar-btn')
 //--------------------------------------------Functions
 // Checks for dark mode and changes the theme accordingly.
 const darkModeStatusHandler = () => {
@@ -85,11 +86,20 @@ const searchMobileHandler = (action) => {
         searchMobileWrapper.classList.add('hidden')
     }
 }
+// Opens and closes sidebars.
+const sidebarHandler = (btn) => {
+    btn.classList.toggle('rotate-180')
+    btn.parentElement.classList.toggle('pb-2')
+    btn.parentElement.classList.toggle('border-b')
+    btn.parentElement.nextElementSibling.classList.toggle('hidden')
+}
 //--------------------------------------------Events
 window.addEventListener('load', () => {
+
     createPageHandler()
     removeLoadgin()
 })
+
 darkModeBtn.addEventListener('click', darkModeStatusHandler)
 logOutBtn.addEventListener('click', logoutHandler)
 panelUserBtn.addEventListener('click', () => {
@@ -110,5 +120,10 @@ searchMobileBtn.addEventListener('click', () => {
 })
 searchMobileClsoeBtn.addEventListener('click', () => {
     searchMobileHandler('close')
+})
+sidebarBtns.forEach(btn => {
+    btn.addEventListener('click', event => {
+        sidebarHandler(event.target)
+    })
 })
 
