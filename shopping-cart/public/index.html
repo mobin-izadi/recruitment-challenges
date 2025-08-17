@@ -163,6 +163,12 @@
                     fill="currentColor"></path>
             </g>
         </symbol>
+        <symbol id="box" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 11 12" fill="none">
+            <path d="M11 12V0C11 0 10.0883 5.47951 8 8C5.65943 10.825 0 12 0 12H11Z" fill="currentColor" />
+        </symbol>
+
+
+
     </svg>
     <!-- Message wrapper -->
     <div class="massage-wrapper fixed z-50 top-3 left-3 flex flex-col gap-2">
@@ -302,7 +308,8 @@
                                 <div class="size-14 rounded-full overflow-hidden bg-white shrink-0  ">
                                     <img src="images/user.jpg" alt="" class="w-full h-full object-cover">
                                 </div>
-                                <p class="line-clamp-2 leading-7 ">سلام <span id="panel-user-name"></span> 😎</p>
+                                <p class="line-clamp-2 leading-7 ">سلام <span id="panel-user-name"></span> 😎
+                                </p>
 
                             </div>
 
@@ -402,198 +409,341 @@
             <!-- product Wrapper -->
             <div class="grid xs:grid-cols-2 md:grid-cols-3 2xl:grid-cols-4 gap-3 w-full basis-full lg:basis-auto">
                 <!-- box product -->
-                <div class="bg-white dark:bg-gray-700 rounded-xl overflow-hidden h-[409px] xl:h-96 py-2 px-4">
-                    <div class="size-44 mx-auto ">
+                <div class="bg-white dark:bg-gray-700 rounded-xl overflow-hidden h-[409px] xl:h-96 py-2 px-4 relative">
+                    <button
+                        class="bg-blue-400 text-white absolute bottom-0.5 left-1.5 z-20 rounded-xl w-[65px] h-[70px] flex justify-center items-center ">
+                        <svg class="w-6 h-6">
+                            <use href="#cart"></use>
+                        </svg>
+                    </button>
+                    <div class="absolute bottom-0 left-0 size-20 bg-gray-100 dark:bg-gray-800  rounded-tr-xl z-10 ">
+                        <svg
+                            class="w-[15px] h-[15px] absolute rotate-90 left-0 -top-3.5 text-gray-100 dark:text-gray-800">
+                            <use href="#box"></use>
+                        </svg>
+                        <svg
+                            class="w-[15px] h-[15px] absolute rotate-90 -bottom-[1px] -right-[15px] text-gray-100 dark:text-gray-800">
+                            <use href="#box"></use>
+                        </svg>
+
+                    </div>
+                    <div class="max-w-[270px] max-h-[180px] mx-auto rounded overflow-hidden ">
                         <img src="images/products/1.jpg" class="w-full h-full object-cover">
                     </div>
-                    <p class="font-bold mt-2 line-clamp-2">لپ‌تاپ برنامه‌نویسی Dell XPS 15</p>
-                    <p class="my-2 line-clamp-2 text-gray-600 dark:text-gray-400 text-sm">لپ‌تاپ قدرتمند برای
+                    <p class="font-bold mt-3 line-clamp-2 h-12" title="لپ‌تاپ برنامه‌نویسی Dell XPS 15">لپ‌تاپ
+                        برنامه‌نویسی Dell XPS 15</p>
+                    <p class="my-2 line-clamp-2 text-gray-600 dark:text-gray-400 text-sm h-10">لپ‌تاپ قدرتمند
+                        برای
                         توسعه‌دهندگان با صفحه‌نمایش
                         4K و
                         پردازنده Core i7
                     </p>
-                    <div
-                        class=" flex justify-between items-center pb-2 border-b border-b-gray-200 dark:border-b-gray-600">
-                        <div class="text-green-500"><span class="font-bold text-xl">100,000,000 </span><span
-                                class="text-xs">تومان</span></div>
-                        <div class="flex items-center gap-1 text-yellow-500">
-                            <span class="pt-1 ">4.7</span>
-                            <svg class="w-5 h-5 ">
-                                <use href="#star"></use>
-                            </svg>
-
-                        </div>
-                    </div>
-                    <button
-                        class="bg-blue-400 rounded-xl text-white flex justify-center items-center gap-1 px-3 h-14 mx-auto my-2 cursor-pointer">
-                        <svg class="w-6 h-6 ">
-                            <use href="#cart"></use>
+                    <div class="text-gray-800 dark:text-gray-100"><span class="font-bold text-2xl">۱۰۰٬۰۰۰٬۰۰۰
+                        </span><span class="text-xs">تومان</span></div>
+                    <div class="flex items-center gap-1 text-yellow-500">
+                        <svg class="w-5 h-5 ">
+                            <use href="#star"></use>
                         </svg>
-                        افزودن به سبد خرید
-                    </button>
+                        <span class="pt-1 ">4.7</span>
+
+
+                    </div>
 
                 </div>
                 <!-- box product -->
-                <div class="bg-white dark:bg-gray-700 rounded-xl overflow-hidden h-[409px] xl:h-96 py-2 px-4">
-                    <div class="size-44 mx-auto ">
+                <div class="bg-white dark:bg-gray-700 rounded-xl overflow-hidden h-[409px] xl:h-96 py-2 px-4 relative">
+                    <button
+                        class="bg-blue-400 text-white absolute bottom-0.5 left-1.5 z-20 rounded-xl w-[65px] h-[70px] flex justify-center items-center ">
+                        <svg class="w-6 h-6">
+                            <use href="#cart"></use>
+                        </svg>
+                    </button>
+                    <div class="absolute bottom-0 left-0 size-20 bg-gray-100 dark:bg-gray-800  rounded-tr-xl z-10 ">
+                        <svg
+                            class="w-[15px] h-[15px] absolute rotate-90 left-0 -top-3.5 text-gray-100 dark:text-gray-800">
+                            <use href="#box"></use>
+                        </svg>
+                        <svg
+                            class="w-[15px] h-[15px] absolute rotate-90 -bottom-[1px] -right-[15px] text-gray-100 dark:text-gray-800">
+                            <use href="#box"></use>
+                        </svg>
+
+                    </div>
+                    <div class="max-w-[270px] max-h-[180px] mx-auto rounded overflow-hidden ">
                         <img src="images/products/1.jpg" class="w-full h-full object-cover">
                     </div>
-                    <p class="font-bold mt-2 line-clamp-2">لپ‌تاپ برنامه‌نویسی Dell XPS 15</p>
-                    <p class="my-2 line-clamp-2 text-gray-600 dark:text-gray-400 text-sm">لپ‌تاپ قدرتمند برای
+                    <p class="font-bold mt-3 line-clamp-2 h-12" title="لپ‌تاپ برنامه‌نویسی Dell XPS 15">لپ‌تاپ
+                        برنامه‌نویسی Dell XPS 15</p>
+                    <p class="my-2 line-clamp-2 text-gray-600 dark:text-gray-400 text-sm h-10">لپ‌تاپ قدرتمند
+                        برای
                         توسعه‌دهندگان با صفحه‌نمایش
                         4K و
                         پردازنده Core i7
                     </p>
-                    <div
-                        class=" flex justify-between items-center pb-2 border-b border-b-gray-200 dark:border-b-gray-600">
-                        <div class="text-green-500"><span class="font-bold text-xl">100,000,000 </span><span
-                                class="text-xs">تومان</span></div>
-                        <div class="flex items-center gap-1 text-yellow-500">
-                            <span class="pt-1 ">4.7</span>
-                            <svg class="w-5 h-5 ">
-                                <use href="#star"></use>
-                            </svg>
-
-                        </div>
-                    </div>
-                    <button
-                        class="bg-blue-400 rounded-xl text-white flex justify-center items-center gap-1 px-3 h-14 mx-auto my-2 cursor-pointer">
-                        <svg class="w-6 h-6 ">
-                            <use href="#cart"></use>
+                    <div class="text-gray-800 dark:text-gray-100"><span class="font-bold text-2xl">۱۰۰٬۰۰۰٬۰۰۰
+                        </span><span class="text-xs">تومان</span></div>
+                    <div class="flex items-center gap-1 text-yellow-500">
+                        <svg class="w-5 h-5 ">
+                            <use href="#star"></use>
                         </svg>
-                        افزودن به سبد خرید
-                    </button>
+                        <span class="pt-1 ">4.7</span>
+
+
+                    </div>
 
                 </div>
                 <!-- box product -->
-                <div class="bg-white dark:bg-gray-700 rounded-xl overflow-hidden h-[409px] xl:h-96 py-2 px-4">
-                    <div class="size-44 mx-auto ">
+                <div class="bg-white dark:bg-gray-700 rounded-xl overflow-hidden h-[409px] xl:h-96 py-2 px-4 relative">
+                    <button
+                        class="bg-blue-400 text-white absolute bottom-0.5 left-1.5 z-20 rounded-xl w-[65px] h-[70px] flex justify-center items-center ">
+                        <svg class="w-6 h-6">
+                            <use href="#cart"></use>
+                        </svg>
+                    </button>
+                    <div class="absolute bottom-0 left-0 size-20 bg-gray-100 dark:bg-gray-800  rounded-tr-xl z-10 ">
+                        <svg
+                            class="w-[15px] h-[15px] absolute rotate-90 left-0 -top-3.5 text-gray-100 dark:text-gray-800">
+                            <use href="#box"></use>
+                        </svg>
+                        <svg
+                            class="w-[15px] h-[15px] absolute rotate-90 -bottom-[1px] -right-[15px] text-gray-100 dark:text-gray-800">
+                            <use href="#box"></use>
+                        </svg>
+
+                    </div>
+                    <div class="max-w-[270px] max-h-[180px] mx-auto rounded overflow-hidden ">
                         <img src="images/products/1.jpg" class="w-full h-full object-cover">
                     </div>
-                    <p class="font-bold mt-2 line-clamp-2">لپ‌تاپ برنامه‌نویسی Dell XPS 15</p>
-                    <p class="my-2 line-clamp-2 text-gray-600 dark:text-gray-400 text-sm">لپ‌تاپ قدرتمند برای
+                    <p class="font-bold mt-3 line-clamp-2 h-12" title="لپ‌تاپ برنامه‌نویسی Dell XPS 15">لپ‌تاپ
+                        برنامه‌نویسی Dell XPS 15</p>
+                    <p class="my-2 line-clamp-2 text-gray-600 dark:text-gray-400 text-sm h-10">لپ‌تاپ قدرتمند
+                        برای
                         توسعه‌دهندگان با صفحه‌نمایش
                         4K و
                         پردازنده Core i7
                     </p>
-                    <div
-                        class=" flex justify-between items-center pb-2 border-b border-b-gray-200 dark:border-b-gray-600">
-                        <div class="text-green-500"><span class="font-bold text-xl">100,000,000 </span><span
-                                class="text-xs">تومان</span></div>
-                        <div class="flex items-center gap-1 text-yellow-500">
-                            <span class="pt-1 ">4.7</span>
-                            <svg class="w-5 h-5 ">
-                                <use href="#star"></use>
-                            </svg>
-
-                        </div>
-                    </div>
-                    <button
-                        class="bg-blue-400 rounded-xl text-white flex justify-center items-center gap-1 px-3 h-14 mx-auto my-2 cursor-pointer">
-                        <svg class="w-6 h-6 ">
-                            <use href="#cart"></use>
+                    <div class="text-gray-800 dark:text-gray-100"><span class="font-bold text-2xl">۱۰۰٬۰۰۰٬۰۰۰
+                        </span><span class="text-xs">تومان</span></div>
+                    <div class="flex items-center gap-1 text-yellow-500">
+                        <svg class="w-5 h-5 ">
+                            <use href="#star"></use>
                         </svg>
-                        افزودن به سبد خرید
-                    </button>
+                        <span class="pt-1 ">4.7</span>
+
+
+                    </div>
 
                 </div>
                 <!-- box product -->
-                <div class="bg-white dark:bg-gray-700 rounded-xl overflow-hidden h-[409px] xl:h-96 py-2 px-4">
-                    <div class="size-44 mx-auto ">
+                <div class="bg-white dark:bg-gray-700 rounded-xl overflow-hidden h-[409px] xl:h-96 py-2 px-4 relative">
+                    <button
+                        class="bg-blue-400 text-white absolute bottom-0.5 left-1.5 z-20 rounded-xl w-[65px] h-[70px] flex justify-center items-center ">
+                        <svg class="w-6 h-6">
+                            <use href="#cart"></use>
+                        </svg>
+                    </button>
+                    <div class="absolute bottom-0 left-0 size-20 bg-gray-100 dark:bg-gray-800  rounded-tr-xl z-10 ">
+                        <svg
+                            class="w-[15px] h-[15px] absolute rotate-90 left-0 -top-3.5 text-gray-100 dark:text-gray-800">
+                            <use href="#box"></use>
+                        </svg>
+                        <svg
+                            class="w-[15px] h-[15px] absolute rotate-90 -bottom-[1px] -right-[15px] text-gray-100 dark:text-gray-800">
+                            <use href="#box"></use>
+                        </svg>
+
+                    </div>
+                    <div class="max-w-[270px] max-h-[180px] mx-auto rounded overflow-hidden ">
                         <img src="images/products/1.jpg" class="w-full h-full object-cover">
                     </div>
-                    <p class="font-bold mt-2 line-clamp-2">لپ‌تاپ برنامه‌نویسی Dell XPS 15</p>
-                    <p class="my-2 line-clamp-2 text-gray-600 dark:text-gray-400 text-sm">لپ‌تاپ قدرتمند برای
+                    <p class="font-bold mt-3 line-clamp-2 h-12" title="لپ‌تاپ برنامه‌نویسی Dell XPS 15">لپ‌تاپ
+                        برنامه‌نویسی Dell XPS 15</p>
+                    <p class="my-2 line-clamp-2 text-gray-600 dark:text-gray-400 text-sm h-10">لپ‌تاپ قدرتمند
+                        برای
                         توسعه‌دهندگان با صفحه‌نمایش
                         4K و
                         پردازنده Core i7
                     </p>
-                    <div
-                        class=" flex justify-between items-center pb-2 border-b border-b-gray-200 dark:border-b-gray-600">
-                        <div class="text-green-500"><span class="font-bold text-xl">100,000,000 </span><span
-                                class="text-xs">تومان</span></div>
-                        <div class="flex items-center gap-1 text-yellow-500">
-                            <span class="pt-1 ">4.7</span>
-                            <svg class="w-5 h-5 ">
-                                <use href="#star"></use>
-                            </svg>
-
-                        </div>
-                    </div>
-                    <button
-                        class="bg-blue-400 rounded-xl text-white flex justify-center items-center gap-1 px-3 h-14 mx-auto my-2 cursor-pointer">
-                        <svg class="w-6 h-6 ">
-                            <use href="#cart"></use>
+                    <div class="text-gray-800 dark:text-gray-100"><span class="font-bold text-2xl">۱۰۰٬۰۰۰٬۰۰۰
+                        </span><span class="text-xs">تومان</span></div>
+                    <div class="flex items-center gap-1 text-yellow-500">
+                        <svg class="w-5 h-5 ">
+                            <use href="#star"></use>
                         </svg>
-                        افزودن به سبد خرید
-                    </button>
+                        <span class="pt-1 ">4.7</span>
+
+
+                    </div>
 
                 </div>
                 <!-- box product -->
-                <div class="bg-white dark:bg-gray-700 rounded-xl overflow-hidden h-[409px] xl:h-96 py-2 px-4">
-                    <div class="size-44 mx-auto ">
+                <div class="bg-white dark:bg-gray-700 rounded-xl overflow-hidden h-[409px] xl:h-96 py-2 px-4 relative">
+                    <button
+                        class="bg-blue-400 text-white absolute bottom-0.5 left-1.5 z-20 rounded-xl w-[65px] h-[70px] flex justify-center items-center ">
+                        <svg class="w-6 h-6">
+                            <use href="#cart"></use>
+                        </svg>
+                    </button>
+                    <div class="absolute bottom-0 left-0 size-20 bg-gray-100 dark:bg-gray-800  rounded-tr-xl z-10 ">
+                        <svg
+                            class="w-[15px] h-[15px] absolute rotate-90 left-0 -top-3.5 text-gray-100 dark:text-gray-800">
+                            <use href="#box"></use>
+                        </svg>
+                        <svg
+                            class="w-[15px] h-[15px] absolute rotate-90 -bottom-[1px] -right-[15px] text-gray-100 dark:text-gray-800">
+                            <use href="#box"></use>
+                        </svg>
+
+                    </div>
+                    <div class="max-w-[270px] max-h-[180px] mx-auto rounded overflow-hidden ">
                         <img src="images/products/1.jpg" class="w-full h-full object-cover">
                     </div>
-                    <p class="font-bold mt-2 line-clamp-2">لپ‌تاپ برنامه‌نویسی Dell XPS 15</p>
-                    <p class="my-2 line-clamp-2 text-gray-600 dark:text-gray-400 text-sm">لپ‌تاپ قدرتمند برای
+                    <p class="font-bold mt-3 line-clamp-2 h-12" title="لپ‌تاپ برنامه‌نویسی Dell XPS 15">لپ‌تاپ
+                        برنامه‌نویسی Dell XPS 15</p>
+                    <p class="my-2 line-clamp-2 text-gray-600 dark:text-gray-400 text-sm h-10">لپ‌تاپ قدرتمند
+                        برای
                         توسعه‌دهندگان با صفحه‌نمایش
                         4K و
                         پردازنده Core i7
                     </p>
-                    <div
-                        class=" flex justify-between items-center pb-2 border-b border-b-gray-200 dark:border-b-gray-600">
-                        <div class="text-green-500"><span class="font-bold text-xl">100,000,000 </span><span
-                                class="text-xs">تومان</span></div>
-                        <div class="flex items-center gap-1 text-yellow-500">
-                            <span class="pt-1 ">4.7</span>
-                            <svg class="w-5 h-5 ">
-                                <use href="#star"></use>
-                            </svg>
-
-                        </div>
-                    </div>
-                    <button
-                        class="bg-blue-400 rounded-xl text-white flex justify-center items-center gap-1 px-3 h-14 mx-auto my-2 cursor-pointer">
-                        <svg class="w-6 h-6 ">
-                            <use href="#cart"></use>
+                    <div class="text-gray-800 dark:text-gray-100"><span class="font-bold text-2xl">۱۰۰٬۰۰۰٬۰۰۰
+                        </span><span class="text-xs">تومان</span></div>
+                    <div class="flex items-center gap-1 text-yellow-500">
+                        <svg class="w-5 h-5 ">
+                            <use href="#star"></use>
                         </svg>
-                        افزودن به سبد خرید
-                    </button>
+                        <span class="pt-1 ">4.7</span>
+
+
+                    </div>
 
                 </div>
                 <!-- box product -->
-                <div class="bg-white dark:bg-gray-700 rounded-xl overflow-hidden h-[409px] xl:h-96 py-2 px-4">
-                    <div class="size-44 mx-auto ">
+                <div class="bg-white dark:bg-gray-700 rounded-xl overflow-hidden h-[409px] xl:h-96 py-2 px-4 relative">
+                    <button
+                        class="bg-blue-400 text-white absolute bottom-0.5 left-1.5 z-20 rounded-xl w-[65px] h-[70px] flex justify-center items-center ">
+                        <svg class="w-6 h-6">
+                            <use href="#cart"></use>
+                        </svg>
+                    </button>
+                    <div class="absolute bottom-0 left-0 size-20 bg-gray-100 dark:bg-gray-800  rounded-tr-xl z-10 ">
+                        <svg
+                            class="w-[15px] h-[15px] absolute rotate-90 left-0 -top-3.5 text-gray-100 dark:text-gray-800">
+                            <use href="#box"></use>
+                        </svg>
+                        <svg
+                            class="w-[15px] h-[15px] absolute rotate-90 -bottom-[1px] -right-[15px] text-gray-100 dark:text-gray-800">
+                            <use href="#box"></use>
+                        </svg>
+
+                    </div>
+                    <div class="max-w-[270px] max-h-[180px] mx-auto rounded overflow-hidden ">
                         <img src="images/products/1.jpg" class="w-full h-full object-cover">
                     </div>
-                    <p class="font-bold mt-2 line-clamp-2">لپ‌تاپ برنامه‌نویسی Dell XPS 15</p>
-                    <p class="my-2 line-clamp-2 text-gray-600 dark:text-gray-400 text-sm">لپ‌تاپ قدرتمند برای
+                    <p class="font-bold mt-3 line-clamp-2 h-12" title="لپ‌تاپ برنامه‌نویسی Dell XPS 15">لپ‌تاپ
+                        برنامه‌نویسی Dell XPS 15</p>
+                    <p class="my-2 line-clamp-2 text-gray-600 dark:text-gray-400 text-sm h-10">لپ‌تاپ قدرتمند
+                        برای
                         توسعه‌دهندگان با صفحه‌نمایش
                         4K و
                         پردازنده Core i7
                     </p>
-                    <div
-                        class=" flex justify-between items-center pb-2 border-b border-b-gray-200 dark:border-b-gray-600">
-                        <div class="text-green-500"><span class="font-bold text-xl">100,000,000 </span><span
-                                class="text-xs">تومان</span></div>
-                        <div class="flex items-center gap-1 text-yellow-500">
-                            <span class="pt-1 ">4.7</span>
-                            <svg class="w-5 h-5 ">
-                                <use href="#star"></use>
-                            </svg>
-
-                        </div>
-                    </div>
-                    <button
-                        class="bg-blue-400 rounded-xl text-white flex justify-center items-center gap-1 px-3 h-14 mx-auto my-2 cursor-pointer">
-                        <svg class="w-6 h-6 ">
-                            <use href="#cart"></use>
+                    <div class="text-gray-800 dark:text-gray-100"><span class="font-bold text-2xl">۱۰۰٬۰۰۰٬۰۰۰
+                        </span><span class="text-xs">تومان</span></div>
+                    <div class="flex items-center gap-1 text-yellow-500">
+                        <svg class="w-5 h-5 ">
+                            <use href="#star"></use>
                         </svg>
-                        افزودن به سبد خرید
-                    </button>
+                        <span class="pt-1 ">4.7</span>
+
+
+                    </div>
 
                 </div>
+                <!-- box product -->
+                <div class="bg-white dark:bg-gray-700 rounded-xl overflow-hidden h-[409px] xl:h-96 py-2 px-4 relative">
+                    <button
+                        class="bg-blue-400 text-white absolute bottom-0.5 left-1.5 z-20 rounded-xl w-[65px] h-[70px] flex justify-center items-center ">
+                        <svg class="w-6 h-6">
+                            <use href="#cart"></use>
+                        </svg>
+                    </button>
+                    <div class="absolute bottom-0 left-0 size-20 bg-gray-100 dark:bg-gray-800  rounded-tr-xl z-10 ">
+                        <svg
+                            class="w-[15px] h-[15px] absolute rotate-90 left-0 -top-3.5 text-gray-100 dark:text-gray-800">
+                            <use href="#box"></use>
+                        </svg>
+                        <svg
+                            class="w-[15px] h-[15px] absolute rotate-90 -bottom-[1px] -right-[15px] text-gray-100 dark:text-gray-800">
+                            <use href="#box"></use>
+                        </svg>
 
+                    </div>
+                    <div class="max-w-[270px] max-h-[180px] mx-auto rounded overflow-hidden ">
+                        <img src="images/products/1.jpg" class="w-full h-full object-cover">
+                    </div>
+                    <p class="font-bold mt-3 line-clamp-2 h-12" title="لپ‌تاپ برنامه‌نویسی Dell XPS 15">لپ‌تاپ
+                        برنامه‌نویسی Dell XPS 15</p>
+                    <p class="my-2 line-clamp-2 text-gray-600 dark:text-gray-400 text-sm h-10">لپ‌تاپ قدرتمند
+                        برای
+                        توسعه‌دهندگان با صفحه‌نمایش
+                        4K و
+                        پردازنده Core i7
+                    </p>
+                    <div class="text-gray-800 dark:text-gray-100"><span class="font-bold text-2xl">۱۰۰٬۰۰۰٬۰۰۰
+                        </span><span class="text-xs">تومان</span></div>
+                    <div class="flex items-center gap-1 text-yellow-500">
+                        <svg class="w-5 h-5 ">
+                            <use href="#star"></use>
+                        </svg>
+                        <span class="pt-1 ">4.7</span>
+
+
+                    </div>
+
+                </div>
+                <!-- box product -->
+                <div class="bg-white dark:bg-gray-700 rounded-xl overflow-hidden h-[409px] xl:h-96 py-2 px-4 relative">
+                    <button
+                        class="bg-blue-400 text-white absolute bottom-0.5 left-1.5 z-20 rounded-xl w-[65px] h-[70px] flex justify-center items-center ">
+                        <svg class="w-6 h-6">
+                            <use href="#cart"></use>
+                        </svg>
+                    </button>
+                    <div class="absolute bottom-0 left-0 size-20 bg-gray-100 dark:bg-gray-800  rounded-tr-xl z-10 ">
+                        <svg
+                            class="w-[15px] h-[15px] absolute rotate-90 left-0 -top-3.5 text-gray-100 dark:text-gray-800">
+                            <use href="#box"></use>
+                        </svg>
+                        <svg
+                            class="w-[15px] h-[15px] absolute rotate-90 -bottom-[1px] -right-[15px] text-gray-100 dark:text-gray-800">
+                            <use href="#box"></use>
+                        </svg>
+
+                    </div>
+                    <div class="max-w-[270px] max-h-[180px] mx-auto rounded overflow-hidden ">
+                        <img src="images/products/1.jpg" class="w-full h-full object-cover">
+                    </div>
+                    <p class="font-bold mt-3 line-clamp-2 h-12" title="لپ‌تاپ برنامه‌نویسی Dell XPS 15">لپ‌تاپ
+                        برنامه‌نویسی Dell XPS 15</p>
+                    <p class="my-2 line-clamp-2 text-gray-600 dark:text-gray-400 text-sm h-10">لپ‌تاپ قدرتمند
+                        برای
+                        توسعه‌دهندگان با صفحه‌نمایش
+                        4K و
+                        پردازنده Core i7
+                    </p>
+                    <div class="text-gray-800 dark:text-gray-100"><span class="font-bold text-2xl">۱۰۰٬۰۰۰٬۰۰۰
+                        </span><span class="text-xs">تومان</span></div>
+                    <div class="flex items-center gap-1 text-yellow-500">
+                        <svg class="w-5 h-5 ">
+                            <use href="#star"></use>
+                        </svg>
+                        <span class="pt-1 ">4.7</span>
+
+
+                    </div>
+
+                </div>
             </div>
 
 

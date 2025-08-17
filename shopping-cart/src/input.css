@@ -52,6 +52,8 @@ input[type=number] {
     -moz-appearance: textfield;
 }
 
+
+
 .container {
     @apply px-2 sm:px-0;
 }
