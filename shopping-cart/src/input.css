@@ -62,7 +62,7 @@ input.no-spinner::-webkit-inner-spin-button {
 }
 
 .container {
-    @apply mx-2;
+    @apply px-2;
 }
 
 .input-category:checked~div {
