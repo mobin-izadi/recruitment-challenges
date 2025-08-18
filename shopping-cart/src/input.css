@@ -43,7 +43,19 @@ input {
 
 
 
+@keyframes typing {
+    from {
+        opacity: 0;
+    }
 
+    to {
+        opacity: 1;
+    }
+}
+
+.type-effet {
+    animation: typing .5s ease-in-out infinite;
+}
 
 .container {
     @apply px-2 sm:px-0;

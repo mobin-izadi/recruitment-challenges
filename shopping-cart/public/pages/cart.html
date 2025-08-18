@@ -4,13 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>عضویت | باگ استور</title>
+    <title>سبد خرید | باگ استور</title>
     <link rel="shortcut icon" href="../images/logo.png" type="image/png">
     <link rel="stylesheet" href="../styles/app.css">
 </head>
 
-<body
-    class="font-yekan bg-gray-100 dark:bg-gray-800 dark:text-white min-h-screen flex justify-center items-center text-gray-950 relative px-4 sm:p-0 ">
+<body class="font-yekan bg-gray-100 dark:bg-gray-800 dark:text-white  text-gray-950 relative overflow-x-hidden  ">
     <!-- svg icons -->
     <svg class="hidden">
         <symbol id="user" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -92,6 +91,33 @@
                 </path>
             </g>
         </symbol>
+        <symbol id="home" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+            <g id="SVGRepo_iconCarrier">
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                    d="M2.5192 7.82274C2 8.77128 2 9.91549 2 12.2039V13.725C2 17.6258 2 19.5763 3.17157 20.7881C4.34315 22 6.22876 22 10 22H14C17.7712 22 19.6569 22 20.8284 20.7881C22 19.5763 22 17.6258 22 13.725V12.2039C22 9.91549 22 8.77128 21.4808 7.82274C20.9616 6.87421 20.0131 6.28551 18.116 5.10812L16.116 3.86687C14.1106 2.62229 13.1079 2 12 2C10.8921 2 9.88939 2.62229 7.88403 3.86687L5.88403 5.10813C3.98695 6.28551 3.0384 6.87421 2.5192 7.82274ZM9.44661 15.3975C9.11385 15.1508 8.64413 15.2206 8.39747 15.5534C8.15082 15.8862 8.22062 16.3559 8.55339 16.6025C9.5258 17.3233 10.715 17.75 12 17.75C13.285 17.75 14.4742 17.3233 15.4466 16.6025C15.7794 16.3559 15.8492 15.8862 15.6025 15.5534C15.3559 15.2206 14.8862 15.1508 14.5534 15.3975C13.825 15.9373 12.9459 16.25 12 16.25C11.0541 16.25 10.175 15.9373 9.44661 15.3975Z"
+                    fill="currentColor"></path>
+            </g>
+        </symbol>
+        <symbol id="offer" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+            <g id="SVGRepo_iconCarrier">
+                <path
+                    d="m20.749 12 1.104-1.908a1 1 0 0 0-.365-1.366l-1.91-1.104v-2.2a1 1 0 0 0-1-1h-2.199l-1.103-1.909a1.008 1.008 0 0 0-.607-.466.993.993 0 0 0-.759.1L12 3.251l-1.91-1.105a1 1 0 0 0-1.366.366L7.62 4.422H5.421a1 1 0 0 0-1 1v2.199l-1.91 1.104a.998.998 0 0 0-.365 1.367L3.25 12l-1.104 1.908a1.004 1.004 0 0 0 .364 1.367l1.91 1.104v2.199a1 1 0 0 0 1 1h2.2l1.104 1.91a1.01 1.01 0 0 0 .866.5c.174 0 .347-.046.501-.135l1.908-1.104 1.91 1.104a1.001 1.001 0 0 0 1.366-.365l1.103-1.91h2.199a1 1 0 0 0 1-1v-2.199l1.91-1.104a1 1 0 0 0 .365-1.367L20.749 12zM9.499 6.99a1.5 1.5 0 1 1-.001 3.001 1.5 1.5 0 0 1 .001-3.001zm.3 9.6-1.6-1.199 6-8 1.6 1.199-6 8zm4.7.4a1.5 1.5 0 1 1 .001-3.001 1.5 1.5 0 0 1-.001 3.001z">
+                </path>
+            </g>
+        </symbol>
+        <symbol id="address" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+            <g id="SVGRepo_iconCarrier">
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                    d="M3.5 0C2.67157 0 2 0.671573 2 1.5V4H1V5H2V10H1V11H2V13.5C2 14.3284 2.67157 15 3.5 15H12.5C13.3284 15 14 14.3284 14 13.5V1.5C14 0.671573 13.3284 0 12.5 0H3.5ZM6 5C6 3.89543 6.89543 3 8 3C9.10457 3 10 3.89543 10 5C10 6.10457 9.10457 7 8 7C6.89543 7 6 6.10457 6 5ZM5 10.9999C5 9.343 6.34318 8 8 8C9.65685 8 11 9.34315 11 11V12H5V10.9999Z"
+                    fill="currentColor"></path>
+            </g>
+        </symbol>
 
     </svg>
     <!-- Message wrapper -->
@@ -99,6 +125,65 @@
 
 
     </div>
+    <header class="bg-white dark:bg-gray-700 py-4">
+        <div class="container mx-auto">
+            <div class=" flex justify-between items-center">
+                <div class="flex items-center gap-1">
+                    <div class="w-16 sm:w-20"><img src="../images/logo.png" alt="logo shop"
+                            class="w-full h-full object-cover">
+                    </div>
+                    <h1 class="font-black text-3xl mt-2 hidden sm:block"><span class="text-blue-500">بـــــــاگ</span>
+                        استور</h1>
+                </div>
+                <a href="../index.html"
+                    class="bg-gray-700 dark:bg-gray-800 h-10 sm:h-14 rounded-xl px-2 sm:px-4 cursor-pointer  text-white flex items-center gap-2 text-sm sm:text-base ml-1 sm:ml-0 ">
+                    <svg class="w-6 h-6  ">
+                        <use href="#home"></use>
+                    </svg>
+                    صفحه اصلی
+                </a>
+            </div>
+
+        </div>
+    </header>
+    <main class="my-10">
+
+        <div class="container mx-auto">
+            <!-- Offer notice -->
+            <div class="flex  items-center gap-3 bg-red-500 rounded-xl px-4 py-3 text-white">
+                <svg class="w-8 h-8">
+                    <use href="#offer"></use>
+                </svg>
+                <p class="font-bold text-xl offer-wrapper">
+                </p>
+                <div class="h-6 w-0.5 bg-white -mr-2 rounded transition-all type-effet "></div>
+            </div>
+            <!-- main cart -->
+            <div class="grid grid-cols-2 my-6">
+                <!-- user info && cart list -->
+                <div class="bg-white dark:bg-gray-700 rounded-xl overflow-hidden">
+                    <!-- box head -->
+                    <div class="w-full py-4 px-5 bg-blue-500 text-white flex items-center gap-2 text-xl font-bold">
+                        <svg class="w-8 h-8">
+                            <use href="#address">
+
+                            </use>
+                        </svg>
+                        <p>
+                            اطلاعات فردی
+                        </p>
+                    </div>
+                    <div class="grid">
+
+                    </div>
+
+                </div>
+
+                <!-- pay && offer -->
+
+            </div>
+        </div>
+    </main>
 
 
 
