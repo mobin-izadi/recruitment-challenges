@@ -463,9 +463,6 @@
   .w-0\.5 {
     width: calc(var(--spacing) * 0.5);
   }
-  .w-1 {
-    width: calc(var(--spacing) * 1);
-  }
   .w-2 {
     width: calc(var(--spacing) * 2);
   }
@@ -531,6 +528,9 @@
   }
   .w-full {
     width: 100%;
+  }
+  .max-w-72 {
+    max-width: calc(var(--spacing) * 72);
   }
   .max-w-\[270px\] {
     max-width: 270px;
@@ -619,6 +619,13 @@
       --tw-space-y-reverse: 0;
       margin-block-start: calc(calc(var(--spacing) * 3) * var(--tw-space-y-reverse));
       margin-block-end: calc(calc(var(--spacing) * 3) * calc(1 - var(--tw-space-y-reverse)));
+    }
+  }
+  .space-y-6 {
+    :where(& > :not(:last-child)) {
+      --tw-space-y-reverse: 0;
+      margin-block-start: calc(calc(var(--spacing) * 6) * var(--tw-space-y-reverse));
+      margin-block-end: calc(calc(var(--spacing) * 6) * calc(1 - var(--tw-space-y-reverse)));
     }
   }
   .overflow-hidden {
@@ -764,6 +771,9 @@
   }
   .py-4 {
     padding-block: calc(var(--spacing) * 4);
+  }
+  .py-8 {
+    padding-block: calc(var(--spacing) * 8);
   }
   .py-10 {
     padding-block: calc(var(--spacing) * 10);
@@ -1172,6 +1182,10 @@ input {
   color: inherit;
   outline-style: var(--tw-outline-style);
   outline-width: 0px;
+}
+input.no-spinner::-webkit-outer-spin-button, input.no-spinner::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 @keyframes typing {
   from {

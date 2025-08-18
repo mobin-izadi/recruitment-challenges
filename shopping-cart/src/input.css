@@ -41,7 +41,11 @@ input {
 }
 
 
-
+input.no-spinner::-webkit-outer-spin-button,
+input.no-spinner::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
 
 @keyframes typing {
     from {
