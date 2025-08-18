@@ -12,7 +12,7 @@
 | شماره | عنوان چالش           | وضعیت     | لینک           |
 |-------|----------------------|-----------|----------------|
 | 1     | تودو | ✅ انجام‌شده | [مشاهده](https://mobin-izadi.github.io/recruitment-challenges/todolist) |
-| 2     | سبد خرید | ✅ انجام‌شده | [مشاهده](https://mobin-izadi.github.io/recruitment-challenges/shoppin-cart/public) |
+| 2     | سبد خرید | ✅ انجام‌شده | [مشاهده](https://mobin-izadi.github.io/recruitment-challenges/shopping-cart/public) |
 
 
 ---
