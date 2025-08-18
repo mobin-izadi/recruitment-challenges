@@ -27,6 +27,10 @@ const cartFooterWrapper = document.querySelector('.cart-footer')
 const myCartCountElm = document.querySelector('#my-cart-count')
 const amountCart = document.querySelector('.amount')
 const goShopingCartBtn = document.querySelector('.go-cart-btn')
+const searchInputPc = document.querySelector('.search-pc-input')
+const searchPcBtn = document.querySelector('.search-pc-btn')
+const searchInputMObile = document.querySelector('.search-mobile-input')
+const searchBtnMobile = document.querySelector('.search-btn-mobile')
 
 //--------------------------------------------Functions
 // Checks for dark mode and changes the theme accordingly.
@@ -417,6 +421,74 @@ const goShopingCartHandler = () => {
     }
 }
 
+const searchHandler = (input) => {
+    console.log(input);
+
+    let searchValue = input.value.trim()
+    let resultSearch = products.filter(product => {
+        return product.title.toLowerCase().startsWith(searchValue);
+    })
+
+    productWrapper.innerHTML = ''
+    pagingWrapper.classList.add('hidden')
+
+    if (resultSearch.length) {
+        resultSearch.forEach(product => {
+            productWrapper.insertAdjacentHTML('beforeend', `
+            <!-- box product -->
+                    <div
+                        class="bg-white dark:bg-gray-700 rounded-xl overflow-hidden h-[409px] xl:h-96 py-2 px-4 relative">
+                        <button
+                            class="bg-blue-400 text-white absolute bottom-0.5 left-1.5 z-20 rounded-xl w-[65px] h-[70px] cursor-pointer flex justify-center items-center " onclick="addToCart('${product.id}')">
+                            <svg class="w-6 h-6" >
+                                <use href="#cart"></use>
+                            </svg>
+                        </button>
+                        <div class="absolute bottom-0 left-0 size-20 bg-gray-100 dark:bg-gray-800  rounded-tr-xl z-10 ">
+                            <svg
+                                class="w-[15px] h-[15px] absolute rotate-90 left-0 -top-3.5 text-gray-100 dark:text-gray-800">
+                                <use href="#box"></use>
+                            </svg>
+                            <svg
+                                class="w-[15px] h-[15px] absolute rotate-90 -bottom-[1px] -right-[15px] text-gray-100 dark:text-gray-800">
+                                <use href="#box"></use>
+                            </svg>
+
+                        </div>
+                        <div class="max-w-[270px] max-h-[180px] mx-auto rounded overflow-hidden ">
+                            <img src="${product.image}" class="w-full h-full object-cover">
+                        </div>
+                        <p class="font-bold mt-3 line-clamp-2 h-12" >
+                        ${product.title}
+                        </p>
+                        <p class="my-2 line-clamp-2 text-gray-600 dark:text-gray-400 text-sm h-10">
+                        ${product.shortDescription}
+                        </p>
+                        <div class="text-gray-800 dark:text-gray-100"><span class="font-bold text-2xl"> ${product.price.toLocaleString("fa-IR")}
+                            </span><span class="text-xs">تومان</span></div>
+                        <div class="flex items-center gap-1 text-yellow-500">
+                            <svg class="w-5 h-5 ">
+                                <use href="#star"></use>
+                            </svg>
+                            <span class="pt-1 ">${product.rating}</span>
+
+
+                        </div>
+
+                    </div>
+            
+            `)
+        })
+    } else {
+        productWrapper.innerHTML = `
+        <p>متاسفانه محصولی یافت نشد </p>
+        `
+    }
+
+
+
+}
+
 //--------------------------------------------Events
 
 window.addEventListener('load', () => {
@@ -470,6 +542,8 @@ sortItems.forEach(sortBtn => {
 })
 
 goShopingCartBtn.addEventListener('click', goShopingCartHandler)
+searchPcBtn.addEventListener('click', () => searchHandler(searchInputPc))
+searchBtnMobile.addEventListener('click', () => searchHandler(searchInputMObile))
 
 
 
