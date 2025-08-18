@@ -456,6 +456,9 @@
   .h-\[70px\] {
     height: 70px;
   }
+  .h-\[366px\] {
+    height: 366px;
+  }
   .h-\[409px\] {
     height: 409px;
   }
@@ -1294,7 +1297,7 @@ input.no-spinner::-webkit-outer-spin-button, input.no-spinner::-webkit-inner-spi
   animation: typing .5s ease-in-out infinite;
 }
 .container {
-  padding-inline: calc(var(--spacing) * 2);
+  margin-inline: calc(var(--spacing) * 2);
 }
 .input-category:checked~div {
   background-color: var(--color-blue-400);
