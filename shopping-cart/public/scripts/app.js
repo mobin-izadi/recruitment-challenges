@@ -435,11 +435,12 @@ const goShopingCartHandler = () => {
 }
 
 const searchHandler = (input) => {
-    console.log(input);
+
 
     let searchValue = input.value.trim()
     let resultSearch = products.filter(product => {
-        return product.title.toLowerCase().startsWith(searchValue);
+        return product.title.toLowerCase().includes(searchValue.toLowerCase())
+
     })
 
     productWrapper.innerHTML = ''
