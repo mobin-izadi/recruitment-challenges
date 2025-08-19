@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="public/images/cover.png" width="300" />
+  <img src="public/images/cover.png" width="700" />
 </p>
 # 🛒 پروژه سبد خرید حرفه‌ای  
 
