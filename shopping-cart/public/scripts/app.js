@@ -252,7 +252,7 @@ const createBoxProduct = () => {
                     <div
                         class="bg-white dark:bg-gray-700 rounded-xl overflow-hidden h-[366px] xl:h-96 py-2 px-4 relative">
                         <button
-                            class="bg-blue-400 text-white absolute bottom-0.5 left-1.5 z-20 rounded-xl w-12 h-[73px] xl:w-[65px] xl:h-[70px] cursor-pointer flex justify-center items-center " onclick="addToCart('${product.id}')">
+                            class="bg-blue-400 text-white absolute bottom-0.5 left-1.5 z-20 rounded-xl w-12 h-[73px] xl:w-[65px] xl:h-[70px] cursor-pointer flex justify-center items-center " id="product-${product.id}" onclick="addToCart('${product.id}')">
                             <svg class="w-6 h-6" >
                                 <use href="#cart"></use>
                             </svg>
@@ -294,6 +294,7 @@ const createBoxProduct = () => {
     })
 
     activePageBtn(page)
+
 }
 // Check, we have the product in stock.
 const isStock = (stock, count) => {
@@ -318,6 +319,7 @@ const addToCart = (id, count) => {
     if (count) {
         isBuy = isStock(findProduct.stock, count)
         if (isBuy) {
+            massage(true, 'محصول به سبد خرید اضافه شد')
             cart[isProductInCart].count = count
         }
 
@@ -328,6 +330,7 @@ const addToCart = (id, count) => {
             isBuy = isStock(findProduct.stock, count)
             if (isBuy) {
                 cart[isProductInCart].count = Number(cart[isProductInCart].count) + 1
+                massage(true, 'محصول به سبد خرید اضافه شد')
 
             }
 
@@ -336,6 +339,8 @@ const addToCart = (id, count) => {
             if (isBuy) {
                 findProduct.count = 1
                 cart.push(findProduct)
+                massage(true, 'محصول به سبد خرید اضافه شد')
+
             }
 
         }
@@ -407,10 +412,10 @@ const deleteProductInCart = (id) => {
 
     cart.splice(indexProduct, 1)
     localStorage.setItem('cart', JSON.stringify(cart))
+    createBoxProduct()
     updateCart()
 }
 window.deleteProductInCart = deleteProductInCart
-
 // Check if the user is not logged in and send them to the login page.
 const goShopingCartHandler = () => {
     let isUser = isLoginUser()
@@ -502,12 +507,11 @@ window.addEventListener('load', () => {
             sidebarHandler(btn)
         })
     }
-
-    updateCart()
     createCategories()
     createPageHandler()
     pagination(allProducts)
     createBoxProduct()
+    updateCart()
     removeLoadgin()
 })
 
