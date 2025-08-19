@@ -11,6 +11,7 @@ const blurEffect = document.querySelector('.blur-effect')
 const cartWrapper = document.querySelector('.cart-wrapper')
 const cartBtn = document.querySelector('.cart-btn')
 const cartListWrapper = document.querySelector('.cart-list-wrapper')
+const cartWrapperCloseBtn = document.querySelector('#cart-wrapper-close-btn')
 const searchMobileBtnWrapper = document.querySelector('.search-mobile-btn-wrapper')
 const searchMobileBtn = document.querySelector('.search-mobile-btn')
 const searchMobileWrapper = document.querySelector('.search-mobile-wrapper')
@@ -521,6 +522,9 @@ blurEffect.addEventListener('click', () => {
 
 cartBtn.addEventListener('click', () => {
     cartPanelHandler('open')
+})
+cartWrapperCloseBtn.addEventListener('click', () => {
+    cartPanelHandler('close')
 })
 blurEffect.addEventListener('click', () => {
     cartPanelHandler('close')
