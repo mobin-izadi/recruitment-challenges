@@ -14,25 +14,17 @@ window.addEventListener('load', () => {
     totalPriceElem.innerHTML = `${allPrice.toLocaleString('fa-ir')} تومان`
     cart.forEach((product, index) => {
         factureWrapper.insertAdjacentHTML('beforebegin', `
-            
-            <tr class="border-b border-gray-200 dark:border-gray-700">
-                            <td class="px-6 py-4">
-                                ${index + 1}
+
+              <tr class="border-b">
+                            <td class="px-3 py-2 text-center">${index + 1}</td>
+                            <td class="px-3 py-2 bg-gray-50 whitespace-normal break-words">
+                            ${product.title}
                             </td>
-                            <th scope="row"
-                                class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-gray-50 dark:text-white dark:bg-gray-800">
-                                ${product.title}
-                            </th>
-                            <td class="px-6 py-4">
-                                ${product.count}
-                            </td>
-                            <td class="px-6 py-4 bg-gray-50 dark:bg-gray-800">
-                                ${product.price.toLocaleString('fa-ir')} تومان
-                            </td>
-                            <td class="px-6 py-4">
-                                ${(product.count * product.price).toLocaleString('fa-ir')} تومان
-                            </td>
+                            <td class="px-3 py-2 text-center">  ${product.count}</td>
+                            <td class="px-3 py-2 bg-gray-50 text-center">${product.price.toLocaleString('fa-ir')} تومان</td>
+                            <td class="px-3 py-2 text-center">${(product.count * product.price).toLocaleString('fa-ir')} تومان</td>
                         </tr>
+           
             `)
     })
 })
