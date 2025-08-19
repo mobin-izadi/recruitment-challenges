@@ -62,7 +62,7 @@ input.no-spinner::-webkit-inner-spin-button {
 }
 
 .container {
-    @apply px-2;
+    @apply px-2 xl:max-w-[80rem];
 }
 
 .input-category:checked~div {

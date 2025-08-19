@@ -249,12 +249,12 @@ const createBoxProduct = () => {
                     <div
                         class="bg-white dark:bg-gray-700 rounded-xl overflow-hidden h-[366px] xl:h-96 py-2 px-4 relative">
                         <button
-                            class="bg-blue-400 text-white absolute bottom-0.5 left-1.5 z-20 rounded-xl w-[65px] h-[70px] cursor-pointer flex justify-center items-center " onclick="addToCart('${product.id}')">
+                            class="bg-blue-400 text-white absolute bottom-0.5 left-1.5 z-20 rounded-xl w-12 h-[73px] xl:w-[65px] xl:h-[70px] cursor-pointer flex justify-center items-center " onclick="addToCart('${product.id}')">
                             <svg class="w-6 h-6" >
                                 <use href="#cart"></use>
                             </svg>
                         </button>
-                        <div class="absolute bottom-0 left-0 size-20 bg-gray-100 dark:bg-gray-800  rounded-tr-xl z-10 ">
+                        <div class="absolute bottom-0 left-0 w-[60px] h-20 xl:size-20 bg-gray-100 dark:bg-gray-800  rounded-tr-xl z-10 ">
                             <svg
                                 class="w-[15px] h-[15px] absolute rotate-90 left-0 -top-3.5 text-gray-100 dark:text-gray-800">
                                 <use href="#box"></use>
