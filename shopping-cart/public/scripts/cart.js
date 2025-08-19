@@ -147,14 +147,17 @@ const updateCart = () => {
         cart.forEach(product => {
             cartItemsWrapper.insertAdjacentHTML('beforeend', `
                 <li class="flex items-center justify-between gap-1">
-                                <img src="../${product.image}" class="size-20 sm:size-24 object-contain ">
+                <div class="flex items-center gap-2">
+                <img src="../${product.image}" class="size-20 sm:size-24 object-contain ">
                                 <div>
-                                    <p class="line-clamp-2 text-sm sm:text-base w-72"> ${product.title}</p>
+                                    <p class="line-clamp-2 text-sm sm:text-base max-w-72"> ${product.title}</p>
                                     <p class="line-clamp-1 text-sm text-gray-500 my-1"> ${product.price.toLocaleString('fa-ir')}
                                         <span>تومان</span>
                                     </p>
                                 </div>
-                                <div class="bg-gray-100 dark:bg-gray-600 w-12  rounded p-0 relative">
+                </div>
+                                <div class="flex items-center gap-2">
+                                 <div class="bg-gray-100 dark:bg-gray-600 w-12  rounded p-0 relative">
                                    <input type="number" class="w-full h-full text-center " min="1"
                                             max="200" value="${product.count}" onchange="addToCart(${product.id}, this.value)">
 
@@ -163,6 +166,8 @@ const updateCart = () => {
                                 <svg class="w-5 h-5 text-red-500 shrink-0 cursor-pointer" onclick="deleteProductInCart(${product.id})">
                                         <use href="#delete"></use>
                                     </svg>
+                                </div>
+                               
                             </li>
                 
                 `)
