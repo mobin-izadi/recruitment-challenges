@@ -158,7 +158,7 @@ const pagination = (products) => {
     for (let index = 0; index < countPage; index++) {
         pagingWrapper.insertAdjacentHTML('afterbegin', `
             <li
-                        class="border border-gray-300 rounded size-8 flex justify-center items-center cursor-pointer text-xl leading-8 pagination-item" id="page-${index + 1}" onclick="goToPage('${index + 1}')">
+                        class=" border border-gray-300 rounded size-8 flex justify-center items-center cursor-pointer text-xl leading-8 pagination-item" id="page-${index + 1}" onclick="goToPage('${index + 1}')">
                         ${index + 1}
                     </li>
             
@@ -188,10 +188,12 @@ const checkActiveSort = (value) => {
 // Change the button style on the active page.
 const activePageBtn = (page) => {
     document.querySelectorAll('.pagination-item').forEach(btn => {
-        btn.classList.remove('bg-blue-500')
+        btn.classList.remove('active-btn')
     })
 
-    document.getElementById(`page-${page}`).classList.add('bg-blue-500')
+    let activeBtn = document.getElementById(`page-${page}`)
+    activeBtn.classList.add('active-btn')
+
 
 
 }

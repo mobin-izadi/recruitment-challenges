@@ -61,6 +61,10 @@ input.no-spinner::-webkit-inner-spin-button {
     animation: typing .5s ease-in-out infinite;
 }
 
+.active-btn {
+    @apply bg-blue-500 text-white;
+}
+
 .container {
     @apply px-2 xl:max-w-[80rem];
 }
