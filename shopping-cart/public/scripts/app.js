@@ -319,7 +319,6 @@ const addToCart = (id, count) => {
     if (count) {
         isBuy = isStock(findProduct.stock, count)
         if (isBuy) {
-            massage(true, 'محصول به سبد خرید اضافه شد')
             cart[isProductInCart].count = count
         }
 
