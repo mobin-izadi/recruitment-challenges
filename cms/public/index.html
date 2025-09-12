@@ -6,11 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ورود ادمین | باگ استور</title>
     <link rel="shortcut icon" href="images/logo.png" type="image/png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert2/11.23.0/sweetalert2.min.css"
+        integrity="sha512-Ivy7sPrd6LPp20adiK3al16GBelPtqswhJnyXuha3kGtmQ1G2qWpjuipfVDaZUwH26b3RDe8x707asEpvxl7iA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="styles/app.css">
 </head>
 
 <body
-    class="font-yekan bg-gray-100 dark:bg-gray-800 dark:text-white min-h-screen flex justify-center items-center text-gray-950 relative px-4 sm:p-0 ">
+    class="font-yekan bg-gray-100 dark:bg-gray-900 dark:text-white min-h-screen flex justify-center items-center text-gray-950 relative px-4 sm:p-0 ">
     <!-- svg icons -->
     <svg class="hidden">
         <symbol id="user" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -46,11 +49,7 @@
 
 
     </svg>
-    <!-- Message wrapper -->
-    <div class="massage-wrapper fixed z-50 top-3 left-3 flex flex-col gap-2">
 
-
-    </div>
     <!-- main -->
     <main class="w-full flex flex-col justify-center items-center gap-4 relative z-40">
         <!-- logo -->
@@ -62,10 +61,10 @@
         </div>
 
         <!-- Login form -->
-        <form action="" class="w-full sm:w-96  bg-white dark:bg-gray-700 rounded-xl shadow py-10 px-6">
+        <form action="" class="w-full sm:w-96  bg-white dark:bg-gray-800 rounded-xl shadow py-10 px-6">
             <p class="text-center font-black text-xl mb-5">ورود</p>
             <!-- user name -->
-            <div class="bg-gray-100 dark:bg-gray-600 flex justify-between items-center rounded-xl h-14 px-2 border border-gray-100 dark:border-gray-600"
+            <div class="bg-gray-100 dark:bg-gray-700 flex justify-between items-center rounded-xl h-14 px-2 border border-gray-100 dark:border-gray-600"
                 id="user-name-wrapper">
                 <input type="text" required placeholder="نام کاربری"
                     class="w-full h-full placeholder-text-gray-400 dark:placeholderbg-gray-500" id="user-name">
@@ -76,7 +75,7 @@
                 </svg>
             </div>
             <!-- user password -->
-            <div class="bg-gray-100 dark:bg-gray-600 flex justify-between items-center rounded-xl h-14 px-2 border border-gray-100 dark:border-gray-600 my-4  "
+            <div class="bg-gray-100 dark:bg-gray-700 flex justify-between items-center rounded-xl h-14 px-2 border border-gray-100 dark:border-gray-600 my-4  "
                 id="password-wrapper">
                 <input type="password" required placeholder="پسورد"
                     class="w-full h-full placeholder-text-gray-400 dark:placeholderbg-gray-500" id="password">
@@ -103,10 +102,8 @@
     </div>
 
     <!-- scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert2/11.23.0/sweetalert2.min.js"></script>
     <script src="scripts/login.js" type="module"></script>
-
-
-
 </body>
 
 </html>

@@ -10,6 +10,20 @@ const darkModeHandler = () => {
     }
 
 }
+// Show the VPN activation message.
+const showVpnActivation = () => {
+    Swal.fire({
+        title: 'اطلاعیه مهم',
+        text: 'برای استفاده از سایت، حتما باید VPN روشن باشه!',
+        icon: 'warning',
+        confirmButtonText: 'روشنه',
+        allowOutsideClick: false,
+        allowEscapeKey: false,
+        customClass: {
+            popup: 'dark:!bg-gray-700 dark:!text-white',
+        }
+    });
+}
 
 
-export { darkModeHandler }
+export { darkModeHandler, showVpnActivation }

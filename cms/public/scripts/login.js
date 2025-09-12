@@ -1,4 +1,4 @@
-import { darkModeHandler } from "./utils.js"
+import { darkModeHandler, showVpnActivation } from "./utils.js"
 
 
 //--------------------------------------------Variables
@@ -22,9 +22,11 @@ const showPassHandler = () => {
     }
     iconPass = passShowIcon.href.animVal.slice(1)
 }
+
 // Enter the information before the page loads.
 const pageLoadingHandler = () => {
     darkModeHandler()
+    showVpnActivation()
 }
 
 //--------------------------------------------Events
