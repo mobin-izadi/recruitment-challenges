@@ -40,6 +40,13 @@ input {
     @apply border-none outline-0 text-inherit;
 }
 
+span,
+p {
+    @apply text-inherit;
+}
+
+
+
 
 @custom-variant dark (&:where(.dark, .dark *));
 
