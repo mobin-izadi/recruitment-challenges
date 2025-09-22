@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>داشبورد ادمین | باگ استور</title>
     <link rel="shortcut icon" href="../images/logo.png" type="image/png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert2/11.23.0/sweetalert2.min.css"
         integrity="sha512-Ivy7sPrd6LPp20adiK3al16GBelPtqswhJnyXuha3kGtmQ1G2qWpjuipfVDaZUwH26b3RDe8x707asEpvxl7iA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -13,7 +14,7 @@
 </head>
 
 <body
-    class="font-yekan bg-gray-100 dark:bg-gray-900 dark:text-white min-h-screen flex justify-center items-center text-gray-950 relative xl:pl-4 ">
+    class="font-yekan bg-gray-100 dark:bg-gray-900 dark:text-white min-h-screen flex justify-center items-center text-gray-950 relative xl:pl-4  overflow-x-hidden">
     <!-- svg icons -->
     <svg class="hidden">
         <symbol id="user" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -258,6 +259,81 @@
                 </g>
             </g>
         </symbol>
+        <symbol id="cart" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+            <g id="SVGRepo_iconCarrier">
+                <path
+                    d="M3.86376 16.4552C3.00581 13.0234 2.57684 11.3075 3.47767 10.1538C4.3785 9 6.14721 9 9.68462 9H14.3153C17.8527 9 19.6214 9 20.5222 10.1538C21.4231 11.3075 20.9941 13.0234 20.1362 16.4552C19.5905 18.6379 19.3176 19.7292 18.5039 20.3646C17.6901 21 16.5652 21 14.3153 21H9.68462C7.43476 21 6.30983 21 5.49605 20.3646C4.68227 19.7292 4.40943 18.6379 3.86376 16.4552Z"
+                    stroke="currentColor" stroke-width="1.5"></path>
+                <path opacity="0.5"
+                    d="M19.5 9.5L18.7896 6.89465C18.5157 5.89005 18.3787 5.38775 18.0978 5.00946C17.818 4.63273 17.4378 4.34234 17.0008 4.17152C16.5619 4 16.0413 4 15 4M4.5 9.5L5.2104 6.89465C5.48432 5.89005 5.62128 5.38775 5.90221 5.00946C6.18199 4.63273 6.56216 4.34234 6.99922 4.17152C7.43808 4 7.95872 4 9 4"
+                    stroke="currentColor" stroke-width="1.5"></path>
+                <path
+                    d="M9 4C9 3.44772 9.44772 3 10 3H14C14.5523 3 15 3.44772 15 4C15 4.55228 14.5523 5 14 5H10C9.44772 5 9 4.55228 9 4Z"
+                    stroke="currentColor" stroke-width="1.5"></path>
+            </g>
+        </symbol>
+        <symbol id="link" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+            <g id="SVGRepo_iconCarrier">
+                <path
+                    d="M15.197 3.35462C16.8703 1.67483 19.4476 1.53865 20.9536 3.05046C22.4596 4.56228 22.3239 7.14956 20.6506 8.82935L18.2268 11.2626M10.0464 14C8.54044 12.4882 8.67609 9.90087 10.3494 8.22108L12.5 6.06212"
+                    stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path>
+                <path
+                    d="M13.9536 10C15.4596 11.5118 15.3239 14.0991 13.6506 15.7789L11.2268 18.2121L8.80299 20.6454C7.12969 22.3252 4.55237 22.4613 3.0464 20.9495C1.54043 19.4377 1.67609 16.8504 3.34939 15.1706L5.77323 12.7373"
+                    stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path>
+            </g>
+        </symbol>
+        <symbol id="cash" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg" fill="currentColor">
+            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+            <g id="SVGRepo_iconCarrier">
+                <g id="Layer_2" data-name="Layer 2">
+                    <g id="invisible_box" data-name="invisible box">
+                        <rect width="48" height="48" fill="none"></rect>
+                    </g>
+                    <g id="Layer_7" data-name="Layer 7">
+                        <g>
+                            <path
+                                d="M34.3,20.1h0a6.7,6.7,0,0,1-4.1-1.3,2,2,0,0,0-2.8.6,1.8,1.8,0,0,0,.3,2.6A10.9,10.9,0,0,0,32,23.8V26a2,2,0,0,0,4,0V23.8a6.3,6.3,0,0,0,3-1.3,4.9,4.9,0,0,0,2-4h0c0-3.7-3.4-4.9-6.3-5.5s-3.5-1.3-3.5-1.8.2-.6.5-.9a3.4,3.4,0,0,1,1.8-.4,6.3,6.3,0,0,1,3.3.9,1.8,1.8,0,0,0,2.7-.5,1.9,1.9,0,0,0-.4-2.8A9.1,9.1,0,0,0,36,6.3V4a2,2,0,0,0-4,0V6.2c-3,.5-5,2.5-5,5.2s3.3,4.9,6.5,5.5,3.3,1.3,3.3,1.8S35.7,20.1,34.3,20.1Z">
+                            </path>
+                            <path
+                                d="M42.2,31.7a5.2,5.2,0,0,0-4-1.1l-9.9,1.8a4.5,4.5,0,0,0-1.4-3.3L19.8,22H5a2,2,0,0,0-2,2v9a2,2,0,0,0,2,2H8.3l11.2,9.1,20.4-3.7a5,5,0,0,0,2.3-8.7Zm-3,4.8L20.5,39.9,10,31.2V26h8.2l5.9,5.9a.8.8,0,0,1-1.2,1.2l-3.5-3.5a2,2,0,0,0-2.8,2.8l3.5,3.5a4.5,4.5,0,0,0,3.4,1.4,5.7,5.7,0,0,0,1.8-.3h0l13.6-2.4a1.1,1.1,0,0,1,.8.2.9.9,0,0,1,.3.7A1,1,0,0,1,39.2,36.5Z">
+                            </path>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </symbol>
+        <symbol id="pay" version="1.1" id="designs" xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 32 32" xml:space="preserve" fill="currentColor">
+            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+            <g id="SVGRepo_iconCarrier">
+                <style type="text/css">
+                    .sketchy_een {
+                        fill: #111918;
+                    }
+                </style>
+                <path class="sketchy_een"
+                    d="M28.918,15.952c-0.051-0.378-0.272-0.697-0.592-0.902c-0.212-0.136-0.475-0.137-0.697-0.042 c-0.003-0.816,0-1.632-0.021-2.447c-0.021-0.915,0.029-1.829,0.063-2.742c0.012-0.301-0.181-0.561-0.44-0.689 c-0.023-0.344-0.047-0.688-0.077-1.031c-0.019-0.205-0.036-0.41-0.065-0.613c-0.006-0.04-0.011-0.08-0.017-0.12 c-0.015-0.106-0.063-0.289-0.123-0.37c-0.087-0.114-0.161-0.241-0.296-0.306c-0.099-0.047-0.194-0.093-0.302-0.108 c-0.105-0.016-0.213-0.016-0.319-0.028c-0.023-0.337-0.041-0.674-0.056-1.011c0.038-0.087,0.059-0.181,0.059-0.279 c0-0.395-0.329-0.718-0.72-0.722c-0.805-0.006-1.61,0.006-2.415-0.028c-0.724-0.03-1.447-0.072-2.174-0.087 c-1.527-0.028-3.057-0.017-4.586-0.028c-1.5-0.01-2.998-0.04-4.501-0.044c-0.733-0.001-1.466-0.015-2.198-0.015 c-0.706,0-1.413,0.013-2.118,0.062C6.545,4.457,5.757,4.635,5.041,4.947C4.342,5.249,3.714,5.851,3.497,6.593 c-0.059,0.203-0.089,0.41-0.116,0.621C3.358,7.385,3.338,7.56,3.358,7.732c0.025,0.215,0.06,0.423,0.117,0.629 C3.24,8.48,3.075,8.72,3.072,8.997c-0.01,0.798-0.006,1.595-0.021,2.391c-0.013,0.724-0.03,1.447-0.038,2.169 c-0.013,1.462-0.021,2.922,0,4.385c0.015,1.016,0.038,2.032,0.042,3.048c0.006,1.02,0.019,2.041-0.004,3.063 c-0.003,0.127,0.042,0.241,0.104,0.345c0.151,0.39,0.309,0.782,0.514,1.146c0.084,0.148,0.19,0.285,0.292,0.422 c0.095,0.125,0.192,0.249,0.289,0.372c0.148,0.188,0.37,0.336,0.568,0.463c0.442,0.289,0.957,0.473,1.476,0.564 c0.45,0.078,0.904,0.154,1.36,0.182c0.828,0.049,1.66,0.055,2.491,0.07c0.79,0.013,1.58,0.028,2.368,0.027 c0.805,0,1.608-0.009,2.412-0.004c0.807,0.008,1.612,0.032,2.419,0.015c0.832-0.015,1.662-0.049,2.493-0.061 c0.799-0.013,1.603-0.009,2.402-0.009c0.763,0,1.527,0,2.288-0.01c0.357-0.004,0.714,0,1.073,0.004 c0.376,0.004,0.752,0.008,1.13,0.002c0.257-0.003,0.481-0.131,0.633-0.319c0.193-0.138,0.33-0.351,0.325-0.6 c-0.017-0.86-0.008-1.72-0.017-2.581c-0.013-0.988,0.002-1.974,0.019-2.961c0.237-0.036,0.449-0.105,0.646-0.27 c0.439-0.368,0.543-0.999,0.589-1.538c0.029-0.334,0.029-0.67,0.042-1.006c0.021-0.513,0.046-1.031,0.028-1.546 C28.985,16.49,28.954,16.22,28.918,15.952z M7.703,8.835C7.706,8.762,7.71,8.688,7.694,8.613C7.69,8.594,7.687,8.574,7.683,8.555 c-0.02-0.306-0.01-0.614-0.007-0.922c1.463,0.042,2.927,0.043,4.392,0.05c0.754,0.004,1.508,0.023,2.262,0.042 c0.699,0.019,1.396,0.07,2.095,0.093c0.727,0.025,1.456,0.036,2.186,0.051c0.729,0.015,1.46,0.03,2.189,0.036 c0.742,0.006,1.485,0.013,2.226,0.015c0.653,0.002,1.307,0.03,1.96,0.034c0.242,0.001,0.483,0.01,0.723,0.028 c0.04,0.353,0.066,0.707,0.077,1.063c-0.389,0.008-0.779,0.004-1.166,0c-0.727-0.01-1.455-0.032-2.182-0.036 c-1.46-0.008-2.917-0.057-4.377-0.068c-1.553-0.011-3.105,0.002-4.658-0.053c-0.999-0.034-2-0.032-2.998-0.03 c-0.534,0-1.067,0.002-1.599-0.004C8.438,8.849,8.07,8.844,7.703,8.835z M27.418,19.574L27.418,19.574 c0.001-0.001,0.003-0.003,0.005-0.005C27.422,19.571,27.42,19.573,27.418,19.574z M27.224,16.425 c0.052,0.004,0.103,0.001,0.152-0.007c0.03,0.439,0.025,0.879,0.017,1.32c-0.004,0.279-0.009,0.558-0.015,0.839 c-0.003,0.273,0.001,0.546-0.024,0.817c-0.012,0.063-0.026,0.125-0.043,0.187c-0.277,0.014-0.557,0.005-0.833-0.002 c-0.336-0.008-0.672-0.011-1.008-0.011c-0.745,0-1.493,0.002-2.232-0.082c-0.225-0.04-0.443-0.097-0.657-0.176 c-0.215-0.102-0.412-0.22-0.603-0.358c-0.072-0.063-0.141-0.128-0.207-0.197c-0.04-0.062-0.075-0.125-0.109-0.19 c-0.035-0.094-0.067-0.189-0.093-0.288c-0.016-0.223-0.009-0.441,0.015-0.663c0.04-0.238,0.089-0.474,0.171-0.702 c0.027-0.053,0.056-0.103,0.087-0.152c0.038-0.038,0.076-0.075,0.116-0.109c0.076-0.047,0.154-0.09,0.235-0.13 c0.197-0.071,0.397-0.125,0.605-0.162c0.325-0.033,0.649-0.04,0.976-0.048c0.349-0.01,0.699-0.023,1.048-0.023 C25.624,16.284,26.427,16.364,27.224,16.425z M4.895,7.3c0.023-0.124,0.051-0.245,0.091-0.364C5.014,6.88,5.045,6.827,5.078,6.775 c0.087-0.098,0.18-0.19,0.279-0.276c0.127-0.087,0.259-0.159,0.399-0.226C6.231,6.092,6.73,5.979,7.23,5.903 C7.913,5.83,8.593,5.797,9.279,5.792c0.725-0.004,1.451-0.011,2.176-0.013c0.676,0,1.352,0.004,2.03,0.008 c0.811,0.004,1.624,0.009,2.436,0.004c1.523-0.009,3.046-0.013,4.569,0.017c0.729,0.015,1.456,0.03,2.186,0.078 c0.601,0.042,1.203,0.056,1.805,0.072c0.014,0.177,0.026,0.355,0.046,0.533c-0.067,0-0.134-0.002-0.201-0.001 c-1.424,0.009-2.848,0.03-4.273,0.009c-0.754-0.009-1.508-0.025-2.26-0.049c-0.712-0.021-1.422-0.027-2.133-0.055 c-0.727-0.029-1.453-0.059-2.18-0.068c-0.727-0.011-1.455-0.01-2.182-0.019c-1.356-0.021-2.712-0.07-4.066-0.127 c-0.009,0-0.018-0.001-0.027-0.001c-0.35,0-0.631,0.296-0.678,0.631c-0.211,0.135-0.361,0.359-0.36,0.623 c0.002,0.44,0.01,0.883,0.066,1.321C6.203,8.749,6.171,8.75,6.139,8.746C5.907,8.71,5.677,8.671,5.454,8.597 C5.382,8.56,5.314,8.519,5.246,8.473C5.21,8.441,5.177,8.408,5.145,8.372C5.091,8.285,5.046,8.196,5.004,8.104 C4.954,7.972,4.915,7.84,4.886,7.702C4.877,7.567,4.882,7.435,4.895,7.3z M24.46,25.97c-0.777,0.019-1.555,0.017-2.332,0.034 c-1.662,0.032-3.323,0.089-4.987,0.101c-0.771,0.004-1.544,0.021-2.315,0.015c-0.82-0.004-1.639-0.015-2.457-0.017 c-0.773-0.002-1.546,0.008-2.319,0.011c-0.832,0.002-1.669,0.006-2.497-0.076c-0.066-0.007-0.132-0.013-0.198-0.02 c-0.451-0.064-0.905-0.144-1.331-0.302c-0.17-0.084-0.334-0.177-0.49-0.284c-0.108-0.095-0.203-0.198-0.294-0.308 c-0.08-0.106-0.158-0.215-0.231-0.328c-0.079-0.126-0.141-0.265-0.201-0.402c-0.069-0.17-0.135-0.342-0.2-0.515 c-0.039-0.103-0.087-0.194-0.148-0.275c-0.01-1.288-0.01-2.575-0.027-3.861c-0.011-0.714-0.025-1.43-0.034-2.144 c-0.011-0.733-0.002-1.468-0.004-2.201C4.395,14.349,4.393,13.3,4.42,12.25c0.02-0.816,0.045-1.631,0.067-2.447 c0.048,0.03,0.095,0.063,0.143,0.09c0.399,0.22,0.845,0.275,1.289,0.329c0.372,0.046,0.746,0.066,1.122,0.08 c0.746,0.027,1.495,0.017,2.243,0.017c0.788,0,1.574-0.009,2.362-0.013c0.775-0.006,1.546,0.03,2.32,0.055 c0.746,0.023,1.493,0.023,2.241,0.023c0.775-0.002,1.551-0.008,2.326-0.006c0.76,0.002,1.519,0.047,2.277,0.093 c1.424,0.084,2.854,0.089,4.28,0.106c0.337,0.004,0.679,0,1.02-0.014c-0.021,1.427-0.002,2.855,0.004,4.282 c-0.467-0.022-0.934-0.055-1.402-0.06c-0.359-0.004-0.718-0.015-1.075-0.021c-0.036-0.001-0.071-0.001-0.107-0.001 c-0.398,0-0.791,0.038-1.186,0.09c-0.429,0.059-0.866,0.234-1.234,0.46c-0.275,0.169-0.469,0.395-0.663,0.648 c-0.122,0.159-0.194,0.384-0.262,0.566c-0.074,0.196-0.114,0.406-0.154,0.612c-0.103,0.528-0.152,1.063-0.042,1.595 c0.027,0.133,0.08,0.262,0.129,0.389c0.122,0.317,0.287,0.579,0.515,0.832c0.18,0.201,0.422,0.357,0.642,0.511 c0.142,0.099,0.298,0.18,0.456,0.253c0.224,0.101,0.456,0.207,0.697,0.266c0.427,0.106,0.873,0.141,1.312,0.165 c0.492,0.027,0.987,0.023,1.483,0.019c0.209-0.002,0.42-0.004,0.63-0.004c0.088,0,0.175,0.001,0.263,0.002 c-0.011,1.592,0.04,3.183,0.053,4.774C25.6,25.947,25.03,25.957,24.46,25.97z M24.132,17.865c0,0.431-0.359,0.791-0.791,0.791 c-0.431,0-0.791-0.359-0.791-0.791c0-0.431,0.359-0.791,0.791-0.791C23.772,17.074,24.132,17.434,24.132,17.865z">
+                </path>
+            </g>
+        </symbol>
+        <symbol id="chart" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+            <g id="SVGRepo_iconCarrier">
+                <path
+                    d="M1 2C1 1.44772 1.44772 1 2 1C2.55228 1 3 1.44772 3 2V20C3 20.5523 3.44771 21 4 21L22 21C22.5523 21 23 21.4477 23 22C23 22.5523 22.5523 23 22 23H3C1.89543 23 1 22.1046 1 21V2Z"
+                    fill="currentColor"></path>
+                <path
+                    d="M19.9285 5.37139C20.1336 4.85861 19.8842 4.27664 19.3714 4.07152C18.8586 3.86641 18.2766 4.11583 18.0715 4.62861L14.8224 12.7513C14.6978 13.0628 14.3078 13.1656 14.0459 12.9561L11.0811 10.5843C10.3619 10.0089 9.29874 10.2116 8.84174 11.0114L5.13176 17.5039C4.85775 17.9834 5.02434 18.5942 5.50386 18.8682C5.98338 19.1423 6.59423 18.9757 6.86824 18.4961L9.9982 13.0187C10.1505 12.7521 10.5049 12.6846 10.7447 12.8764L13.849 15.3598C14.635 15.9886 15.805 15.6802 16.1788 14.7456L19.9285 5.37139Z"
+                    fill="currentColor"></path>
+            </g>
+        </symbol>
 
 
     </svg>
@@ -356,9 +432,9 @@
                         </div>
                         <!-- notification__ wrapper -->
                         <div
-                            class="notification__wrapper shadow w-64 bg-white dark:bg-gray-800   absolute top-7 left-0 rounded p-2 flex flex-col justify-between    hidden">
+                            class="notification__wrapper shadow w-64 bg-white dark:bg-gray-800  dark:text-white absolute top-7 left-0 rounded p-2 flex flex-col justify-between    hidden">
                             <div class="flex justify-between border-b border-b-gray-300 pb-3">
-                                <span class="text-gray-600">اعلانات</span>
+                                <span>اعلانات</span>
                                 <svg class=" w-5 h-5 cursor-pointer" id="notification-close-btn">
                                     <use href="#close" class="pointer-events-none"></use>
                                 </svg>
@@ -372,8 +448,11 @@
                                                 <img src="../images/profile.jpg"
                                                     class="size-10 rounded-full bg-cover overflow-hidden shrink-0">
                                                 <div>
-                                                    <p class="line-clamp-1 text-sm text-gray-800"> مبین ایزدی</p>
-                                                    <p class="line-clamp-2 text-xs mt-1 text-gray-500">این یک اعلان تستی
+                                                    <p class=" truncate max-w-[180px] text-sm "> مبین ایزدی
+                                                    </p>
+                                                    <p
+                                                        class="line-clamp-2 text-xs mt-1 text-gray-500 dark:text-gray-400">
+                                                        این یک اعلان تستی
                                                         می
                                                         باشد.</p>
                                                 </div>
@@ -451,6 +530,899 @@
                 </div>
 
             </div>
+            <!-- content wrapper -->
+            <div class="grid grid-cols-12 my-6 gap-5">
+                <!-- analysis -->
+                <div class="order-1 col-span-12 xl:col-span-7 2xl:col-span-6 ">
+                    <!-- Swiper -->
+                    <div class="swiper statistics w-full h-64  rounded-xl">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide bg-blue-500">
+                                <div
+                                    class=" text-center text-lg bg-blue-500 flex justify-between items-center gap-3 py-3 px-6 rounded-xl h-48">
+                                    <div class="flex flex-col gap-5 items-start">
+                                        <span class="font-bold !text-white"> آمار کلی فروش</span>
+                                        <ul class=" grid grid-cols-2 gap-2 sm:gap-5 text-white">
+                                            <li class="flex gap-3 items-center text-sm col-span-2 sm:col-span-1">
+                                                <div class="bg-blue-600 text-white w-14 py-1 rounded">115</div>
+                                                <span class="text-start ">تعداد کل سفارش‌ها</span>
+
+                                            </li>
+                                            <li class="flex gap-3 items-center text-sm col-span-2 sm:col-span-1">
+                                                <div class="bg-blue-600 text-white w-14 py-1 rounded">250</div>
+                                                <span class="text-start ">میزان فروش کل</span>
+
+                                            </li>
+                                            <li class="flex gap-3 items-center text-sm col-span-2 sm:col-span-1">
+                                                <div class="bg-blue-600 text-white w-14 py-1 rounded">5%</div>
+                                                <span class="text-start ">درصد رشد</span>
+
+                                            </li>
+                                            <li class="flex gap-3 items-center text-sm col-span-2 sm:col-span-1">
+                                                <div class="bg-blue-600 text-white w-14 py-1 rounded">1000</div>
+                                                <span class="text-start ">تعداد کاربران فعال امروز</span>
+
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <img src="../images/analysis1.png"
+                                        class="hidden md:block size-30  2xl:size-50 object-cover  ">
+                                </div>
+
+                            </div>
+                            <div class="swiper-slide bg-blue-500">
+                                <div
+                                    class=" text-center text-lg bg-blue-500 flex justify-between items-center gap-3 py-3 px-6 rounded-xl h-48">
+                                    <div class="flex flex-col gap-5 items-start">
+                                        <span class="font-bold !text-white"> کاربران و تعامل</span>
+                                        <ul class=" grid grid-cols-2 gap-2 sm:gap-5 text-white">
+                                            <li class="flex gap-3 items-center text-sm col-span-2 sm:col-span-1">
+                                                <div class="bg-blue-600 text-white w-14 py-1 rounded">5004</div>
+                                                <span class="text-start ">تعداد کل کاربران</span>
+
+                                            </li>
+                                            <li class="flex gap-3 items-center text-sm col-span-2 sm:col-span-1">
+                                                <div class="bg-blue-600 text-white w-14 py-1 rounded">95</div>
+                                                <span class="text-start ">تعداد کاربران آنلاین</span>
+
+                                            </li>
+                                            <li class="flex gap-3 items-center text-sm col-span-2 sm:col-span-1">
+                                                <div class="bg-blue-600 text-white w-14 py-1 rounded">1</div>
+                                                <span class="text-start ">میانگین زمان حضور کاربران</span>
+
+                                            </li>
+                                            <li class="flex gap-3 items-center text-sm col-span-2 sm:col-span-1">
+                                                <div class="bg-blue-600 text-white w-14 py-1 rounded">15%</div>
+                                                <span class="text-start ">درصد بازگشت کاربران</span>
+
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <img src="../images/analysis2.png"
+                                        class="hidden md:block size-30  2xl:size-50 object-cover  ">
+                                </div>
+
+                            </div>
+                            <div class="swiper-slide bg-blue-500">
+                                <div
+                                    class=" text-center text-lg bg-blue-500 flex justify-between items-center gap-3 py-3 px-6 rounded-xl h-48">
+                                    <div class="flex flex-col gap-5 items-start">
+                                        <span class="font-bold !text-white">هشدارها</span>
+                                        <ul class=" grid grid-cols-2 gap-2 sm:gap-5 text-white">
+                                            <li class="flex gap-3 items-center text-sm col-span-2 sm:col-span-1">
+                                                <div class="bg-blue-600 text-white w-14 py-1 rounded">5</div>
+                                                <span class="text-start ">سفارش‌های معلق</span>
+
+                                            </li>
+                                            <li class="flex gap-3 items-center text-sm col-span-2 sm:col-span-1">
+                                                <div class="bg-blue-600 text-white w-14 py-1 rounded">10</div>
+                                                <span class="text-start ">تیکت‌های پشتیبانی باز</span>
+
+                                            </li>
+                                            <li class="flex gap-3 items-center text-sm col-span-2 sm:col-span-1">
+                                                <div class="bg-blue-600 text-white w-14 py-1 rounded">1</div>
+                                                <span class="text-start ">مشکلات اخیر سیستم</span>
+
+                                            </li>
+                                            <li class="flex gap-3 items-center text-sm col-span-2 sm:col-span-1">
+                                                <div class="bg-blue-600 text-white w-14 py-1 rounded">45%</div>
+                                                <span class="text-start ">میزان مصرف منابع</span>
+
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <img src="../images/analysis3.png"
+                                        class="hidden md:block size-30  2xl:size-50 object-cover  ">
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <div class="swiper-pagination"></div>
+                    </div>
+
+                </div>
+                <!-- Sales statistics -->
+                <div
+                    class="order-2  xl:order-3 2xl:order-2 col-span-12 sm:col-span-6 xl:col-span-12 2xl:col-span-3  bg-white dark:bg-gray-800 dark:text-white rounded-xl py-3 px-6 ">
+                    <div class="flex justify-between items-center">
+                        <div class="flex flex-col gap-2">
+                            <span class="!text-gray-500  text-sm">آمار فروش</span>
+                            <span class="text-xl font-bold !text-gray-700 dark:!text-white">50.5K تومان</span>
+                        </div>
+                        <span class="!text-green-500" dir="ltr">+20%</span>
+                    </div>
+                    <div class="flex justify-between items-cente mt-6">
+                        <div class="flex flex-col gap-3">
+                            <div class="flex items-center gap-3">
+                                <div class="bg-blue-200 p-1 rounded">
+                                    <svg class="size-5 text-blue-400">
+                                        <use href="#cart">
+
+                                        </use>
+                                    </svg>
+
+                                </div>
+                                <span class="!text-gray-400"> سفارشات</span>
+                            </div>
+                            <span class="font-bold text-xl">62.5%</span>
+                            <span class="text-sm !text-gray-500">3521</span>
+                        </div>
+                        <div class="h-28  w-[1px] bg-gray-300 relative">
+                            <div
+                                class="absolute  bg-gray-200 dark:bg-gray-700 text-gray-400 dark:text-white text-xs p-1 rounded w-12 -right-6 top-12">
+                                مقایسه
+                            </div>
+
+                        </div>
+                        <div class="flex flex-col gap-3">
+                            <div class="flex items-center gap-3">
+                                <div class="bg-green-200 p-1 rounded">
+                                    <svg class="size-5 text-green-400">
+                                        <use href="#link">
+
+                                        </use>
+                                    </svg>
+
+                                </div>
+                                <span class="!text-gray-400"> بازدید</span>
+                            </div>
+                            <span class="font-bold text-xl">35.5%</span>
+                            <span class="text-sm !text-gray-500">1025</span>
+                        </div>
+
+                    </div>
+                    <div class="bg-gray-300 rounded h-2 mt-3 relative overflow-hidden ">
+                        <div class="absolute inset-0 w-[62.5%] h-full bg-blue-500"></div>
+
+                    </div>
+
+                </div>
+                <!-- income statistics -->
+                <div
+                    class="order-3 xl:order-2 2xl:order-3 col-span-12 sm:col-span-6 xl:col-span-5 2xl:col-span-3  bg-white dark:bg-gray-800 dark:text-white rounded-xl py-3 px-6 h-64">
+                    <div class="flex justify-between items-center">
+                        <div class="flex flex-col gap-2">
+                            <span class="!text-gray-500  text-sm"> در آمد</span>
+                            <span class="text-xl font-bold !text-gray-700 dark:!text-white">100.5K تومان</span>
+                        </div>
+                        <svg class="size-8 text-green-500">
+                            <use href="#cash"></use>
+                        </svg>
+
+                    </div>
+                    <div class="size-52 xl:size-full mx-auto">
+                        <canvas id="myChart"></canvas>
+                    </div>
+
+
+
+                </div>
+                <!-- Sales report -->
+                <div
+                    class="order-4 col-span-12 lg:col-span-6  bg-white dark:bg-gray-800 dark:text-white rounded-xl py-3 px-6 sm:h-[400px]">
+                    <h4 class="text-xl font-bold text-gray-600 dark:text-white mb-1"> گزارش فروش</h4>
+                    <span class="text-sm text-gray-500 dark:text-gray-300"> گزارش هفتگی فروش</span>
+                    <div class="w-full h-44 mt-6 flex justify-center">
+                        <canvas id="sales"></canvas>
+                    </div>
+                    <div
+                        class="flex flex-col sm:flex-row justify-around gap-2 border border-gray-300 dark:border-gray-600 rounded px-5 p-2 mt-3">
+                        <div class="space-y-2">
+                            <div class="flex items-center gap-3">
+                                <div class="bg-blue-200 p-1 rounded">
+                                    <svg class="size-5 text-blue-400">
+                                        <use href="#pay">
+
+                                        </use>
+                                    </svg>
+
+                                </div>
+                                <span class="text-gray-400"> فروش</span>
+                            </div>
+                            <div class="space-y-2">
+                                <p class="text-xl font-bold !text-gray-700 dark:!text-white">100.5K تومان</p>
+                                <div class="bg-gray-300 rounded h-1 mt-3 relative overflow-hidden ">
+                                    <div class="absolute inset-0 w-[62.5%] h-full bg-blue-500"></div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="space-y-2">
+                            <div class="flex items-center gap-3">
+                                <div class="bg-pink-200 p-1 rounded">
+                                    <svg class="size-5 text-pink-400">
+                                        <use href="#chart">
+
+                                        </use>
+                                    </svg>
+
+                                </div>
+                                <span class="text-gray-400"> سـود</span>
+                            </div>
+                            <div class="space-y-2">
+                                <p class="text-xl font-bold !text-gray-700 dark:!text-white">10K تومان</p>
+                                <div class="bg-gray-300 rounded h-1 mt-3 relative overflow-hidden ">
+                                    <div class="absolute inset-0 w-[62.5%] h-full bg-pink-500"></div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="space-y-2">
+                            <div class="flex items-center gap-3">
+                                <div class="bg-purple-200 p-1 rounded">
+                                    <svg class="size-5 text-purple-400">
+                                        <use href="#cash">
+
+                                        </use>
+                                    </svg>
+
+                                </div>
+                                <span class="text-gray-400"> هزینه</span>
+                            </div>
+                            <div class="space-y-2">
+                                <p class="text-xl font-bold !text-gray-700 dark:!text-white">20K تومان</p>
+                                <div class="bg-gray-300 rounded h-1 mt-3 relative overflow-hidden ">
+                                    <div class="absolute inset-0 w-[62.5%] h-full bg-purple-500"></div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Ticket report -->
+                <div
+                    class="order-5 col-span-12 lg:col-span-6  bg-white dark:bg-gray-800 dark:text-white rounded-xl py-3 px-6 sm:h-[400px]">
+                    <h4 class="text-xl font-bold text-gray-600 dark:text-white mb-1"> گزارش پشتیبانی</h4>
+                    <span class="text-sm text-gray-500 dark:text-gray-300"> گزارش هفتگی پشتیبانی</span>
+
+                    <div class="flex justify-center sm:justify-between  flex-wrap sm:flex-nowrap  gap-2">
+                        <div class="space-y-3 my-6">
+                            <div class="space-y-0.5 text-center ">
+                                <p class="text-4xl font-bold">168</p>
+                                <p>تیکت </p>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <div class="bg-pink-200 p-1 rounded">
+                                    <svg class="size-5 text-pink-400">
+                                        <use href="#ticket">
+
+                                        </use>
+                                    </svg>
+
+                                </div>
+                                <div>
+                                    <p class="text-gray-400"> تیکت جدید</p>
+                                    <p> 140</p>
+                                </div>
+
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <div class="bg-green-200 p-1 rounded">
+                                    <svg class="size-5 text-green-400">
+                                        <use href="#letter-open">
+
+                                        </use>
+                                    </svg>
+
+                                </div>
+                                <div>
+                                    <p class="text-gray-400"> تیکت باز</p>
+                                    <p> 38</p>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div>
+                            <canvas id="ticketChart"></canvas>
+                        </div>
+
+                    </div>
+
+                </div>
+                <!-- new users report -->
+                <div
+                    class="order-6  col-span-12 2xl:col-span-6  bg-white dark:bg-gray-800 dark:text-white rounded-xl py-3 px-6">
+                    <h4 class="text-xl font-bold text-gray-600 dark:text-white mb-1"> گزارش کاربران جدید</h4>
+                    <span class="text-sm text-gray-500 dark:text-gray-300"> جدید ترین کاربران</span>
+
+
+                    <!-- mobile -->
+                    <div class="grid gap-4 sm:hidden mt-6">
+                        <div
+                            class="flex justify-between items-center gap-1 p-4 bg-white dark:bg-gray-800 rounded-lg shadow">
+                            <div>
+                                <p class="text-sm text-gray-500 dark:text-gray-400"><span class="font-bold">ردیف:
+                                    </span>1</p>
+                                <p class="text-sm text-gray-500 dark:text-gray-400"><span class="font-bold">نام کاربر:
+                                    </span>مبین ایزدی</p>
+                                <p class="text-sm text-gray-500 dark:text-gray-400"><span class="font-bold">ایمیل:
+                                    </span>mobin@example.com</p>
+                            </div>
+                            <a href="#" class="flex justify-center text-blue-500 mt-2 size-6">
+                                <svg class="size-5">
+                                    <use href="#eye"></use>
+                                </svg>
+                            </a>
+                        </div>
+
+                        <div
+                            class="flex justify-between items-center gap-1 p-4 bg-white dark:bg-gray-800 rounded-lg shadow">
+                            <div>
+                                <p class="text-sm text-gray-500 dark:text-gray-400"><span class="font-bold">ردیف:
+                                    </span>2</p>
+                                <p class="text-sm text-gray-500 dark:text-gray-400"><span class="font-bold">نام کاربر:
+                                    </span>علی محمدی</p>
+                                <p class="text-sm text-gray-500 dark:text-gray-400"><span class="font-bold">ایمیل:
+                                    </span>ali.m@example.com</p>
+                            </div>
+                            <a href="#" class="flex justify-center text-blue-500 mt-2 size-6">
+                                <svg class="size-5">
+                                    <use href="#eye"></use>
+                                </svg>
+                            </a>
+                        </div>
+
+                        <div
+                            class="flex justify-between items-center gap-1 p-4 bg-white dark:bg-gray-800 rounded-lg shadow">
+                            <div>
+                                <p class="text-sm text-gray-500 dark:text-gray-400"><span class="font-bold">ردیف:
+                                    </span>3</p>
+                                <p class="text-sm text-gray-500 dark:text-gray-400"><span class="font-bold">نام کاربر:
+                                    </span>سارا احمدی</p>
+                                <p class="text-sm text-gray-500 dark:text-gray-400"><span class="font-bold">ایمیل:
+                                    </span>sara.a@example.com</p>
+                            </div>
+                            <a href="#" class="flex justify-center text-blue-500 mt-2 size-6">
+                                <svg class="size-5">
+                                    <use href="#eye"></use>
+                                </svg>
+                            </a>
+                        </div>
+
+                        <div
+                            class="flex justify-between items-center gap-1 p-4 bg-white dark:bg-gray-800 rounded-lg shadow">
+                            <div>
+                                <p class="text-sm text-gray-500 dark:text-gray-400"><span class="font-bold">ردیف:
+                                    </span>4</p>
+                                <p class="text-sm text-gray-500 dark:text-gray-400"><span class="font-bold">نام کاربر:
+                                    </span>محمد رضایی</p>
+                                <p class="text-sm text-gray-500 dark:text-gray-400"><span class="font-bold">ایمیل:
+                                    </span>mohammad.r@example.com</p>
+                            </div>
+                            <a href="#" class="flex justify-center text-blue-500 mt-2 size-6">
+                                <svg class="size-5">
+                                    <use href="#eye"></use>
+                                </svg>
+                            </a>
+                        </div>
+
+                        <div
+                            class="flex justify-between items-center gap-1 p-4 bg-white dark:bg-gray-800 rounded-lg shadow">
+                            <div>
+                                <p class="text-sm text-gray-500 dark:text-gray-400"><span class="font-bold">ردیف:
+                                    </span>5</p>
+                                <p class="text-sm text-gray-500 dark:text-gray-400"><span class="font-bold">نام کاربر:
+                                    </span>نگین عباسی</p>
+                                <p class="text-sm text-gray-500 dark:text-gray-400"><span class="font-bold">ایمیل:
+                                    </span>negin.ab@example.com</p>
+                            </div>
+                            <a href="#" class="flex justify-center text-blue-500 mt-2 size-6">
+                                <svg class="size-5">
+                                    <use href="#eye"></use>
+                                </svg>
+                            </a>
+                        </div>
+
+                        <div
+                            class="flex justify-between items-center gap-1 p-4 bg-white dark:bg-gray-800 rounded-lg shadow">
+                            <div>
+                                <p class="text-sm text-gray-500 dark:text-gray-400"><span class="font-bold">ردیف:
+                                    </span>6</p>
+                                <p class="text-sm text-gray-500 dark:text-gray-400"><span class="font-bold">نام کاربر:
+                                    </span>مریم کریمی</p>
+                                <p class="text-sm text-gray-500 dark:text-gray-400"><span class="font-bold">ایمیل:
+                                    </span>maryam.k@example.com</p>
+                            </div>
+                            <a href="#" class="flex justify-center text-blue-500 mt-2 size-6">
+                                <svg class="size-5">
+                                    <use href="#eye"></use>
+                                </svg>
+                            </a>
+                        </div>
+
+                        <div
+                            class="flex justify-between items-center gap-1 p-4 bg-white dark:bg-gray-800 rounded-lg shadow">
+                            <div>
+                                <p class="text-sm text-gray-500 dark:text-gray-400"><span class="font-bold">ردیف:
+                                    </span>7</p>
+                                <p class="text-sm text-gray-500 dark:text-gray-400"><span class="font-bold">نام کاربر:
+                                    </span>رضا شریفی</p>
+                                <p class="text-sm text-gray-500 dark:text-gray-400"><span class="font-bold">ایمیل:
+                                    </span>reza.sh@example.com</p>
+                            </div>
+                            <a href="#" class="flex justify-center text-blue-500 mt-2 size-6">
+                                <svg class="size-5">
+                                    <use href="#eye"></use>
+                                </svg>
+                            </a>
+                        </div>
+
+                        <div
+                            class="flex justify-between items-center gap-1 p-4 bg-white dark:bg-gray-800 rounded-lg shadow">
+                            <div>
+                                <p class="text-sm text-gray-500 dark:text-gray-400"><span class="font-bold">ردیف:
+                                    </span>8</p>
+                                <p class="text-sm text-gray-500 dark:text-gray-400"><span class="font-bold">نام کاربر:
+                                    </span>الهام مرادی</p>
+                                <p class="text-sm text-gray-500 dark:text-gray-400"><span class="font-bold">ایمیل:
+                                    </span>elham.m@example.com</p>
+                            </div>
+                            <a href="#" class="flex justify-center text-blue-500 mt-2 size-6">
+                                <svg class="size-5">
+                                    <use href="#eye"></use>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+
+
+
+                    <!-- pc & tablet -->
+                    <div class="hidden sm:block relative overflow-x-auto shadow-md sm:rounded-lg mt-6">
+                        <table class="w-full text-sm text-right  text-gray-500 dark:text-gray-400">
+                            <thead
+                                class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                                <tr>
+                                    <th scope="col" class="p-4 text-center">
+                                        ردیف
+                                    </th>
+                                    <th scope="col" class="px-6 py-3 text-center">
+                                        نام کاربر
+                                    </th>
+                                    <th scope="col" class="px-6 py-3 text-center">
+                                        ایمیل
+                                    </th>
+                                    <th scope="col" class="px-6 py-3 text-center">
+                                        مشاهده
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr
+                                    class="bg-white border-b border-b-gray-300 dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                                    <th scope="row"
+                                        class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white text-center">
+                                        1</th>
+                                    <td class="px-6 py-4 text-center">مبین ایزدی</td>
+                                    <td class="px-6 py-4 text-center">mobin@example.com</td>
+                                    <td class="px-6 py-4 flex justify-center">
+                                        <a href="#"><svg class="size-5">
+                                                <use href="#eye"></use>
+                                            </svg></a>
+                                    </td>
+                                </tr>
+                                <tr
+                                    class="bg-white border-b border-b-gray-300 dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                                    <th scope="row"
+                                        class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white text-center">
+                                        2</th>
+                                    <td class="px-6 py-4 text-center">علی محمدی</td>
+                                    <td class="px-6 py-4 text-center">ali.m@example.com</td>
+                                    <td class="px-6 py-4 flex justify-center">
+                                        <a href="#"><svg class="size-5">
+                                                <use href="#eye"></use>
+                                            </svg></a>
+                                    </td>
+                                </tr>
+                                <tr
+                                    class="bg-white border-b border-b-gray-300 dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                                    <th scope="row"
+                                        class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white text-center">
+                                        3</th>
+                                    <td class="px-6 py-4 text-center">سارا احمدی</td>
+                                    <td class="px-6 py-4 text-center">sara.a@example.com</td>
+                                    <td class="px-6 py-4 flex justify-center">
+                                        <a href="#"><svg class="size-5">
+                                                <use href="#eye"></use>
+                                            </svg></a>
+                                    </td>
+                                </tr>
+                                <tr
+                                    class="bg-white border-b border-b-gray-300 dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                                    <th scope="row"
+                                        class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white text-center">
+                                        4</th>
+                                    <td class="px-6 py-4 text-center">محمد رضایی</td>
+                                    <td class="px-6 py-4 text-center">mohammad.r@example.com</td>
+                                    <td class="px-6 py-4 flex justify-center">
+                                        <a href="#"><svg class="size-5">
+                                                <use href="#eye"></use>
+                                            </svg></a>
+                                    </td>
+                                </tr>
+                                <tr
+                                    class="bg-white border-b border-b-gray-300 dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                                    <th scope="row"
+                                        class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white text-center">
+                                        5</th>
+                                    <td class="px-6 py-4 text-center">نگین عباسی</td>
+                                    <td class="px-6 py-4 text-center">negin.ab@example.com</td>
+                                    <td class="px-6 py-4 flex justify-center">
+                                        <a href="#"><svg class="size-5">
+                                                <use href="#eye"></use>
+                                            </svg></a>
+                                    </td>
+                                </tr>
+                                <tr
+                                    class="bg-white border-b border-b-gray-300 dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                                    <th scope="row"
+                                        class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white text-center">
+                                        6</th>
+                                    <td class="px-6 py-4 text-center">مریم کریمی</td>
+                                    <td class="px-6 py-4 text-center">maryam.k@example.com</td>
+                                    <td class="px-6 py-4 flex justify-center">
+                                        <a href="#"><svg class="size-5">
+                                                <use href="#eye"></use>
+                                            </svg></a>
+                                    </td>
+                                </tr>
+                                <tr
+                                    class="bg-white border-b border-b-gray-300 dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                                    <th scope="row"
+                                        class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white text-center">
+                                        7</th>
+                                    <td class="px-6 py-4 text-center">رضا شریفی</td>
+                                    <td class="px-6 py-4 text-center">reza.sh@example.com</td>
+                                    <td class="px-6 py-4 flex justify-center">
+                                        <a href="#"><svg class="size-5">
+                                                <use href="#eye"></use>
+                                            </svg></a>
+                                    </td>
+                                </tr>
+                                <tr
+                                    class="bg-white border-b border-b-gray-300 dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                                    <th scope="row"
+                                        class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white text-center">
+                                        8</th>
+                                    <td class="px-6 py-4 text-center">الهام مرادی</td>
+                                    <td class="px-6 py-4 text-center">elham.m@example.com</td>
+                                    <td class="px-6 py-4 flex justify-center">
+                                        <a href="#"><svg class="size-5">
+                                                <use href="#eye"></use>
+                                            </svg></a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                    </div>
+
+
+                </div>
+                <!-- new tickets report -->
+                <div
+                    class="order-7 col-span-12  2xl:col-span-6  bg-white dark:bg-gray-800 dark:text-white rounded-xl py-3 px-6">
+                    <h4 class="text-xl font-bold text-gray-600 dark:text-white mb-1"> گزارش تیکت‌های جدید</h4>
+                    <span class="text-sm text-gray-500 dark:text-gray-300"> تیکت‌های جدید</span>
+
+
+                    <!-- mobile -->
+                    <div class="grid gap-4 sm:hidden mt-6">
+                        <div
+                            class="flex justify-between items-center gap-1 p-4 bg-white dark:bg-gray-800 rounded-lg shadow">
+                            <div>
+                                <p class="text-sm text-gray-500 dark:text-gray-400"><span class="font-bold">ردیف:
+                                    </span>1</p>
+                                <p class="text-sm text-gray-500 dark:text-gray-400"><span class="font-bold">نام کاربر:
+                                    </span>مبین ایزدی</p>
+                                <p class="line-clamp-1 text-sm text-gray-500 dark:text-gray-400"><span
+                                        class="font-bold">متن تیکت:
+                                    </span>مشکل ورود به حساب کاربری دارم</p>
+                            </div>
+                            <a href="#" class="flex justify-center text-blue-500 mt-2 size-6">
+                                <svg class="size-5">
+                                    <use href="#eye"></use>
+                                </svg>
+                            </a>
+                        </div>
+
+                        <div
+                            class="flex justify-between items-center gap-1 p-4 bg-white dark:bg-gray-800 rounded-lg shadow">
+                            <div>
+                                <p class="text-sm text-gray-500 dark:text-gray-400"><span class="font-bold">ردیف:
+                                    </span>2</p>
+                                <p class="text-sm text-gray-500 dark:text-gray-400"><span class="font-bold">نام کاربر:
+                                    </span>علی محمدی</p>
+                                <p class="line-clamp-1 text-sm text-gray-500 dark:text-gray-400"><span
+                                        class="font-bold">متن تیکت:
+                                    </span>پرداخت من ثبت نشده لطفا بررسی کنید</p>
+                            </div>
+                            <a href="#" class="flex justify-center text-blue-500 mt-2 size-6">
+                                <svg class="size-5">
+                                    <use href="#eye"></use>
+                                </svg>
+                            </a>
+                        </div>
+
+                        <div
+                            class="flex justify-between items-center gap-1 p-4 bg-white dark:bg-gray-800 rounded-lg shadow">
+                            <div>
+                                <p class="text-sm text-gray-500 dark:text-gray-400"><span class="font-bold">ردیف:
+                                    </span>3</p>
+                                <p class="text-sm text-gray-500 dark:text-gray-400"><span class="font-bold">نام کاربر:
+                                    </span>سارا احمدی</p>
+                                <p class="line-clamp-1 text-sm text-gray-500 dark:text-gray-400"><span
+                                        class="font-bold">متن تیکت:
+                                    </span>چطور می‌توانم سفارش خود را پیگیری کنم؟</p>
+                            </div>
+                            <a href="#" class="flex justify-center text-blue-500 mt-2 size-6">
+                                <svg class="size-5">
+                                    <use href="#eye"></use>
+                                </svg>
+                            </a>
+                        </div>
+
+                        <div
+                            class="flex justify-between items-center gap-1 p-4 bg-white dark:bg-gray-800 rounded-lg shadow">
+                            <div>
+                                <p class="text-sm text-gray-500 dark:text-gray-400"><span class="font-bold">ردیف:
+                                    </span>4</p>
+                                <p class="text-sm text-gray-500 dark:text-gray-400"><span class="font-bold">نام کاربر:
+                                    </span>محمد رضایی</p>
+                                <p class="line-clamp-1 text-sm text-gray-500 dark:text-gray-400"><span
+                                        class="font-bold">متن تیکت:
+                                    </span>ایمیل تأییدیه برای من ارسال نشده است</p>
+                            </div>
+                            <a href="#" class="flex justify-center text-blue-500 mt-2 size-6">
+                                <svg class="size-5">
+                                    <use href="#eye"></use>
+                                </svg>
+                            </a>
+                        </div>
+
+                        <div
+                            class="flex justify-between items-center gap-1 p-4 bg-white dark:bg-gray-800 rounded-lg shadow">
+                            <div>
+                                <p class="text-sm text-gray-500 dark:text-gray-400"><span class="font-bold">ردیف:
+                                    </span>5</p>
+                                <p class="text-sm text-gray-500 dark:text-gray-400"><span class="font-bold">نام کاربر:
+                                    </span>زهرا سلطانی</p>
+                                <p class="line-clamp-1 text-sm text-gray-500 dark:text-gray-400"><span
+                                        class="font-bold">متن تیکت:
+                                    </span>محصول خریداری شده ناقص به دستم رسیده</p>
+                            </div>
+                            <a href="#" class="flex justify-center text-blue-500 mt-2 size-6">
+                                <svg class="size-5">
+                                    <use href="#eye"></use>
+                                </svg>
+                            </a>
+                        </div>
+
+                        <div
+                            class="flex justify-between items-center gap-1 p-4 bg-white dark:bg-gray-800 rounded-lg shadow">
+                            <div>
+                                <p class="text-sm text-gray-500 dark:text-gray-400"><span class="font-bold">ردیف:
+                                    </span>6</p>
+                                <p class="text-sm text-gray-500 dark:text-gray-400"><span class="font-bold">نام کاربر:
+                                    </span>مریم کریمی</p>
+                                <p class="line-clamp-1 text-sm text-gray-500 dark:text-gray-400"><span
+                                        class="font-bold">متن تیکت:
+                                    </span>چرا کد تخفیف اعمال نمی‌شود؟</p>
+                            </div>
+                            <a href="#" class="flex justify-center text-blue-500 mt-2 size-6">
+                                <svg class="size-5">
+                                    <use href="#eye"></use>
+                                </svg>
+                            </a>
+                        </div>
+
+                        <div
+                            class="flex justify-between items-center gap-1 p-4 bg-white dark:bg-gray-800 rounded-lg shadow">
+                            <div>
+                                <p class="text-sm text-gray-500 dark:text-gray-400"><span class="font-bold">ردیف:
+                                    </span>7</p>
+                                <p class="text-sm text-gray-500 dark:text-gray-400"><span class="font-bold">نام کاربر:
+                                    </span>رضا شریفی</p>
+                                <p class="line-clamp-1 text-sm text-gray-500 dark:text-gray-400"><span
+                                        class="font-bold">متن تیکت:
+                                    </span>می‌خواهم آدرس ارسال را تغییر بدهم</p>
+                            </div>
+                            <a href="#" class="flex justify-center text-blue-500 mt-2 size-6">
+                                <svg class="size-5">
+                                    <use href="#eye"></use>
+                                </svg>
+                            </a>
+                        </div>
+
+                        <div
+                            class="flex justify-between items-center gap-1 p-4 bg-white dark:bg-gray-800 rounded-lg shadow">
+                            <div>
+                                <p class="text-sm text-gray-500 dark:text-gray-400"><span class="font-bold">ردیف:
+                                    </span>8</p>
+                                <p class="text-sm text-gray-500 dark:text-gray-400"><span class="font-bold">نام کاربر:
+                                    </span>الهام مرادی</p>
+                                <p class="line-clamp-1 text-sm text-gray-500 dark:text-gray-400"><span
+                                        class="font-bold">متن تیکت:
+                                    </span>سایت روی موبایل درست نمایش داده نمی‌شود</p>
+                            </div>
+                            <a href="#" class="flex justify-center text-blue-500 mt-2 size-6">
+                                <svg class="size-5">
+                                    <use href="#eye"></use>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- pc&tablet -->
+                    <div class="hidden sm:block relative overflow-x-auto shadow-md sm:rounded-lg mt-6">
+                        <table class="w-full text-sm text-right  text-gray-500 dark:text-gray-400">
+                            <thead
+                                class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                                <tr>
+                                    <th scope="col" class="p-4 text-center">
+                                        ردیف
+                                    </th>
+                                    <th scope="col" class="px-6 py-3 text-center">
+                                        نام کاربر
+                                    </th>
+                                    <th scope="col" class="px-6 py-3 text-center">
+                                        متن تیکت
+                                    </th>
+                                    <th scope="col" class="px-6 py-3 text-center">
+                                        مشاهده
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr
+                                    class="bg-white border-b border-b-gray-300 dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                                    <th scope="row"
+                                        class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white text-center">
+                                        1</th>
+                                    <td class="px-6 py-4 text-center">مبین ایزدی</td>
+                                    <td class="px-6 py-4 text-center  truncate max-w-[180px]">مشکل ورود به
+                                        حساب کاربری دارم</td>
+                                    <td class="px-6 py-4 flex justify-center">
+                                        <a href="#"><svg class="size-5">
+                                                <use href="#eye"></use>
+                                            </svg></a>
+                                    </td>
+                                </tr>
+                                <tr
+                                    class="bg-white border-b border-b-gray-300 dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                                    <th scope="row"
+                                        class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white text-center">
+                                        2</th>
+                                    <td class="px-6 py-4 text-center">علی محمدی</td>
+                                    <td class="px-6 py-4 text-center  truncate max-w-[180px]">پرداخت من ثبت
+                                        نشده لطفا بررسی کنید
+                                    </td>
+                                    <td class="px-6 py-4 flex justify-center">
+                                        <a href="#"><svg class="size-5">
+                                                <use href="#eye"></use>
+                                            </svg></a>
+                                    </td>
+                                </tr>
+                                <tr
+                                    class="bg-white border-b border-b-gray-300 dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                                    <th scope="row"
+                                        class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white text-center">
+                                        3</th>
+                                    <td class="px-6 py-4 text-center">سارا احمدی</td>
+                                    <td class="px-6 py-4 text-center  truncate max-w-[180px]">چطور می‌توانم
+                                        سفارش خود را پیگیری
+                                        کنم؟</td>
+                                    <td class="px-6 py-4 flex justify-center">
+                                        <a href="#"><svg class="size-5">
+                                                <use href="#eye"></use>
+                                            </svg></a>
+                                    </td>
+                                </tr>
+                                <tr
+                                    class="bg-white border-b border-b-gray-300 dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                                    <th scope="row"
+                                        class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white text-center">
+                                        4</th>
+                                    <td class="px-6 py-4 text-center">محمد رضایی</td>
+                                    <td class="px-6 py-4 text-center  truncate max-w-[180px]">ایمیل تأییدیه
+                                        برای من ارسال نشده است
+                                    </td>
+                                    <td class="px-6 py-4 flex justify-center">
+                                        <a href="#"><svg class="size-5">
+                                                <use href="#eye"></use>
+                                            </svg></a>
+                                    </td>
+                                </tr>
+                                <tr
+                                    class="bg-white border-b border-b-gray-300 dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                                    <th scope="row"
+                                        class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white text-center">
+                                        5</th>
+                                    <td class="px-6 py-4 text-center">زهرا سلطانی</td>
+                                    <td class="px-6 py-4 text-center  truncate max-w-[180px]">محصول خریداری
+                                        شده ناقص به دستم رسیده
+                                    </td>
+                                    <td class="px-6 py-4 flex justify-center">
+                                        <a href="#"><svg class="size-5">
+                                                <use href="#eye"></use>
+                                            </svg></a>
+                                    </td>
+                                </tr>
+                                <tr
+                                    class="bg-white border-b border-b-gray-300 dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                                    <th scope="row"
+                                        class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white text-center">
+                                        6</th>
+                                    <td class="px-6 py-4 text-center">مریم کریمی</td>
+                                    <td class="px-6 py-4 text-center  truncate max-w-[180px]">چرا کد تخفیف
+                                        اعمال نمی‌شود؟</td>
+                                    <td class="px-6 py-4 flex justify-center">
+                                        <a href="#"><svg class="size-5">
+                                                <use href="#eye"></use>
+                                            </svg></a>
+                                    </td>
+                                </tr>
+                                <tr
+                                    class="bg-white border-b border-b-gray-300 dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                                    <th scope="row"
+                                        class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white text-center">
+                                        7</th>
+                                    <td class="px-6 py-4 text-center">رضا شریفی</td>
+                                    <td class="px-6 py-4 text-center  truncate max-w-[180px]">می‌خواهم آدرس
+                                        ارسال را تغییر بدهم
+                                    </td>
+                                    <td class="px-6 py-4 flex justify-center">
+                                        <a href="#"><svg class="size-5">
+                                                <use href="#eye"></use>
+                                            </svg></a>
+                                    </td>
+                                </tr>
+                                <tr
+                                    class="bg-white border-b border-b-gray-300 dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                                    <th scope="row"
+                                        class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white text-center">
+                                        8</th>
+                                    <td class="px-6 py-4 text-center">الهام مرادی</td>
+                                    <td class="px-6 py-4 text-center  truncate max-w-[180px]">سایت روی
+                                        موبایل درست نمایش داده
+                                        نمی‌شود</td>
+                                    <td class="px-6 py-4 flex justify-center">
+                                        <a href="#"><svg class="size-5">
+                                                <use href="#eye"></use>
+                                            </svg></a>
+                                    </td>
+                                </tr>
+                            </tbody>
+
+                        </table>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
 
 
     </main>
@@ -458,6 +1430,8 @@
     <div class="blur-effect fixed inset-0 z-30 dark:bg-gray-700/30 bg-gray-400/30 backdrop-blur-[4px] hidden"></div>
     <!-- scripts -->
     <script src=" https://cdnjs.cloudflare.com/ajax/libs/sweetalert2/11.23.0/sweetalert2.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
     <script type="module" src="../scripts/public.js"></script>
     <script type="module" src="../scripts/dashboard.js"></script>
 
