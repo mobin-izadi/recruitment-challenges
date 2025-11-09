@@ -1,15 +1,16 @@
 //Check local storage, if it is dark, enable dark.
 const darkModeHandler = () => {
     let theme = localStorage.getItem('theme') || 'light'
-    const drakModeIcon = document.querySelector('.dark-btn__icon')
+    const drakModeIcon = document.querySelector('.dark-btn__icon') || false
 
 
     if (theme === 'dark') {
         document.documentElement.classList.add('dark')
-        drakModeIcon.setAttribute('href','#light')
+
+        drakModeIcon ? drakModeIcon.setAttribute('href', '#light') : ''
     } else {
         document.documentElement.classList.remove('dark')
-         drakModeIcon.setAttribute('href','#dark')
+        drakModeIcon.setAttribute('href', '#dark')
     }
 
 }
